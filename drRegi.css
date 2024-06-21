@@ -1,0 +1,148 @@
+
+@import url("https://fonts.googleapis.com/css?family=Exo:500,600,700|Roboto&display=swap");
+html {
+  overflow-x: hidden;
+}
+
+body {
+  line-height: 1.6;
+  font-family: "Roboto", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  font-size: 16px;
+  color: #000;
+  font-weight: 400;
+}
+
+.header-top-bar {
+  background: #1a633f;
+  padding: 10px 0;
+}
+
+.top-bar-info a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.top-right-bar {
+  text-align: right;
+}
+
+.top-right-bar a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.navbar {
+  background: #fff;
+}
+
+.navbar-brand img {
+  max-width: 150px;
+}
+
+.navbar-nav .nav-item .nav-link {
+  color: #000;
+  font-weight: 500;
+}
+
+
+.form-container {
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 20px;
+  background: #ffffff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+}
+
+.form-container h2 {
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #333;
+}
+
+.form-container label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 500;
+}
+
+.form-container input,
+.form-container select {
+  width: calc(100% - 20px);
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #000;
+  border-radius: 5px;
+}
+
+.form-container .terms {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  white-space: nowrap;
+  margin-right: 20%; 
+}
+
+.form-container .terms input[type="checkbox"] {
+  margin-right: 20%;
+  margin-bottom: 10px;
+  align-items: center;
+  display: flex;
+  white-space: nowrap;
+  
+}
+
+.form-container .terms a {
+  color: #e5000f;
+  text-decoration: none;
+}
+
+.form-container .terms a:hover {
+  text-decoration: underline;
+}
+
+
+.form-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.form-footer {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.form-footer button {
+  padding: 10px;
+  background: #b30000;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  margin-bottom: 10px; /* Add margin to separate button and login link */
+}
+
+.form-footer button:hover {
+  background: #1a633f;
+}
+
+.form-footer .login-link {
+  font-size: 20px;
+}
+
+.form-footer .login-link a {
+  color: #1a633f;
+  text-decoration: none;
+}
+
+.form-footer .login-link a:hover {
+  text-decoration: underline;
+}
+
+
