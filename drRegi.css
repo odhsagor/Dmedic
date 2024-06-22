@@ -125,7 +125,7 @@ body {
   border: none;
   border-radius: 5px;
   font-size: 16px;
-  margin-bottom: 10px; /* Add margin to separate button and login link */
+  margin-bottom: 10px; 
 }
 
 .form-footer button:hover {

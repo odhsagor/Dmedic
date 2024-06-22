@@ -650,7 +650,7 @@ a:focus {
   margin-bottom: -80px;
 }
 
-.service {
+/* .service {
   padding-top: 180px;
 }
 
@@ -688,9 +688,9 @@ a:focus {
   width: 100%;
   margin-top: -60px;
   border: 5px solid #fff;
-}
+} */
 
-.department-service {
+/* .department-service {
   margin-bottom: 40px;
 }
 
@@ -700,7 +700,7 @@ a:focus {
 
 .department-service li i {
   color: #e12454;
-}
+} */
 
 .doctors .btn-group .btn {
   border-radius: 0px;
@@ -1101,4 +1101,3 @@ a:focus {
   opacity: 1;
 }
 
-/*# sourceMappingURL=maps/style.css.map */
