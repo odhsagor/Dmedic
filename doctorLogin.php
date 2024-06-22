@@ -80,7 +80,7 @@
 
 				<!-- DOCTORS -->
                 <li class="nav-item active">
-					<a class="nav-link" href="doctorRegistration.php"> For Doctors</a>
+					<a class="nav-link" href="doctorInterpage.php"> For Doctors</a>
 				</li>
 
 				<!-- HOSPITAL -->

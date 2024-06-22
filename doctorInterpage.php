@@ -78,7 +78,7 @@
 
 				<!-- DOCTORS -->
                 <li class="nav-item active">
-					<a class="nav-link" href="doctorRegistration.php"> For Doctors</a>
+					<a class="nav-link" href="doctorInterpage.php"> For Doctors</a>
 				</li>
 
 				<!-- HOSPITAL -->
@@ -104,17 +104,23 @@
 </header>
 
 
-<div class="container">
-        <div class="text-content">
+	<div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <section class="doctor-info">
             <h1>Are You A Qualified Doctor?</h1>
-            <h2>Join the forefront of digital healthcare</h2>
-            <p>Join DocTime network and create your virtual chamber provide medical consultancy via video call and expand the reach of your service.</p>
+            <h3>Join the forefront of digital healthcare</h3>
+            <p>Join Dmedic network and create your virtual chamber to provide medical consultancy via video call and expand the reach of your service.</p>
             <p>Enroll yourself just in minutes!</p>
-            <div class="button">
-                <a href="signup.php">Sign up now</a>
-            </div>
+			
+            <a href="doctorRegistration.php" class="signup-btn">Sign up now</a>
+			
+          </section>
         </div>
-        <div class="image-content"></div>
+        <div class="col-md-6">
+          <img src="images/Doctorinterpage.png" alt="Doctor Image" class="doctor-image">
+        </div>
+      </div>
     </div>
 
 
