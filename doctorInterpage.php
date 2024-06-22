@@ -19,7 +19,7 @@
   <link rel="stylesheet" href="plugins/slick-carousel/slick/slick-theme.css">
 
   <!-- Main Stylesheet -->
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/doctorInterpage.css">
 
 </head>
 
@@ -78,7 +78,7 @@
 
 				<!-- DOCTORS -->
                 <li class="nav-item active">
-					<a class="nav-link" href="doctorInterpage.php"> For Doctors</a>
+					<a class="nav-link" href="doctorRegistration.php"> For Doctors</a>
 				</li>
 
 				<!-- HOSPITAL -->
@@ -102,136 +102,21 @@
 		</div>
 	</nav>
 </header>
-	
-<!-- Slider Start -->
-<section class="banner">
-	<div class="container">
-		<div class="row">
-			<div class="col-lg-6 col-md-12 col-xl-7">
-				<div class="block">
-					<div class="divider mb-3"></div>
-					<span class="text-uppercase text-sm letter-spacing ">Comprehensive Diabetes Care Solution</span>
-					<h1 class="mb-3 mt-3">Your Most Trusted Partner in Diabetes Care</h1>
-					<p class="mb-4 pr-5">Comprehensive support and expert care to help you confidently manage diabetes and embrace a healthier life</p>
-				</div>
-			</div>
-		</div>
-	</div>
-</section>
-<section class="features">
-	<div class="container">
-		<div class="row">
-			<div class="col-lg-12">
-				<div class="feature-block d-lg-flex">
-					<div class="feature-item mb-5 mb-lg-0">
-						<div class="feature-icon mb-4">
-							<i class="icofont-surgeon-alt"></i>
-						</div>
-						<span>24 Hours Service</span>
-						<h4 class="mb-3">Online Appoinment</h4>
-						<p class="mb-4">Receive 24/7 emergency support. We've introduced the principle of family medicine for comprehensive diabetes care.</p>
-						<a href="#" class="btn btn-main btn-round-full">Make a appoinment</a>
-					</div>
-				
-					<div class="feature-item mb-5 mb-lg-0">
-						<div class="feature-icon mb-4">
-							<i class="icofont-ui-clock"></i>
-						</div>
-						<span>Timing schedule</span>
-						<h4 class="mb-3">Working Hours</h4>
-						<ul class="w-hours list-unstyled">
-		                    <li class="d-flex justify-content-between">Sun - Wed : <span>8:00 - 17:00</span></li>
-		                    <li class="d-flex justify-content-between">Thu - Fri : <span>9:00 - 17:00</span></li>
-		                    <li class="d-flex justify-content-between">Sat - sun : <span>10:00 - 17:00</span></li>
-		                </ul>
-					</div>
-				
-					<div class="feature-item mb-5 mb-lg-0">
-						<div class="feature-icon mb-4">
-							<i class="icofont-support"></i>
-						</div>
-						<span>Emergency Cases</span>
-						<h4 class="mb-3">26566</h4>
-						<p>Receive 24/7 emergency support with the principles of family medicine. Connect with us for any urgent diabetes care needs.</p>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</section>
 
-<section class="section appoinment">
-	<div class="container">
-		<div class="row align-items-center">
-			<div class="col-lg-6">
-				<div class="appoinment-content">
-					<img src="images/Dmadic Poster.png" alt="" class="img-fluid">
-					<div class="emergency">
-						<h2 class="text-lg"><i class="icofont-phone-circle text-lg"></i>26566</h2>
-					</div>
-				</div>
-			</div>
-			<div class="col-lg-6 col-md-10">
-				<div class="appoinment-wrap mt-5 mt-lg-0">
-					<h2 class="mb-2 title-color">Book appointment</h2>
-					<p class="mb-4">Mollitia dicta commodi est recusandae iste, natus eum asperiores corrupti qui velit. Iste dolorum atque similique praesentium soluta.</p>
-					   <form id="#" class="appoinment-form" method="post" action="form_handler.php">
-                            <div class="row">
-                                <div class="col-lg-6">
-                                    <div class="form-group">
-                                        <select class="form-control" id="exampleFormControlSelect1">
-                                            <option>Choose Department</option>
-                                            <option>Diabetes Care</option>
-                                            <option>Cardiology</option>
-                                            <option>Neurology</option>
-                                            <option>Orthopaedics</option>
-                                            <option>Emergency</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="form-group">
-                                        <select class="form-control" id="exampleFormControlSelect2">
-                                            <option>Select Doctors</option>
-                                            <option>Dr. Sagor</option>
-                                            <option>Dr. Shihab</option>
-                                            <option>Dr. Khondokar</option>
-                                            <option>Dr. Nurul</option>
-                                            <option>Dr. Afsana</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="form-group">
-                                        <input name="date" id="date" type="text" class="form-control" placeholder="dd/mm/yyyy">
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="form-group">
-                                        <input name="time" id="time" type="text" class="form-control" placeholder="Time">
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="form-group">
-                                        <input name="name" id="name" type="text" class="form-control" placeholder="Full Name">
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="form-group">
-                                        <input name="phone" id="phone" type="Number" class="form-control" placeholder="Phone Number">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group-2 mb-4">
-                                <textarea name="message" id="message" class="form-control" rows="6" placeholder="Your Message"></textarea>
-                            </div>
-                            <a class="btn btn-main btn-round-full" href="Thankyou.php">Make Appointment<i class="icofont-simple-right ml-2"></i></a>
-                        </form>
-				</div>
-			</div>
-		</div>
-	</div>
-</section>
+
+<div class="container">
+        <div class="text-content">
+            <h1>Are You A Qualified Doctor?</h1>
+            <h2>Join the forefront of digital healthcare</h2>
+            <p>Join DocTime network and create your virtual chamber provide medical consultancy via video call and expand the reach of your service.</p>
+            <p>Enroll yourself just in minutes!</p>
+            <div class="button">
+                <a href="signup.php">Sign up now</a>
+            </div>
+        </div>
+        <div class="image-content"></div>
+    </div>
+
 
 <!-- footer Start -->
 <footer class="footer section gray-bg">
@@ -354,3 +239,4 @@ Essential Scripts
 
 </body>
 </html>
+

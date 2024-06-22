@@ -1,0 +1,224 @@
+/* Global Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* Header Styles */
+.header-top-bar {
+    background: #2a2a2a;
+    color: white;
+    padding: 10px 0;
+}
+
+.top-bar-info {
+    display: flex;
+    align-items: center;
+}
+
+.top-bar-info li {
+    margin-right: 15px;
+    color: white;
+}
+
+.top-right-bar a {
+    color: white;
+}
+
+.navbar {
+    background: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand img {
+    max-height: 50px;
+}
+
+.navbar-nav .nav-item {
+    margin-left: 15px;
+}
+
+.navbar-nav .nav-link {
+    font-size: 16px;
+    color: #333;
+    padding: 15px 20px;
+    transition: color 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #007BFF;
+}
+
+/* Landing Page Content */
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px 20px;
+    background: #fff;
+    margin-top: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.text-content {
+    max-width: 50%;
+}
+
+.text-content h1 {
+    font-size: 36px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.text-content h2 {
+    font-size: 24px;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.text-content p {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.button a {
+    background-color: #007BFF;
+    color: white;
+    padding: 15px 30px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.button a:hover {
+    background-color: #0056b3;
+}
+
+.image-content {
+    max-width: 50%;
+    background: url('doctor-image.png') no-repeat center center;
+    background-size: cover;
+    border-radius: 0 8px 8px 0;
+}
+
+/* Footer Styles */
+.footer {
+    background: #2a2a2a;
+    color: white;
+    padding: 50px 0;
+}
+
+.footer .widget {
+    margin-bottom: 30px;
+}
+
+.footer .widget h4 {
+    color: white;
+    margin-bottom: 20px;
+}
+
+.footer .divider {
+    background: #007BFF;
+    height: 3px;
+    width: 50px;
+    margin-bottom: 20px;
+}
+
+.footer .footer-menu li {
+    margin-bottom: 10px;
+}
+
+.footer .footer-menu a {
+    color: #ddd;
+    transition: color 0.3s ease;
+}
+
+.footer .footer-menu a:hover {
+    color: #007BFF;
+}
+
+.footer .footer-socials .list-inline-item a {
+    color: white;
+    font-size: 20px;
+    transition: color 0.3s ease;
+}
+
+.footer .footer-socials .list-inline-item a:hover {
+    color: #007BFF;
+}
+
+.footer .footer-contact-block {
+    margin-bottom: 20px;
+}
+
+.footer .footer-contact-block .icon {
+    display: flex;
+    align-items: center;
+}
+
+.footer .footer-contact-block h4 a {
+    color: white;
+}
+
+.footer .footer-btm {
+    border-top: 1px solid #444;
+    padding-top: 20px;
+    margin-top: 20px;
+}
+
+.footer .backtop {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    background: #007BFF;
+    color: white;
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
+}
+
+.footer .backtop:hover {
+    background-color: #0056b3;
+}
+
+.footer .subscribe-form input {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+.footer .subscribe-form .btn {
+    padding: 10px 20px;
+    background: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.footer .subscribe-form .btn:hover {
+    background: #0056b3;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+    .text-content, .image-content {
+        max-width: 100%;
+    }
+    .text-content {
+        margin-bottom: 20px;
+    }
+}
