@@ -312,11 +312,7 @@ a:focus {
   color: #fff;
 }
 
-.page-title .breadcumb-nav {
-  margin-top: 60px;
-  padding-top: 30px;
-  border-top: 1px solid rgba(255, 255, 255, 0.06);
-}
+
 
 .slick-slide:focus, .slick-slide a {
   outline: none;
@@ -365,19 +361,6 @@ a:focus {
   }
 }
 
-#navbarmain {
-  padding: 20px 0px;
-}
-
-#navbarmain .nav-link {
-  font-weight: 600;
-  padding: 10px 15px;
-  color: #222;
-  font-family: "Exo", sans-serif;
-  text-transform: capitalize;
-  font-size: 16px;
-  transition: all .25s ease;
-}
 
 .dropdown-toggle::after {
   display: none;
