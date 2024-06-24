@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Orbitor, business, company, agency, modern, bootstrap4, tech, software">
   <meta name="author" content="themefisher.com">
+
   <title>Dmedic</title>
   <!-- Favicon -->
   <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico" />
@@ -63,7 +64,7 @@
       <div class="col-md-6">
         <div class="form-container">
           <h2>Doctor Registration</h2>
-          <form action="register.php" method="post">
+          <form action="doctorRegBackend.php" method="post">
             <label for="title">Title *</label>
             <select id="title" name="title" required>
               <option value="Dr">Dr</option>
@@ -185,3 +186,6 @@
   <script src="plugins/bootstrap/js/bootstrap.min.js"></script>
 </body>
 </html>
+
+
+
