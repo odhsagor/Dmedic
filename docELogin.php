@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="zxx">
 <head>
@@ -126,14 +124,37 @@
         </div>
 
         <!-- Login Form Section -->
+          <!-- 
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="dropdown02" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">SIGNIN <i class="icofont-thin-down"></i></a>
+              <ul class="dropdown-menu" aria-labelledby="dropdown02">
+                <li>
+                  <form action="login.php" method="post" class="px-4 py-3">
+                    <div class="form-group">
+                      <label for="user_id">User ID</label>
+                      <input type="text" class="form-control" id="user_id" name="user_id" required>
+                    </div>
+                    <div class="form-group">
+                      <label for="password">Password</label>
+                      <input type="password" class="form-control" id="password" name="password" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Sign in</button>
+                  </form>
+                </li>
+                <li><a class="dropdown-item" href="#">SIGNUP</a></li>
+              </ul>
+            </li> -->
+
+
+
         <div class="col-md-6">
           <section class="form-container">
             <h2>Welcome Back</h2>
             <h3>Login</h3>
-            <form action="login.php" method="post">
+            <form action="docLoginB.php" method="post">
               <div class="input-group">
-                <label for="email_or_phone">Email or phone number *</label>
-                <input type="text" id="email_or_phone" name="email_or_phone" required>
+                <label for="user_id">USER ID *</label>
+                <input type="text" id="user_id" name="user_id" required>
               </div>
               <div class="input-group">
                 <label for="password">Password *</label>
@@ -144,6 +165,7 @@
                 <a href="#">Forgot password?</a>
               </div>
               <button type="submit">Login</button>
+              <!-- <button class="btn btn-main btn-round" type="button" onclick="window.location.href='doctorDashboard.php'">Login</button> -->
             </form>
             <p>or, <a href="doctorLogin.php">Login with mobile number</a></p>
           </section>
