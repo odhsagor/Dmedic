@@ -72,14 +72,14 @@
 
 				<!-- DIETITIAN -->
 
-				<li class="nav-item active">
+				 <li class="nav-item active">
 					<a class="nav-link" href="#">DIETITIAN </a>
-				</li>
+				 </li>
 
 				<!-- DOCTORS -->
-                <li class="nav-item active">
+                 <li class="nav-item active">
 					<a class="nav-link" href="doctorInterpage.php"> For Doctors</a>
-				</li>
+				 </li>
 
 				<!-- HOSPITAL -->
 
