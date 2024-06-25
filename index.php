@@ -130,7 +130,6 @@
 						<span>24 Hours Service</span>
 						<h4 class="mb-3">Online Appoinment</h4>
 						<p class="mb-4">Receive 24/7 emergency support. We've introduced the principle of family medicine for comprehensive diabetes care.</p>
-						<a href="#" class="btn btn-main btn-round-full">Make a appoinment</a>
 					</div>
 				
 					<div class="feature-item mb-5 mb-lg-0">
@@ -173,31 +172,14 @@
 			</div>
 			<div class="col-lg-6 col-md-10">
 				<div class="appoinment-wrap mt-5 mt-lg-0">
-					<h2 class="mb-2 title-color">Book appointment</h2>
+					<h2 class="mb-2 title-color">contract with us</h2>
 					<p class="mb-4">Mollitia dicta commodi est recusandae iste, natus eum asperiores corrupti qui velit. Iste dolorum atque similique praesentium soluta.</p>
 					   <form id="#" class="appoinment-form" method="post" action="form_handler.php">
                             <div class="row">
                                 <div class="col-lg-6">
                                     <div class="form-group">
-                                        <select class="form-control" id="exampleFormControlSelect1">
-                                            <option>Choose Department</option>
+                                        <select class="form-control" id="exampleFormControlSelect1">  
                                             <option>Diabetes Care</option>
-                                            <option>Cardiology</option>
-                                            <option>Neurology</option>
-                                            <option>Orthopaedics</option>
-                                            <option>Emergency</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="form-group">
-                                        <select class="form-control" id="exampleFormControlSelect2">
-                                            <option>Select Doctors</option>
-                                            <option>Dr. Sagor</option>
-                                            <option>Dr. Shihab</option>
-                                            <option>Dr. Khondokar</option>
-                                            <option>Dr. Nurul</option>
-                                            <option>Dr. Afsana</option>
                                         </select>
                                     </div>
                                 </div>
@@ -225,7 +207,7 @@
                             <div class="form-group-2 mb-4">
                                 <textarea name="message" id="message" class="form-control" rows="6" placeholder="Your Message"></textarea>
                             </div>
-                            <a class="btn btn-main btn-round-full" href="Thankyou.php">Make Appointment<i class="icofont-simple-right ml-2"></i></a>
+                            <a class="btn btn-main btn-round-full" href="##">Send Message <i class="icofont-simple-right ml-2"></i></a>
                         </form>
 				</div>
 			</div>

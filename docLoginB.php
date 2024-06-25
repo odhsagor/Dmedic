@@ -1,45 +1,39 @@
 <?php
-
 $servername = "localhost";
 $username = "root";
-$password = ""; 
-$dbname = "Dmedic";
+$password = "";
+$dbname = "dmedic";
 
-$conn = new mysqli("$servername", "$username", "$password", "$dbname");
+$conn = new mysqli($servername, $username, $password, $dbname);
+
 
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// Retrieve user input from form
-$id = $_POST['id'];
-$password = $_POST['password'];
 
-// SQL query to fetch user details based on id
-$stmt = $conn->prepare("SELECT id FROM doctorRegistrations, password FROM doctorRegistrations ");
-$stmt->bind_param("s", $id);
-$stmt->execute();
-$stmt->store_result();
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $user_id = $_POST['user_id'];
+    $password = $_POST['password'];
 
-if ($stmt->num_rows > 0) {
-    $stmt->bind_result($db_id, $db_password);
-    $stmt->fetch();
+    $sql = "SELECT * FROM doctorRegistrations WHERE email = '$user_id' OR mobile_number = '$user_id'";
+    $result = $conn->query($sql);
 
-    // Verify hashed password
-    if (password_verify($password, $db_password)) {
-        // Password correct, redirect to doctor dashboard
-        $_SESSION['id'] = $db_id; // Store id in session
-        header("Location: doctorDashboard.php"); // Redirect to dashboard
-        exit();
+    if ($result->num_rows > 0) {
+        $row = $result->fetch_assoc();
+        if (password_verify($password, $row['password'])) {
+            echo "Login successful. Welcome " . $row['first_name'] . " " . $row['last_name'];
+            session_start();
+            $_SESSION['doctor_id'] = $row['id'];
+            $_SESSION['doctor_name'] = $row['first_name'] . ' ' . $row['last_name'];
+            header("Location: doctorDashboard.php"); 
+        } else {
+            echo "Invalid password";
+        }
     } else {
-        // Password incorrect
-        echo "Incorrect password. <a href='javascript:history.go(-1)'>Go back</a>";
+        echo "No user found with this User ID";
     }
-} else {
-    // User not found
-    echo "User not found. <a href='javascript:history.go(-1)'>Go back</a>";
-}
 
-$stmt->close();
-$conn->close();
+    $conn->close();
+}
 ?>
