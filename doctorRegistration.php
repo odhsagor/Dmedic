@@ -67,9 +67,10 @@
           <form action="doctorRegBackend.php" method="post">
             <label for="title">Title *</label>
             <select id="title" name="title" required>
-              <option value="Dr">Dr</option>
-              <option value="Prof">Prof</option>
+              <option value="Dr.">Dr.</option>
               <option value="Prof. Dr.">Prof. Dr.</option>
+              <option value="Assoc. Prof.Dr.">Assoc. Prof.Dr.</option> 
+              <option value="Asst. Prof.Dr. ">Asst. Prof.Dr.</option>
             </select>
             <label for="first_name">First Name *</label>
             <input type="text" id="first_name" name="first_name" required>
