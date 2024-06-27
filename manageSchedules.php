@@ -1,11 +1,11 @@
 <?php
 
 $servername = "localhost";
-$username = "root"; // Your DB username
-$password = ""; // Your DB password
+$username = "root"; 
+$password = ""; 
 $dbname = "Dmedic";
 
-// Create connection
+
 $conn = new mysqli($servername, $username, $password, $dbname);
 
 

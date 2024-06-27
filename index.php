@@ -215,7 +215,7 @@
 	</div>
 </section>
 
-<!-- footer Start -->
+<!-- footer Start From Here -->
 <footer class="footer section gray-bg">
 	<div class="container">
 		<div class="row">
