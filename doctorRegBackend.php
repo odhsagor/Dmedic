@@ -1,19 +1,19 @@
 <?php
-// Database connection parameters
+
 $servername = "localhost";
 $username = "root";
-$password = ""; // Set your MySQL root password
+$password = ""; 
 $dbname = "Dmedic";
 
-// Create connection
+
 $conn = new mysqli("$servername", "$username", "$password", "$dbname");
 
-// Check connection
+
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// Set parameters and execute
+
 $title = $_POST['title'];
 $first_name = $_POST['first_name'];
 $last_name = $_POST['last_name'];
@@ -28,7 +28,7 @@ $email = $_POST['email'];
 $password = $_POST['password'];
 $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
-// Prepare and bind
+
 $stmt = $conn->prepare("INSERT INTO doctorRegistrations(title, first_name, last_name, dob, gender, district, national_id, registration_number, doctor_type, mobile_number, email, password) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 $stmt->bind_param("ssssssssssss", $title, $first_name, $last_name, $dob, $gender, $district, $national_id, $registration_number, $doctor_type, $mobile_number, $email, $hashed_password);
 

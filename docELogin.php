@@ -141,7 +141,7 @@
                 <a href="#">Forgot password?</a>
               </div>
               <button type="submit">Login</button>
-              <!-- <button class="btn btn-main btn-round" type="button" onclick="window.location.href='doctorDashboard.php'">Login</button> -->
+              
             </form>
             <p>or, <a href="doctorLogin.php">Login with mobile number</a></p>
           </section>
@@ -150,7 +150,6 @@
     </div>
   </main>
 
-  <!-- Include JavaScript files -->
   <script src="plugins/jquery/jquery.js"></script>
   <script src="plugins/bootstrap/js/bootstrap.min.js"></script>
 

@@ -14,7 +14,7 @@
   <!-- Icon Font CSS -->
   <link rel="stylesheet" href="plugins/icofont/icofont.min.css">
   <!-- Main Stylesheet -->
-  <link rel="stylesheet" href="drRegi.css">
+  <link rel="stylesheet" href="css/drRegi.css">
 </head>
 <body id="top">
   <header>
@@ -173,7 +173,7 @@
             <div class="form-footer">
               <button type="submit">Register</button>
               <span class="login-link">
-                Already have an account? <a href="doctorLogin.php">Login</a>
+                Already have an account? <a href="docELogin.php">Login</a>
               </span>
             </div>
           </form>

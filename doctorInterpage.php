@@ -124,7 +124,7 @@
     </div>
 
 
-<!-- footer Start -->
+<!-- footer Start Here-->
 <footer class="footer section gray-bg">
 	<div class="container">
 		<div class="row">

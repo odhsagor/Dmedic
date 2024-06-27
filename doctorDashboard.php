@@ -217,7 +217,7 @@ $conn = new mysqli($servername, $username, $password, $dbname);
             ?>
             <div class="card mb-3">
                 <div class="card-body">
-                    <form action="manageScheduleSave.php" method="POST">
+                    <form action="manageSchedules.php" method="POST">
                         <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
                         <div class="form-row">
                             <div class="form-group col-md-6">
