@@ -128,6 +128,13 @@
             <h2>Welcome Back</h2>
             <h3>Login</h3>
             <form action="docLoginB.php" method="post">
+			<?php
+                    session_start();
+                    if (isset($_SESSION['error'])) {
+                        echo '<div class="alert alert-danger">' . $_SESSION['error'] . '</div>';
+                        unset($_SESSION['error']);
+                    }
+                    ?>
               <div class="input-group">
                 <label for="user_id">Email OR Number *</label>
                 <input type="text" id="user_id" name="user_id" required>
@@ -156,3 +163,4 @@
 
   </body>
 </html>
+

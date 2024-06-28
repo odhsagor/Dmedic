@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $_SESSION['username'] = $username;
 
 
-        header("Location: doctorAdmin.php");
+        header("Location: admin_Dashboard.php");
         exit;
     } else {
 

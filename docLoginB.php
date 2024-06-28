@@ -27,11 +27,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION['doctor_id'] = $row['id'];
             $_SESSION['doctor_name'] = $row['first_name'] . ' ' . $row['last_name'];
             header("Location: doctorDashboard.php"); 
+        
         } else {
-            echo "Invalid password";
+            $_SESSION['error'] = "Invalid username ";
+            header("Location: docELogin.php");
+            
         }
+
     } else {
-        echo "No user found with this User ID";
+        $_SESSION['error'] = "Invalid  password";
+        header("Location: docELogin.php");
+        
     }
 
     $conn->close();

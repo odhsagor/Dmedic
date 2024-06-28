@@ -40,8 +40,10 @@ $stmt->bind_param("ssssssssssssi", $title, $first_name, $last_name, $dob, $gende
 
 if ($stmt->execute()) {
     echo "New record created successfully";
+    header("Location: doctorRegistration.php");
 } else {
     echo "Error: " . $stmt->error;
+    header("Location: doctorRegistration.php");
 }
 
 $stmt->close();
