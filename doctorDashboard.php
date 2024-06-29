@@ -38,7 +38,7 @@ $doctor_id = $_SESSION['doctor_id'];
                     </div>
                     <div class="col-lg-6">
                         <div class="text-lg-right top-right-bar mt-2 mt-lg-0">
-                            <a href="tel:+23-345-67890">
+                            <a href="tel:+26566">
                                 <span>Call Now : </span>
                                 <span class="h4">26566</span>
                             </a>
@@ -56,14 +56,15 @@ $doctor_id = $_SESSION['doctor_id'];
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item"><a class="nav-link" href="doctorDashboard.php">Dashboard</a></li>
                         <li class="nav-item"><a class="nav-link" href="#">Reports</a></li>
-                        <li  class="nav-item last"><i style="padding:0 0.5rem;" class="fa-solid fa-user"></i><a class="nav-link" href="#">Profile</a></li>
+                        <li  class="nav-item last"><i style="padding:0 0.5rem;" class="fa-solid fa-user"></i><a class="nav-link" href="#"> <?php echo $doctor_name; ?></a></li>
+                        <li class="nav-item"><a class="nav-link" href="docELogin.php">Logout</a></li>
                     </ul>
                 </div>
             </div>
         </nav>
     </header>
     <div class="container mt-5">
-        <h1>Welcome, <?php echo $doctor_name; ?></h1>
+        <h3>Welcome, <?php echo $doctor_name; ?></h3>
         <p>Doctor ID: <?php echo $doctor_id; ?></p>
         <button type="button" class="btn btn-primary" onclick="showManageSchedules()">Manage Schedules</button>
         
@@ -136,7 +137,7 @@ $doctor_id = $_SESSION['doctor_id'];
             </form>
             <h3 class="mt-5">Existing Schedules</h3>
             <ul class="list-group" id="scheduleList">
-                <!-- Existing schedules will be listed here by JavaScript -->
+                
             </ul>
         </div>
     </div>
@@ -179,7 +180,7 @@ $doctor_id = $_SESSION['doctor_id'];
             fees: $('#fees').val()
         };
 
-        $.post('manageSchedulesSave.php', scheduleData, function(response) {
+        $.post('manageScheduleSave.php', scheduleData, function(response) {
             alert(response);
             loadSchedules();
             clearForm();
