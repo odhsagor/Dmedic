@@ -1,13 +1,11 @@
 <?php
-
-$servername = "localhost";
-$username = "root"; // Your DB username
-$password = ""; // Your DB password
-$dbname = "Dmedic";
-
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-
+session_start();
+if (!isset($_SESSION['doctor_id'])) {
+    header('Location: doctorDashboard.php');
+    exit();
+}
+$doctor_name = $_SESSION['doctor_name'];
+$doctor_id = $_SESSION['doctor_id'];
 ?>
 
 <!DOCTYPE html>
@@ -16,15 +14,15 @@ $conn = new mysqli($servername, $username, $password, $dbname);
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="description" content="Orbitor,business,company,agency,modern,bootstrap4,tech,software">
     <meta name="author" content="themefisher.com">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Dmadic</title>
     <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico" />
     <link rel="stylesheet" href="plugins/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="plugins/icofont/icofont.min.css">
     <link rel="stylesheet" href="plugins/slick-carousel/slick/slick.css">
     <link rel="stylesheet" href="plugins/slick-carousel/slick/slick-theme.css">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <link rel="stylesheet" href="css/doctorDashboard.css">
 </head>
 <body id="top">
@@ -65,370 +63,174 @@ $conn = new mysqli($servername, $username, $password, $dbname);
         </nav>
     </header>
     <div class="container mt-5">
-        <div class="row text-center mb-4">
-            <div class="col-md-3">
-                <div class="info-box">
-                    <div class="icon">
-                        <img src="images/Appointments.png" alt="Appointments Today" />
-                    </div>
-                    <h4>Appointments Today</h4>
-                    <p>2</p>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="info-box">
-                    <div class="icon">
-                        <img src="images/Appointments Completed.png" alt="Appointments Completed Today" />
-                    </div>
-                    <h4>Appointments Completed Today</h4>
-                    <p>1</p>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="info-box">
-                    <div class="icon">
-                        <img src="images/Pending Appointments.png" alt="Pending Appointments Today" />
-                    </div>
-                    <h4>Pending Appointments Today</h4>
-                    <p>1</p>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="info-box">
-                    <div class="icon">
-                        <img src="images/consulting.png" alt="Total Consultation" />
-                    </div>
-                    <h4>Total Consultation</h4>
-                    <p>10</p>
-                </div>
-            </div>
-        </div>
-        <h3 class="text-center mb-4">Your Activities</h3>
-        <div class="row text-center mb-4">
-            <div class="col-md-3">
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#manageSchedulesModal">Manage Schedules</button>
-            </div>
-            <div class="col-md-3">
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#manageAppointmentsModal">Manage Appointments</button>
-            </div>
-            <div class="col-md-3">
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#patientsConsultedTodayModal">Patients Consulted Today</button>
-            </div>
-            <div class="col-md-3">
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#feesCollectedTodayModal">Fees Collected Today</button>
-            </div>
-        </div>
-        <h3 class="text-center mb-4">Appointments</h3>
-        <div class="row text-center mb-4">
-            <div class="col-md-3">
-                <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#todayPendingAppointmentsModal">Today-Pending</button>
-            </div>
-            <div class="col-md-3">
-                <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#allPatientsModal">All Patients</button>
-            </div>
-            <div class="col-md-3">
-                <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#pastAppointmentsModal">Past Appointments</button>
-            </div>
-            <div class="col-md-3">
-                <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#upcomingAppointmentsModal">Upcoming Appointments</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Modals -->
-    <!-- Manage Schedules Modal -->
-    <div class="modal fade" id="manageSchedulesModal" tabindex="-1" role="dialog" aria-labelledby="manageSchedulesLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="manageSchedulesLabel">Manage Schedules</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="container mt-5">
-    <h2>Consulting Hours</h2>
-
-    <form action="manageSchedules.php" method="POST">
-        <div class="card mb-3">
-            <div class="card-body">
+        <h1>Welcome, <?php echo $doctor_name; ?></h1>
+        <p>Doctor ID: <?php echo $doctor_id; ?></p>
+        <button type="button" class="btn btn-primary" onclick="showManageSchedules()">Manage Schedules</button>
+        
+        <div id="manageSchedulesSection" style="display:none;">
+            <h3 class="mt-5">Manage Schedules</h3>
+            <form id="scheduleForm">
+                <input type="hidden" id="scheduleId" value="">
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="daysOfWeek">Days of the Week</label><br>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" name="days_of_week[]" value="sun"> Sun
+                            <input class="form-check-input" type="checkbox" id="sun" value="sun">
+                            <label class="form-check-label" for="sun">Sun</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" name="days_of_week[]" value="mon"> Mon
+                            <input class="form-check-input" type="checkbox" id="mon" value="mon">
+                            <label class="form-check-label" for="mon">Mon</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" name="days_of_week[]" value="tue"> Tue
+                            <input class="form-check-input" type="checkbox" id="tue" value="tue">
+                            <label class="form-check-label" for="tue">Tue</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" name="days_of_week[]" value="wed"> Wed
+                            <input class="form-check-input" type="checkbox" id="wed" value="wed">
+                            <label class="form-check-label" for="wed">Wed</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" name="days_of_week[]" value="thu"> Thu
+                            <input class="form-check-input" type="checkbox" id="thu" value="thu">
+                            <label class="form-check-label" for="thu">Thu</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" name="days_of_week[]" value="fri"> Fri
+                            <input class="form-check-input" type="checkbox" id="fri" value="fri">
+                            <label class="form-check-label" for="fri">Fri</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" name="days_of_week[]" value="sat"> Sat
+                            <input class="form-check-input" type="checkbox" id="sat" value="sat">
+                            <label class="form-check-label" for="sat">Sat</label>
                         </div>
                     </div>
                     <div class="form-group col-md-3">
                         <label for="fromDate">From Date*</label>
-                        <input type="date" class="form-control" name="from_date" required>
+                        <input type="date" class="form-control" id="fromDate" required>
                     </div>
                     <div class="form-group col-md-3">
                         <label for="toDate">To Date*</label>
-                        <input type="date" class="form-control" name="to_date" required>
+                        <input type="date" class="form-control" id="toDate" required>
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-3">
                         <label for="startTime">Start Time*</label>
-                        <input type="time" class="form-control" name="start_time" required>
+                        <input type="time" class="form-control" id="startTime" required>
                     </div>
                     <div class="form-group col-md-3">
                         <label for="endTime">End Time*</label>
-                        <input type="time" class="form-control" name="end_time" required>
+                        <input type="time" class="form-control" id="endTime" required>
                     </div>
                     <div class="form-group col-md-3">
                         <label for="consultingTime">Consulting Time (min)</label>
-                        <input type="number" class="form-control" name="consulting_time" placeholder="10">
+                        <input type="number" class="form-control" id="consultingTime" placeholder="10">
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label for="fees">Fees</label>
+                        <input type="number" class="form-control" id="fees" placeholder="0.00" step="0.01">
                     </div>
                 </div>
-                <button type="submit" class="btn btn-primary">Save</button>
-            </div>
+                <button type="button" class="btn btn-outline-primary btn-block" onclick="saveSchedule()">Save</button>
+                <button type="button" class="btn btn-outline-secondary btn-block" onclick="updateSchedule()">Update</button>
+                <button type="button" class="btn btn-outline-danger btn-block" onclick="deleteSchedule()">Delete</button>
+            </form>
+            <h3 class="mt-5">Existing Schedules</h3>
+            <ul class="list-group" id="scheduleList">
+                <!-- Existing schedules will be listed here by JavaScript -->
+            </ul>
         </div>
-    </form>
+    </div>
 
-    <h3>Existing Schedules</h3>
-
-    <?php
-    $sql = "SELECT * FROM Manage_Schedules";
-    $result = $conn->query($sql);
-
-    if ($result->num_rows > 0) {
-        while($row = $result->fetch_assoc()) {
-            $days_of_week = json_decode($row['days_of_week']);
-            ?>
-            <div class="card mb-3">
-                <div class="card-body">
-                    <form action="manageSchedules.php" method="POST">
-                        <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
-                        <div class="form-row">
-                            <div class="form-group col-md-6">
-                                <label for="daysOfWeek">Days of the Week</label><br>
-                                <?php foreach (['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat'] as $day) { ?>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="checkbox" name="days_of_week[]" value="<?php echo $day; ?>" <?php echo in_array($day, $days_of_week) ? 'checked' : ''; ?>> <?php echo ucfirst($day); ?>
-                                    </div>
-                                <?php } ?>
-                            </div>
-                            <div class="form-group col-md-3">
-                                <label for="fromDate">From Date*</label>
-                                <input type="date" class="form-control" name="from_date" value="<?php echo $row['from_date']; ?>" required>
-                            </div>
-                            <div class="form-group col-md-3">
-                                <label for="toDate">To Date*</label>
-                                <input type="date" class="form-control" name="to_date" value="<?php echo $row['to_date']; ?>" required>
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group col-md-3">
-                                <label for="startTime">Start Time*</label>
-                                <input type="time" class="form-control" name="start_time" value="<?php echo $row['start_time']; ?>" required>
-                            </div>
-                            <div class="form-group col-md-3">
-                                <label for="endTime">End Time*</label>
-                                <input type="time" class="form-control" name="end_time" value="<?php echo $row['end_time']; ?>" required>
-                            </div>
-                            <div class="form-group col-md-3">
-                                <label for="consultingTime">Consulting Time (min)</label>
-                                <input type="number" class="form-control" name="consulting_time" value="<?php echo $row['consulting_time']; ?>" placeholder="10">
-                            </div>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Edit</button>
-                    </form>
-                </div>
-            </div>
-            <?php
-        }
-    } else {
-        echo "No schedules found.";
+    <script>
+    function showManageSchedules() {
+        document.getElementById('manageSchedulesSection').style.display = 'block';
+        loadSchedules();
     }
 
-    $conn->close();
-    ?>
-</div>
+    function saveSchedule() {
+        let scheduleData = {
+            doctor_id: <?php echo $doctor_id; ?>,
+            days_of_week: getCheckedDays(),
+            from_date: $('#fromDate').val(),
+            to_date: $('#toDate').val(),
+            start_time: $('#startTime').val(),
+            end_time: $('#endTime').val(),
+            consulting_time: $('#consultingTime').val(),
+            fees: $('#fees').val()
+        };
 
+        $.post('manageSchedules.php', scheduleData, function(response) {
+            alert(response);
+            loadSchedules();
+            clearForm();
+        });
+    }
 
+    function updateSchedule() {
+        let scheduleData = {
+            id: $('#scheduleId').val(),
+            doctor_id: <?php echo $doctor_id; ?>,
+            days_of_week: getCheckedDays(),
+            from_date: $('#fromDate').val(),
+            to_date: $('#toDate').val(),
+            start_time: $('#startTime').val(),
+            end_time: $('#endTime').val(),
+            consulting_time: $('#consultingTime').val(),
+            fees: $('#fees').val()
+        };
 
+        $.post('manageSchedulesSave.php', scheduleData, function(response) {
+            alert(response);
+            loadSchedules();
+            clearForm();
+        });
+    }
 
+    function deleteSchedule(id) {
+        if (!confirm('Are you sure you want to delete this schedule?')) return;
 
-            </div>
-        </div>
-    </div>
+        $.post('deleteSchedules.php', { id: id }, function(response) {
+            alert(response);
+            loadSchedules();
+        });
+    }
 
-    <!-- Manage Appointments Modal -->
-    <div class="modal fade" id="manageAppointmentsModal" tabindex="-1" role="dialog" aria-labelledby="manageAppointmentsLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="manageAppointmentsLabel">Manage Appointments</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <!-- Manage Appointments content goes here -->
-                    <p>Manage Appointments content here...</p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                </div>
-            </div>
-        </div>
-    </div>
+    function editSchedule(id, days_of_week, from_date, to_date, start_time, end_time, consulting_time, fees) {
+        $('#scheduleId').val(id);
+        setCheckedDays(days_of_week);
+        $('#fromDate').val(from_date);
+        $('#toDate').val(to_date);
+        $('#startTime').val(start_time);
+        $('#endTime').val(end_time);
+        $('#consultingTime').val(consulting_time);
+        $('#fees').val(fees);
+    }
 
-    <!-- Patients Consulted Today Modal -->
-    <div class="modal fade" id="patientsConsultedTodayModal" tabindex="-1" role="dialog" aria-labelledby="patientsConsultedTodayLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="patientsConsultedTodayLabel">Patients Consulted Today</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <!-- Patients Consulted Today content goes here -->
-                    <p>Patients Consulted Today content here...</p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                </div>
-            </div>
-        </div>
-    </div>
+    function loadSchedules() {
+        $.get('get_Schedules.php', { doctor_id: <?php echo $doctor_id; ?> }, function(response) {
+            $('#scheduleList').html(response);
+        });
+    }
 
-    <!-- Fees Collected Today Modal -->
-    <div class="modal fade" id="feesCollectedTodayModal" tabindex="-1" role="dialog" aria-labelledby="feesCollectedTodayLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="feesCollectedTodayLabel">Fees Collected Today</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <!-- Fees Collected Today content goes here -->
-                    <p>Fees Collected Today content here...</p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                </div>
-            </div>
-        </div>
-    </div>
+    function getCheckedDays() {
+        let days = [];
+        $('input[type="checkbox"]:checked').each(function() {
+            days.push($(this).val());
+        });
+        return days.join(',');
+    }
 
-    <!-- Today-Pending Modal -->
-    <div class="modal fade" id="todayPendingAppointmentsModal" tabindex="-1" role="dialog" aria-labelledby="todayPendingAppointmentsLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="todayPendingAppointmentsLabel">Today-Pending</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <!-- Today-Pending content goes here -->
-                    <p>Today-Pending content here...</p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                </div>
-            </div>
-        </div>
-    </div>
+    function setCheckedDays(days) {
+        $('input[type="checkbox"]').prop('checked', false);
+        days.split(',').forEach(function(day) {
+            $('#' + day).prop('checked', true);
+        });
+    }
 
-    <!-- All Patients Modal -->
-    <div class="modal fade" id="allPatientsModal" tabindex="-1" role="dialog" aria-labelledby="allPatientsLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="allPatientsLabel">All Patients</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <!-- All Patients content goes here -->
-                    <p>All Patients content here...</p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Past Appointments Modal -->
-    <div class="modal fade" id="pastAppointmentsModal" tabindex="-1" role="dialog" aria-labelledby="pastAppointmentsLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="pastAppointmentsLabel">Past Appointments</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <!-- Past Appointments content goes here -->
-                    <p>Past Appointments content here...</p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Upcoming Appointments Modal -->
-    <div class="modal fade" id="upcomingAppointmentsModal" tabindex="-1" role="dialog" aria-labelledby="upcomingAppointmentsLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="upcomingAppointmentsLabel">Upcoming Appointments</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <!-- Upcoming Appointments content goes here -->
-                    <p>Upcoming Appointments content here...</p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <script src="plugins/jquery/jquery.js"></script>
-    <script src="plugins/bootstrap/js/bootstrap.min.js"></script>
-    <script src="plugins/slick-carousel/slick/slick.min.js"></script>
-    <script src="plugins/counterup/jquery.waypoints.min.js"></script>
-    <script src="plugins/shuffle/shuffle.min.js"></script>
-    <script src="plugins/counterup/jquery.counterup.min.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=API-KEY&callback=initMap" async defer></script>
-    <script src="js/script.js"></script>
-    <script src="js/contact.js"></script>
+    function clearForm() {
+        $('#scheduleForm')[0].reset();
+        $('#scheduleId').val('');
+    }
+    </script>
 </body>
 </html>
-

@@ -5,28 +5,27 @@ $username = "root";
 $password = ""; 
 $dbname = "Dmedic";
 
+try {
+    $pdo = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $id = $_POST['id'];
-    $days_of_week = json_encode($_POST['days_of_week']);
+    $doctor_id = $_POST['doctor_id'];
+    $days_of_week = $_POST['days_of_week'];
     $from_date = $_POST['from_date'];
     $to_date = $_POST['to_date'];
     $start_time = $_POST['start_time'];
     $end_time = $_POST['end_time'];
     $consulting_time = $_POST['consulting_time'];
+    $fees = $_POST['fees'];
 
-    $sql = "UPDATE Manage_Schedules
-            SET days_of_week='$days_of_week', from_date='$from_date', to_date='$to_date', start_time='$start_time', end_time='$end_time', consulting_time='$consulting_time'
-            WHERE id='$id'";
+    $query = $pdo->prepare("UPDATE doctorSchedules SET days_of_week = ?, from_date = ?, to_date = ?, start_time = ?, end_time = ?, consulting_time = ?, fees = ? WHERE id = ? AND doctor_id = ?");
+    $query->execute([$days_of_week, $from_date, $to_date, $start_time, $end_time, $consulting_time, $fees, $id, $doctor_id]);
 
-    if ($conn->query($sql) === TRUE) {
-        header('Location: doctorDashboard.php');
-    } else {
-        echo "Error: " . $sql . "<br>" . $conn->error;
-    }
-
-    $conn->close();
+    echo "Schedule updated successfully";
+} catch (PDOException $e) {
+    echo "Error: " . $e->getMessage();
 }
+
+$pdo = null;
 ?>
