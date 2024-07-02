@@ -64,7 +64,7 @@ $doctor_id = $_SESSION['doctor_id'];
         </nav>
     </header>
     <div class="container mt-5">
-        <h3>Welcome, <?php echo $doctor_name; ?></h3>
+        <h3>Welcome Doctor, <?php echo $doctor_name; ?></h3>
         <p>Doctor ID: <?php echo $doctor_id; ?></p>
         <button type="button" class="btn btn-primary" onclick="showManageSchedules()">Manage Schedules</button>
         

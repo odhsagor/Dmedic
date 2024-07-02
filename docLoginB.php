@@ -16,7 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $user_id = $_POST['user_id'];
     $password = $_POST['password'];
 
-    $sql = "SELECT * FROM doctorRegistrations WHERE email = '$user_id' OR mobile_number = '$user_id' OR approved = '$1'";
+    $sql = "SELECT * FROM doctorRegistrations WHERE (email = '$user_id' OR mobile_number = '$user_id') And approved = TRUE";
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
