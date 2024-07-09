@@ -75,7 +75,7 @@
                             <a class="nav-link" href="doctorAdminLogin.php">Logout</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#"><i class="fa-solid fa-user"></i>Hello ODH SAGOR</a>
+                            <a class="nav-link" href="#"><i class="fa-solid fa-user"></i>ODH SAGOR</a>
                         </li>
                     </ul>
                 </div>

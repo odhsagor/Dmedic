@@ -26,31 +26,89 @@ $result = $conn->query($sql);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin - Approve Doctors</title>
-    <link rel="stylesheet" href="plugins/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/doctorAdmin.css">
+    <title>Admin Profile</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .header-top-bar {
+            background-color: #004d40;
+            padding: 10px 0;
+            color: #fff;
+        }
+        .header-top-bar a {
+            color: #fff;
+            margin-right: 15px;
+        }
+        .navbar {
+            background-color: #fff;
+        }
+        .navbar-brand img {
+            height: 40px;
+        }
+        .navbar-nav .nav-link {
+            color: #000 !important;
+        }
+        .navbar-nav .nav-item .nav-link i {
+            margin-right: 5px;
+        }
+        .h3{
+          margin: 20px;
+        }
         .doctor-box {
-            border: 1px solid #ddd;
-            padding: 20px;
-            margin-bottom: 20px;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-        }
-        .doctor-box h4 {
-            margin-bottom: 15px;
-        }
-        .doctor-box p {
-            margin-bottom: 5px;
-        }
-        .action-buttons {
-            margin-top: 10px;
-        }
+        border: 2px solid green;
+        padding: 20px;
+        margin: 30px;
+    }
+    .h3 {
+        background-color: #004d40;
+        border: 4px solid black;
+        padding: 20px;
+        margin: 30px;
+    }
+    .text{
+      color: #fff;
+      text-align: center;
+
+    }
     </style>
 </head>
 <body>
-    <div class="container mt-5">
-        <h2>Doctor Registrations</h2>
+    <header>
+        <div class="header-top-bar text-center">
+            <div class="container">
+                <a href="mailto:support@dmadic.com"><i class="icofont-support-faq mr-2"></i>support@dmadic.com</a>
+                <span><i class="icofont-location-pin mr-2"></i>Dmadic</span>
+                <span class="float-right">Call Now: <span class="h4">26566</span></span>
+            </div>
+        </div>
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+                <a class="navbar-brand" href="admin_Dashboard.php"><img src="images/Dmedic.png" alt="Dmedic"></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="approve_Request_Doctor.php">Approve Request Doctors</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="approveDoctor.php">Approve Doctors</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        
+    </header>
+    <div class="h3">
+    <h3 class="text">Doctor Registrations Request For Approve</h3>
+    </div>
         <?php
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
@@ -85,6 +143,9 @@ $result = $conn->query($sql);
         ?>
     </div>
 
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 </body>
 </html>
 
