@@ -8,13 +8,13 @@
 
   <title>Dmedic</title>
   <!-- Favicon -->
-  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico" />
+  <link rel="shortcut icon" type="image/x-icon" href="../images/favicon.ico" />
   <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="plugins/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../plugins/bootstrap/css/bootstrap.min.css">
   <!-- Icon Font CSS -->
-  <link rel="stylesheet" href="plugins/icofont/icofont.min.css">
+  <link rel="stylesheet" href="../plugins/icofont/icofont.min.css">
   <!-- Main Stylesheet -->
-  <link rel="stylesheet" href="css/drRegi.css">
+  <link rel="stylesheet" href="../css/drRegi.css">
 </head>
 <body id="top">
   <header>
@@ -40,7 +40,7 @@
     </div>
     <nav class="navbar navbar-expand-lg navigation" id="navbar">
       <div class="container">
-        <a class="navbar-brand" href="index.php">
+        <a class="navbar-brand" href="../index.php">
           <img src="images/Dmedic.png" alt="" class="img-fluid">
         </a>
       </div>

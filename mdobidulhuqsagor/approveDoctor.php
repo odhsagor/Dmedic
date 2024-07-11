@@ -88,7 +88,7 @@ $result = $conn->query($sql);
         </div>
         <nav class="navbar navbar-expand-lg">
             <div class="container">
-                <a class="navbar-brand" href="admin_Dashboard.php"><img src="images/Dmedic.png" alt="Dmedic"></a>
+                <a class="navbar-brand" href="admin_Dashboard.php"><img src="../images/Dmedic.png" alt="Dmedic"></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>

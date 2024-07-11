@@ -8,8 +8,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
         integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="plugins/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/doctorAdminLogin.css">
+    <link rel="stylesheet" href="../plugins/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/doctorAdminLogin.css">
 </head>
 <body id="top">
     <header>
@@ -35,8 +35,8 @@
         </div>
         <nav class="navbar navbar-expand-lg navigation" id="navbar">
             <div class="container">
-                <a class="navbar-brand" href="index.php">
-                    <img src="images/Dmedic.png" alt="" class="img-fluid">
+                <a class="navbar-brand" href="../index.php">
+                    <img src="../images/Dmedic.png" alt="" class="img-fluid">
                 </a>
             </div>
         </nav>

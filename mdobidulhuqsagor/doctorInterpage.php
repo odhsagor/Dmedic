@@ -8,18 +8,18 @@
   <title>Dmadic</title>
 
   <!-- Favicon -->
-  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico" />
+  <link rel="shortcut icon" type="image/x-icon" href="../images/favicon.ico" />
 
   <!-- bootstrap.min css -->
-  <link rel="stylesheet" href="plugins/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../plugins/bootstrap/css/bootstrap.min.css">
   <!-- Icon Font Css -->
-  <link rel="stylesheet" href="plugins/icofont/icofont.min.css">
+  <link rel="stylesheet" href="../plugins/icofont/icofont.min.css">
   <!-- Slick Slider  CSS -->
-  <link rel="stylesheet" href="plugins/slick-carousel/slick/slick.css">
-  <link rel="stylesheet" href="plugins/slick-carousel/slick/slick-theme.css">
+  <link rel="stylesheet" href="../plugins/slick-carousel/slick/slick.css">
+  <link rel="stylesheet" href="../plugins/slick-carousel/slick/slick-theme.css">
 
   <!-- Main Stylesheet -->
-  <link rel="stylesheet" href="css/doctorInterpage.css">
+  <link rel="stylesheet" href="../css/doctorInterpage.css">
 
 </head>
 
@@ -48,8 +48,8 @@
 	</div>
 	<nav class="navbar navbar-expand-lg navigation" id="navbar">
 		<div class="container">
-		 	 <a class="navbar-brand" href="index.php">
-			  	<img src="images/Dmedic.png" alt="" class="img-fluid">
+		 	 <a class="navbar-brand" href="../index.php">
+			  	<img src="../images/Dmedic.png" alt="" class="img-fluid">
 			  </a>
 
 		  	<button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarmain" aria-controls="navbarmain" aria-expanded="false" aria-label="Toggle navigation">
@@ -59,7 +59,7 @@
 		  <div class="collapse navbar-collapse" id="navbarmain">
 			<ul class="navbar-nav ml-auto">
 			  <li class="nav-item active">
-				<a class="nav-link" href="index.php">HOME</a>
+				<a class="nav-link" href="../index.php">HOME</a>
 			  </li>
 			  <!-- PHARMACIST -->
 			    <li class="nav-item dropdown">
@@ -118,7 +118,7 @@
           </section>
         </div>
         <div class="col-md-6">
-          <img src="images/Doctorinterpage.png" alt="Doctor Image" class="doctor-image">
+          <img src="../images/Doctorinterpage.png" alt="Doctor Image" class="doctor-image">
         </div>
       </div>
     </div>
@@ -131,7 +131,7 @@
 			<div class="col-lg-4 mr-auto col-sm-6">
 				<div class="widget mb-5 mb-lg-0">
 					<div class="logo mb-4">
-						<img src="images/Dmedic.png" alt="" class="img-fluid">
+						<img src="../images/Dmedic.png" alt="" class="img-fluid">
 					</div>
 					<p>Experience compassionate care and expert guidance to confidently manage diabetes for a healthier life.</p>
 

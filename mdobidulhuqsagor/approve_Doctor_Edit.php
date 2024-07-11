@@ -40,10 +40,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 email = ? 
             WHERE id = ?");
 
-    // Bind the parameters to the SQL statement
+    //sql
     $stmt->bind_param("sssssssssssi", $title, $first_name, $last_name, $dob, $gender, $district, $national_id, $registration_number, $doctor_type, $mobile_number, $email, $doctor_id);
 
-    // Execute the statement
+    // stmt
     if ($stmt->execute()) {
         echo "Profile updated successfully.";
         header("Location: approveDoctor.php");
@@ -52,7 +52,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         header("Location: approveDoctor.php");
     }
 
-    // Close the statement
+
     $stmt->close();
 }
 

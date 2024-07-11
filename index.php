@@ -78,7 +78,7 @@
 
 				<!-- DOCTORS -->
                  <li class="nav-item active">
-					<a class="nav-link" href="doctorInterpage.php"> For Doctors</a>
+					<a class="nav-link" href="mdobidulhuqsagor/doctorInterpage.php"> For Doctors</a>
 				 </li>
 
 				<!-- HOSPITAL -->
@@ -336,3 +336,4 @@ Essential Scripts
 
 </body>
 </html>
+<!-- mdobidulhuqsagor -->

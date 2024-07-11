@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="zxx">
 <head>
@@ -10,18 +8,18 @@
   <title>Dmadic</title>
 
   <!-- Favicon -->
-  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico" />
+  <link rel="shortcut icon" type="image/x-icon" href="../images/favicon.ico" />
 
   <!-- bootstrap.min css -->
-  <link rel="stylesheet" href="plugins/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../plugins/bootstrap/css/bootstrap.min.css">
   <!-- Icon Font Css -->
-  <link rel="stylesheet" href="plugins/icofont/icofont.min.css">
+  <link rel="stylesheet" href="../plugins/icofont/icofont.min.css">
   <!-- Slick Slider  CSS -->
-  <link rel="stylesheet" href="plugins/slick-carousel/slick/slick.css">
-  <link rel="stylesheet" href="plugins/slick-carousel/slick/slick-theme.css">
+  <link rel="stylesheet" href="../plugins/slick-carousel/slick/slick.css">
+  <link rel="stylesheet" href="../plugins/slick-carousel/slick/slick-theme.css">
 
   <!-- Main Stylesheet -->
-  <link rel="stylesheet" href="css/doctorLogin.css">
+  <link rel="stylesheet" href="../css/docELogin.css">
 
 </head>
 
@@ -50,7 +48,7 @@
 	</div>
 	<nav class="navbar navbar-expand-lg navigation" id="navbar">
 		<div class="container">
-		 	 <a class="navbar-brand" href="index.php">
+		 	 <a class="navbar-brand" href="mdobidulhuqsagor/index.php">
 			  	<img src="images/Dmedic.png" alt="" class="img-fluid">
 			  </a>
 
@@ -61,7 +59,7 @@
 		  <div class="collapse navbar-collapse" id="navbarmain">
 			<ul class="navbar-nav ml-auto">
 			  <li class="nav-item active">
-				<a class="nav-link" href="index.php">HOME</a>
+				<a class="nav-link" href="../index.php">HOME</a>
 			  </li>
 			  <!-- PHARMACIST -->
 			    <li class="nav-item dropdown">
@@ -89,7 +87,7 @@
 					<a class="nav-link" href="#">HOSPITAL</a>
 				  </li>
 
-				<!-- SIGNIN And SIGNUP BUTTON Here -->
+				<!-- SIGNIN And SIGNUP BUTTON -->
 				
 				<li class="nav-item dropdown">
 					<a class="nav-link dropdown-toggle" href="#" id="dropdown02" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">SIGNIN <i class="icofont-thin-down"></i></a>
@@ -125,34 +123,44 @@
           </section>
         </div>
 
-        <!-- Login Form Section -->
         <div class="col-md-6">
           <section class="form-container">
-            <h2>Easy to start!</h2>
-            <p>Enter your phone number. We'll send you a verification code and you will be logged in.</p>
-            <form action="login.php" method="post">
-              <div class="phone-input">
-                <select id="country-code" name="country_code" required>
-                  <option value="+88">+88</option>
-                  <!-- Add other country codes as needed -->
-                </select>
-                <input type="tel" id="mobile_number" name="mobile_number" placeholder="Enter your mobile number" required>
+            <h2>Welcome Back</h2>
+            <h3>Login</h3>
+            <form action="docLoginB.php" method="post">
+			<?php
+                    session_start();
+                    if (isset($_SESSION['error'])) {
+                        echo '<div class="alert alert-danger">' . $_SESSION['error'] . '</div>';
+                        unset($_SESSION['error']);
+                    }
+                    ?>
+              <div class="input-group">
+                <label for="user_id">Email OR Number *</label>
+                <input type="text" id="user_id" name="user_id" required>
               </div>
-              <button type="submit">Next →</button>
-              <p>By continuing, I hereby agree and accept the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>.</p>
+              <div class="input-group">
+                <label for="password">Password *</label>
+                <input type="password" id="password" name="password" required>
+                <i class="toggle-password"></i>
+              </div>
+              <div class="form-links">
+                <a href="#">Forgot password?</a>
+              </div>
+              <button type="submit">Login</button>
+              
             </form>
-            <p>or, <a href="docELogin.php">login using a password</a></p>
-            <p>Are you a doctor? <a href="doctorRegistration.php">Join as a doctor</a></p>
+            <p>or, <a href="doctorLogin.php">Login with mobile number</a></p>
           </section>
         </div>
       </div>
     </div>
   </main>
 
-  <!-- Include JavaScript files -->
   <script src="plugins/jquery/jquery.js"></script>
   <script src="plugins/bootstrap/js/bootstrap.min.js"></script>
 
 
   </body>
 </html>
+

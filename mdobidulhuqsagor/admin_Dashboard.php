@@ -59,7 +59,7 @@
         </div>
         <nav class="navbar navbar-expand-lg">
             <div class="container">
-                <a class="navbar-brand" href="admin_Dashboard.php"><img src="images/Dmedic.png" alt="Dmedic"></a>
+                <a class="navbar-brand" href="admin_Dashboard.php"><img src="../images/Dmedic.png" alt="Dmedic"></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -87,7 +87,7 @@
         <div class="profile-card">
             <div class="row">
                 <div class="col-md-3 text-center">
-                    <img src="images/ObidulHuqSagor.png" alt="Profile Picture" class="img-fluid rounded-circle" style="width: 150px;">
+                    <img src="../images/ObidulHuqSagor.png" alt="Profile Picture" class="img-fluid rounded-circle" style="width: 150px;">
                 </div>
                 <div class="col-md-9">
                     <h4>Name: MD. OBIDUL HUQ SAGOR</h4>
