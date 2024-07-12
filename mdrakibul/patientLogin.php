@@ -74,12 +74,12 @@
           </li>
         <!-- SIGNIN And SIGNUP BUTTON -->
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="dropdown02" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">SIGNIN <i class="icofont-thin-down"></i></a>
+          <a class="nav-link dropdown-toggle" href="#" id="dropdown02" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">For Patient<i class="icofont-thin-down"></i></a>
           <ul class="dropdown-menu" aria-labelledby="dropdown02">
             <li><a class="dropdown-item" href="patientLogin.php">Login</a></li>
             <li><a class="dropdown-item" href="patientRegistration.php">Patient Registration</a></li>
           </ul>
-          </li>
+        </li>
       </ul>
       </div>
     </div>

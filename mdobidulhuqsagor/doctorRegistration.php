@@ -77,6 +77,7 @@
           <form action="doctorRegBackend.php" method="post">
             <label for="title">Title *</label>
             <select id="title" name="title" required>
+             <option value="Select">Select Title</option>
               <option value="Dr">Dr</option>
               <option value="Prof">Prof</option>
               <option value="Prof. Dr.">Prof. Dr.</option>
@@ -89,12 +90,14 @@
             <input type="date" id="dob" name="dob" required>
             <label for="gender">Gender *</label>
             <select id="gender" name="gender" required>
+              <option value="Select">Select Gender</option>
               <option value="male">Male</option>
               <option value="female">Female</option>
               <option value="other">Other</option>
             </select>
             <label for="district">District *</label>
             <select id="district" name="district" required>
+             <option value="Select">Select District</option>
               <option value="Bagerhat">Bagerhat</option>
               <option value="Bandarban">Bandarban</option>
               <option value="Barguna">Barguna</option>
@@ -165,6 +168,7 @@
             <input type="text" id="registration_number" name="registration_number" required>
             <label for="doctor_type">Doctor Type *</label>
             <select id="doctor_type" name="doctor_type" required>
+             <option value="Select">Select Doctor Type</option>
               <option value="Endocrinology">Endocrinology</option>
               <option value="Metabolism">Metabolism</option>
               <option value="Endocrinology & Metabolism">Endocrinology & Metabolism</option>
