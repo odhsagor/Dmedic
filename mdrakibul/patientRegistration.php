@@ -59,6 +59,12 @@
             <li>Advanced medical technologies</li>
             <li>Community support</li>
           </ul>
+
+        <div class="PatientImg">
+				  <div class="PatientImg">
+          <img src="../images/DmadicPatient.png" alt="" class="img-fluid">
+				  </div>
+			 </div>
         </div>
       </div>
       <div class="col-md-6">
