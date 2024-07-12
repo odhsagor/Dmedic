@@ -41,8 +41,8 @@
   </div>
   <nav class="navbar navbar-expand-lg navigation" id="navbar">
     <div class="container">
-       <a class="navbar-brand" href="mdobidulhuqsagor/index.php">
-        <img src="images/Dmedic.png" alt="" class="img-fluid">
+       <a class="navbar-brand" href="../index.php">
+        <img src="../images/Dmedic.png" alt="" class="img-fluid">
       </a>
       <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarmain" aria-controls="navbarmain" aria-expanded="false" aria-label="Toggle navigation">
       <span class="icofont-navigation-menu"></span>
