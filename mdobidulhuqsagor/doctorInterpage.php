@@ -92,8 +92,8 @@
 				<li class="nav-item dropdown">
 					<a class="nav-link dropdown-toggle" href="#" id="dropdown02" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">SIGNIN <i class="icofont-thin-down"></i></a>
 					<ul class="dropdown-menu" aria-labelledby="dropdown02">
-						<li><a class="dropdown-item" href="#">SIGNIN</a></li>
-						<li><a class="dropdown-item" href="#">SIGNUP</a></li>
+						<li><a class="dropdown-item" href="../mdrakibul/patientLogin.php">SIGNIN</a></li>
+						<li><a class="dropdown-item" href="../mdrakibul/patientRegistration.php">SIGNUP</a></li>
 					</ul>
 			  	</li>
 
