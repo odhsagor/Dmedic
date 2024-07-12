@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jul 12, 2024 at 11:27 AM
+-- Generation Time: Jul 12, 2024 at 06:41 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -86,6 +86,33 @@ INSERT INTO `doctorSchedules` (`id`, `doctor_id`, `days_of_week`, `from_date`, `
 (9, 1312304197, 'sun,sat', '2024-07-07', '2024-07-23', '17:47:00', '21:47:00', 15, 1900.00),
 (10, 1312304199, 'sun,tue,thu', '2024-07-11', '2024-07-16', '17:20:00', '23:20:00', 20, 2000.00);
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `patientRegistrations`
+--
+
+CREATE TABLE `patientRegistrations` (
+  `patient_id` int(6) UNSIGNED ZEROFILL NOT NULL,
+  `first_name` varchar(50) NOT NULL,
+  `last_name` varchar(50) NOT NULL,
+  `house_number` varchar(20) NOT NULL,
+  `road_number` varchar(20) NOT NULL,
+  `area_name` varchar(100) NOT NULL,
+  `dob` date NOT NULL,
+  `gender` enum('male','female','other') NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `contact_number` varchar(20) NOT NULL,
+  `password` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `patientRegistrations`
+--
+
+INSERT INTO `patientRegistrations` (`patient_id`, `first_name`, `last_name`, `house_number`, `road_number`, `area_name`, `dob`, `gender`, `email`, `contact_number`, `password`) VALUES
+(100000, 'Rakib', 'Hasan', '123', '15', 'R/A', '2002-01-01', 'male', 'rakibhasan@gmail.com', '0131829101', '$2y$10$1UfRVGll.g8.iVlFtXxHm.09h2g/H1rS3JfZa115.FH9V7/MpltL6');
+
 --
 -- Indexes for dumped tables
 --
@@ -104,6 +131,13 @@ ALTER TABLE `doctorSchedules`
   ADD KEY `doctor_id` (`doctor_id`);
 
 --
+-- Indexes for table `patientRegistrations`
+--
+ALTER TABLE `patientRegistrations`
+  ADD PRIMARY KEY (`patient_id`),
+  ADD UNIQUE KEY `email` (`email`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -118,6 +152,12 @@ ALTER TABLE `doctorRegistrations`
 --
 ALTER TABLE `doctorSchedules`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT for table `patientRegistrations`
+--
+ALTER TABLE `patientRegistrations`
+  MODIFY `patient_id` int(6) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=100001;
 
 --
 -- Constraints for dumped tables
