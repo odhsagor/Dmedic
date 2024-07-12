@@ -114,6 +114,13 @@
             <p>Enroll yourself just in minutes!</p>
 			
             <a href="doctorRegistration.php" class="signup-btn">Sign up now</a>
+
+			<div>
+        	<span>Please log in to continue:</span>
+        	<a href="docELogin.php" class="signup-btn">Login as a Doctor</a>
+    		</div>
+
+			
 			
           </section>
         </div>

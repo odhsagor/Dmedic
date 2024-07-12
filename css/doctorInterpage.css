@@ -514,6 +514,10 @@ a:focus {
 }
 
 
+.login-btn:hover {
+  background-color: #145a30;
+}
+
 /* Doctor Image Styles */
 .doctor-image {
   max-width: 100%;
