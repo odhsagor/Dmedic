@@ -90,7 +90,7 @@
 $(document).ready(function(){
     // Populate Doctor Types
     $.ajax({
-        url: 'get_doctor_types.php',
+        url: '../mdobidulhuqsagor/get_doctor_types.php',
         type: 'GET',
         success: function(data) {
             $('#doctor_type').append(data);
@@ -101,7 +101,7 @@ $(document).ready(function(){
     $('#doctor_type').change(function() {
         var doctorType = $(this).val();
         $.ajax({
-            url: 'get_doctor_names.php',
+            url: '../mdobidulhuqsagor/get_doctor_names.php',
             type: 'POST',
             data: {doctor_type: doctorType},
             success: function(data) {
@@ -114,7 +114,7 @@ $(document).ready(function(){
     $('#doctor_name').change(function() {
         var doctorName = $(this).val();
         $.ajax({
-            url: 'get_appointment_dates.php',
+            url: '../mdobidulhuqsagor/get_appointment_dates.php',
             type: 'POST',
             data: {doctor_name: doctorName},
             success: function(data) {
@@ -127,7 +127,7 @@ $(document).ready(function(){
     $('#appointment_date').change(function() {
         var appointmentDate = $(this).val();
         $.ajax({
-            url: 'get_time_slots.php',
+            url: '../mdobidulhuqsagor/get_time_slots.php',
             type: 'POST',
             data: {appointment_date: appointmentDate},
             success: function(data) {
@@ -140,7 +140,7 @@ $(document).ready(function(){
     $('#select-time').change(function() {
         var timeSlot = $(this).val();
         $.ajax({
-            url: 'get_doctor_fees.php',
+            url: '../mdobidulhuqsagor/get_doctor_fees.php',
             type: 'POST',
             data: {time_slot: timeSlot},
             success: function(data) {
