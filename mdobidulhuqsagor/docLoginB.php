@@ -24,7 +24,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (password_verify($password, $row['password'])) {
             echo "Login successful. Welcome " . $row['first_name'] . " " . $row['last_name'];
             session_start();
-            $_SESSION['doctor_id'] = $row['id'];
+            $_SESSION['doctor_id'] = $row['doctor_id'];
             $_SESSION['doctor_name'] = $row['first_name'] . ' ' . $row['last_name'];
             header("Location: doctorDashboard.php"); 
         

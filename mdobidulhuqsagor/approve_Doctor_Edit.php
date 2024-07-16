@@ -38,7 +38,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 doctor_type = ?, 
                 mobile_number = ?, 
                 email = ? 
-            WHERE id = ?");
+            WHERE doctor_id = ?");
 
     //sql
     $stmt->bind_param("sssssssssssi", $title, $first_name, $last_name, $dob, $gender, $district, $national_id, $registration_number, $doctor_type, $mobile_number, $email, $doctor_id);

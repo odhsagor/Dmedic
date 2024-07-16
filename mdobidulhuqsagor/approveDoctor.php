@@ -116,8 +116,8 @@ $result = $conn->query($sql);
             while($row = $result->fetch_assoc()) {
                 echo '<div class="doctor-box">';
                 echo '<form action="approve_Doctor_Edit.php" method="post">';
-                echo '<input type="hidden" name="doctor_id" value="' . $row["id"] . '">';
-                echo '<p><strong>Doctor ID:</strong> ' . $row["id"] . '</p>';
+                echo '<input type="hidden" name="doctor_id" value="' . $row["doctor_id"] . '">';
+                echo '<p><strong>Doctor ID:</strong> ' . $row["doctor_id"] . '</p>';
                 echo '<p><strong>Title:</strong> <input type="text" name="title" value="' . $row["title"] . '"></p>';
                 echo '<p><strong>First Name:</strong> <input type="text" name="first_name" value="' . $row["first_name"] . '"></p>';
                 echo '<p><strong>Last Name:</strong> <input type="text" name="last_name" value="' . $row["last_name"] . '"></p>';

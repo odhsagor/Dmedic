@@ -20,8 +20,8 @@ try {
         echo 'Days: ' . $schedule['days_of_week'] . ' | From: ' . $schedule['from_date'] . ' | To: ' . $schedule['to_date'];
         echo ' | Start: ' . $schedule['start_time'] . ' | End: ' . $schedule['end_time'];
         echo ' | Consulting Time: ' . $schedule['consulting_time'] . ' mins | Fees: ৳' . $schedule['fees'];
-        echo ' <button class="btn btn-warning btn-sm" onclick="editSchedule(' . $schedule['id'] . ', \'' . $schedule['days_of_week'] . '\', \'' . $schedule['from_date'] . '\', \'' . $schedule['to_date'] . '\', \'' . $schedule['start_time'] . '\', \'' . $schedule['end_time'] . '\', \'' . $schedule['consulting_time'] . '\', \'' . $schedule['fees'] . '\')">Edit</button>';
-        echo ' <button class="btn btn-danger btn-sm" onclick="deleteSchedule(' . $schedule['id'] . ')">Delete</button>';
+        echo ' <button class="btn btn-warning btn-sm" onclick="editSchedule(' . $schedule['doctorSchedulesId'] . ', \'' . $schedule['days_of_week'] . '\', \'' . $schedule['from_date'] . '\', \'' . $schedule['to_date'] . '\', \'' . $schedule['start_time'] . '\', \'' . $schedule['end_time'] . '\', \'' . $schedule['consulting_time'] . '\', \'' . $schedule['fees'] . '\')">Edit</button>';
+        echo ' <button class="btn btn-danger btn-sm" onclick="deleteSchedule(' . $schedule['doctorSchedulesId'] . ')">Delete</button>';
         echo '</li>';
     }
 } catch (PDOException $e) {

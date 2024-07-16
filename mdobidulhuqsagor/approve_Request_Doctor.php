@@ -113,7 +113,7 @@ $result = $conn->query($sql);
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
                 echo "<div class='doctor-box'>
-                    <h4>Doctor ID: {$row['id']}</h4>
+                    <h4>Doctor ID: {$row['doctor_id']}</h4>
                     <p><strong>Title:</strong> {$row['title']}</p>
                     <p><strong>First Name:</strong> {$row['first_name']}</p>
                     <p><strong>Last Name:</strong> {$row['last_name']}</p>
@@ -127,11 +127,11 @@ $result = $conn->query($sql);
                     <p><strong>Email:</strong> {$row['email']}</p>
                     <div class='action-buttons'>
                         <form action='approve_Request_Doctor_Db.php' method='post' style='display:inline;'>
-                            <input type='hidden' name='id' value='{$row['id']}'>
+                            <input type='hidden' name='doctor_id' value='{$row['doctor_id']}'>
                             <button type='submit' name='action' value='approve' class='btn btn-success'>Approve</button>
                         </form>
                         <form action='approve_Request_Doctor_Db.php' method='post' style='display:inline;'>
-                            <input type='hidden' name='id' value='{$row['id']}'>
+                            <input type='hidden' name='doctor_id' value='{$row['doctor_id']}'>
                             <button type='submit' name='action' value='reject' class='btn btn-danger'>Reject</button>
                         </form>
                     </div>

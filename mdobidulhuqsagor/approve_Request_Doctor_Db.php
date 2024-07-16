@@ -18,13 +18,13 @@ if ($conn->connect_error) {
 }
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $id = $_POST['id'];
+    $id = $_POST['doctor_id'];
     $action = $_POST['action'];
 
     if ($action == 'approve') {
-        $sql = "UPDATE doctorRegistrations SET approved = 1 WHERE id = ?";
+        $sql = "UPDATE doctorRegistrations SET approved = 1 WHERE doctor_id = ?";
     } else if ($action == 'reject') {
-        $sql = "DELETE FROM doctorRegistrations WHERE id = ?";
+        $sql = "DELETE FROM doctorRegistrations WHERE doctor_id = ?";
     }
 
     if ($stmt = $conn->prepare($sql)) {
