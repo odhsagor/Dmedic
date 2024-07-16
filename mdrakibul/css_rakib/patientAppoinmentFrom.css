@@ -1,0 +1,99 @@
+/* Basic styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 90%;
+    max-width: 800px;
+    margin: auto;
+    overflow: hidden;
+    background: #fff;
+    padding: 20px;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+    margin-top: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.form-group, .department-options, .doctor-name, .appointment-date, .select-time, .consulting-time, .doctor-fees {
+    flex: 0 0 100%;
+    margin-bottom: 15px;
+}
+
+.form-group label, .department-options label, .doctor-name label, .appointment-date label, .select-time label, .consulting-time label, .doctor-fees label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"],
+.department-options select,
+.doctor-name select,
+.appointment-date select,
+.select-time select,
+.consulting-time select,
+.doctor-fees select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background: #218838;
+}
+
+/* Responsive styling */
+@media (min-width: 600px) {
+    .form-group, .department-options, .doctor-name, .appointment-date, .select-time, .consulting-time, .doctor-fees {
+        flex: 0 0 48%;
+    }
+
+    .form-group input[type="text"] {
+        width: calc(50% - 10px);
+        display: inline-block;
+    }
+
+    .form-group input[type="text"]#last_name {
+        margin-left: 20px;
+    }
+}
+
+@media (min-width: 800px) {
+    .container {
+        width: 70%;
+    }
+
+    button {
+        width: 30%;
+        margin: 20px auto 0 auto;
+    }
+}
