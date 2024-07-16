@@ -172,6 +172,13 @@
               <option value="Endocrinology">Endocrinology</option>
               <option value="Metabolism">Metabolism</option>
               <option value="Endocrinology & Metabolism">Endocrinology & Metabolism</option>
+              <option value="fetal cardiologists">Fetal Cardiologists</option>
+              <option value="cardiac geneticists">Cardiac Geneticists</option>
+              <option value="cardiac imaging specialists">Cardiac Imaging Specialists</option>
+              <option value="electrophysiologists">Electrophysiologists</option>
+              <option value="exercise physiologists">Exercise Physiologists</option>
+              <option value="heart transplant specialists">Heart Transplant Specialists</option>
+              <option value="heart surgeons">Heart Surgeons</option>
             </select>
             <label for="mobile_number">Mobile Number *</label>
             <input type="tel" id="mobile_number" name="mobile_number" required>
