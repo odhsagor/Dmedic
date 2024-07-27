@@ -1,3 +1,15 @@
+
+
+<?php
+session_start();
+
+if (!isset($_SESSION['patient_id'])) {
+    header("Location: patientLogin.php"); 
+    exit();
+}
+$patient_id = $_SESSION['patient_id'];
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,7 +17,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Patient Appointment Form</title>
     <link rel="stylesheet" href="cssrakib/patientAppoinmentFrom.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-timepicker/1.13.18/jquery.timepicker.min.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-timepicker/1.13.18/jquery.timepicker.min.js"></script>
 </head>
 <body>
 <header>
@@ -33,29 +49,29 @@
 <div class="main-container">
     <div class="line">
         <h1>Patient Appointment Form</h1>
+        <h2 id="patient-id">Patient ID: <?php echo htmlspecialchars($patient_id); ?></h2>
     </div>
-    <form action="submit_appointment.php" method="post">
+    <form id="appointment_form" action="../mdobidulhuqsagor/submit_appointment.php" method="post">
         <div class="form-group">
             <label for="first_name">First Name</label>
-            <input type="text" id="first_name" name="first_name" placeholder="First Name">
+            <input type="text" id="first_name" name="first_name" placeholder="First Name" required>
         </div>
         <div class="form-group">
             <label for="last_name">Last Name</label>
-            <input type="text" id="last_name" name="last_name" placeholder="Last Name">
+            <input type="text" id="last_name" name="last_name" placeholder="Last Name" required>
         </div>
         <div class="form-group">
             <label for="email">Email</label>
-            <input type="email" id="email" name="email" placeholder="example@example.com">
+            <input type="email" id="email" name="email" placeholder="example@example.com" required>
         </div>
         <div class="form-group">
             <label for="phone">Phone Number</label>
-            <input type="tel" id="phone" name="phone" placeholder="Phone Number">
+            <input type="tel" id="phone" name="phone" placeholder="Phone Number" required>
         </div>
         <div class="form-group">
             <label for="doctor_type">Which medical department do you want to make an appointment for?</label>
             <select id="doctor_type" name="doctor_type" required>
                 <option value="Select">Select Doctor Type</option>
-                <!-- Options will be populated by JavaScript -->
             </select>
         </div>
         <div class="form-group">
@@ -66,25 +82,52 @@
         </div>
         <div class="form-group">
             <label for="appointment_date">Select Your Appointment Date</label>
-            <select id="appointment_date" name="appointment_date" required>
-                <!-- Options will be populated by JavaScript -->
-            </select>
+            <input type="text" id="appointment_date" name="appointment_date" required>
         </div>
         <div class="form-group">
-            <label for="select-time">Select Your Time</label>
-            <select id="select-time" name="select-time" required>
-                <!-- Options will be populated by JavaScript -->
-            </select>
-        </div>
-        <div class="form-group">
-            <label for="doctor-fees">Doctor Fees</label>
-            <select id="doctor-fees" name="doctor-fees" required>
-                <!-- Options will be populated by JavaScript -->
-            </select>
+            <label for="select_time">Select Your Time</label>
+            <input type="text" id="select_time" name="select_time" required>
         </div>
         <button type="submit">Get Appointment</button>
     </form>
 </div>
+
+<footer>
+<div class="footer-top">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4">
+                    <h3>About Us</h3>
+                    <p>Dmadic is committed to providing the best medical care. Our team of experts is here to help you with all your health needs.</p>
+                </div>
+                <div class="col-lg-4">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Services</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4">
+                    <h3>Contact Us</h3>
+                    <p><i class="icofont-location-pin"></i> Dhaka, Bangladesh</p>
+                    <p><i class="icofont-phone"></i> 880 26566</p>
+                    <p><i class="icofont-envelope"></i> support@dmadic.com</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                 &copy; 2024, Designed & Developed by <a target="_blank">Sagor</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
 
 <script>
 $(document).ready(function(){
@@ -97,7 +140,7 @@ $(document).ready(function(){
         }
     });
 
-    // Populate Doctor Names based on selected Doctor Type
+    // Doctor Names 
     $('#doctor_type').change(function() {
         var doctorType = $(this).val();
         $.ajax({
@@ -110,45 +153,32 @@ $(document).ready(function(){
         });
     });
 
-    // Populate Appointment Dates based on selected Doctor
-    $('#doctor_name').change(function() {
-        var doctorName = $(this).val();
-        $.ajax({
-            url: '../mdobidulhuqsagor/get_appointment_dates.php',
-            type: 'POST',
-            data: {doctor_name: doctorName},
-            success: function(data) {
-                $('#appointment_date').html(data);
-            }
-        });
+    // Datepicker
+    $('#appointment_date').datepicker({
+        dateFormat: 'yy-mm-dd',
+        minDate: 0 
     });
 
-    // Populate Time Slots based on selected Appointment Date
-    $('#appointment_date').change(function() {
-        var appointmentDate = $(this).val();
-        $.ajax({
-            url: '../mdobidulhuqsagor/get_time_slots.php',
-            type: 'POST',
-            data: {appointment_date: appointmentDate},
-            success: function(data) {
-                $('#select-time').html(data);
-            }
-        });
-    });
+    // Timepicker 
+    $('#select_time').timepicker({
+    timeFormat: 'h:i a', 
+    interval: 30,
+    minTime: '9:00 AM',
+    maxTime: '6:00 PM',
+    defaultTime: '9:00 AM',
+    startTime: '9:00 AM',
+    dynamic: false,
+    dropdown: true,
+    scrollbar: true
+});
 
-    // Populate Doctor Fees based on selected Time Slot
-    $('#select-time').change(function() {
-        var timeSlot = $(this).val();
-        $.ajax({
-            url: '../mdobidulhuqsagor/get_doctor_fees.php',
-            type: 'POST',
-            data: {time_slot: timeSlot},
-            success: function(data) {
-                $('#doctor-fees').html(data);
-            }
-        });
-    });
+
+
+
+
+
 });
 </script>
+
 </body>
 </html>

@@ -279,7 +279,7 @@
 							<i class="icofont-support mr-3"></i>
 							<span class="h6 mb-0">Mon to Fri : 08:30 - 18:00</span>
 						</div>
-						<h4 class="mt-2"><a href="tel:+23-345-67890">26566</a></h4>
+						<h4 class="mt-2"><a href="tel:+880 26566">26566</a></h4>
 					</div>
 				</div>
 			</div>

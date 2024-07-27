@@ -73,47 +73,10 @@ $doctor_id = $_SESSION['doctor_id'];
             <form id="scheduleForm">
                 <input type="hidden" id="scheduleId" value="">
                 <div class="form-row">
-                    <div class="form-group col-md-6">
-                        <label for="daysOfWeek">Days of the Week</label><br>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" id="sun" value="sun">
-                            <label class="form-check-label" for="sun">Sun</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" id="mon" value="mon">
-                            <label class="form-check-label" for="mon">Mon</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" id="tue" value="tue">
-                            <label class="form-check-label" for="tue">Tue</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" id="wed" value="wed">
-                            <label class="form-check-label" for="wed">Wed</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" id="thu" value="thu">
-                            <label class="form-check-label" for="thu">Thu</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" id="fri" value="fri">
-                            <label class="form-check-label" for="fri">Fri</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" id="sat" value="sat">
-                            <label class="form-check-label" for="sat">Sat</label>
-                        </div>
-                    </div>
                     <div class="form-group col-md-3">
-                        <label for="fromDate">From Date*</label>
-                        <input type="date" class="form-control" id="fromDate" required>
+                        <label for="date">Date (dd, mm, yyyy)*</label>
+                        <input type="date" class="form-control" id="date" required>
                     </div>
-                    <div class="form-group col-md-3">
-                        <label for="toDate">To Date*</label>
-                        <input type="date" class="form-control" id="toDate" required>
-                    </div>
-                </div>
-                <div class="form-row">
                     <div class="form-group col-md-3">
                         <label for="startTime">Start Time*</label>
                         <input type="time" class="form-control" id="startTime" required>
@@ -123,11 +86,13 @@ $doctor_id = $_SESSION['doctor_id'];
                         <input type="time" class="form-control" id="endTime" required>
                     </div>
                     <div class="form-group col-md-3">
-                        <label for="consultingTime">Consulting Time (min)</label>
-                        <input type="number" class="form-control" id="consultingTime" placeholder="10">
+                        <label for="roomNumber">Room Number*</label>
+                        <input type="text" class="form-control" id="roomNumber" required>
                     </div>
-                    <div class="form-group col-md-3">
-                        <label for="fees">Fees</label>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="fees">Doctor Fees</label>
                         <input type="number" class="form-control" id="fees" placeholder="0.00" step="0.01">
                     </div>
                 </div>
@@ -151,12 +116,10 @@ $doctor_id = $_SESSION['doctor_id'];
     function saveSchedule() {
         let scheduleData = {
             doctor_id: <?php echo $doctor_id; ?>,
-            days_of_week: getCheckedDays(),
-            from_date: $('#fromDate').val(),
-            to_date: $('#toDate').val(),
+            date: $('#date').val(),
             start_time: $('#startTime').val(),
             end_time: $('#endTime').val(),
-            consulting_time: $('#consultingTime').val(),
+            room_number: $('#roomNumber').val(),
             fees: $('#fees').val()
         };
 
@@ -171,12 +134,10 @@ $doctor_id = $_SESSION['doctor_id'];
         let scheduleData = {
             id: $('#scheduleId').val(),
             doctor_id: <?php echo $doctor_id; ?>,
-            days_of_week: getCheckedDays(),
-            from_date: $('#fromDate').val(),
-            to_date: $('#toDate').val(),
+            date: $('#date').val(),
             start_time: $('#startTime').val(),
             end_time: $('#endTime').val(),
-            consulting_time: $('#consultingTime').val(),
+            room_number: $('#roomNumber').val(),
             fees: $('#fees').val()
         };
 
@@ -196,35 +157,18 @@ $doctor_id = $_SESSION['doctor_id'];
         });
     }
 
-    function editSchedule(id, days_of_week, from_date, to_date, start_time, end_time, consulting_time, fees) {
+    function editSchedule(id, date, start_time, end_time, room_number, fees) {
         $('#scheduleId').val(id);
-        setCheckedDays(days_of_week);
-        $('#fromDate').val(from_date);
-        $('#toDate').val(to_date);
+        $('#date').val(date);
         $('#startTime').val(start_time);
         $('#endTime').val(end_time);
-        $('#consultingTime').val(consulting_time);
+        $('#roomNumber').val(room_number);
         $('#fees').val(fees);
     }
 
     function loadSchedules() {
         $.get('get_Schedules.php', { doctor_id: <?php echo $doctor_id; ?> }, function(response) {
             $('#scheduleList').html(response);
-        });
-    }
-
-    function getCheckedDays() {
-        let days = [];
-        $('input[type="checkbox"]:checked').each(function() {
-            days.push($(this).val());
-        });
-        return days.join(',');
-    }
-
-    function setCheckedDays(days) {
-        $('input[type="checkbox"]').prop('checked', false);
-        days.split(',').forEach(function(day) {
-            $('#' + day).prop('checked', true);
         });
     }
 

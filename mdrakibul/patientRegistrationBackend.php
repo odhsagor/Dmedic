@@ -27,11 +27,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($conn->query($sql) === TRUE) {
         echo "New record created successfully with Patient ID: " . str_pad($conn->insert_id, 6, "0", STR_PAD_LEFT);
+        header("Location: patientRegistration.php");
     } else {
         echo "Error: " . $sql . "<br>" . $conn->error;
     }
 
     $conn->close();
+
 }
 
 $conn->close();

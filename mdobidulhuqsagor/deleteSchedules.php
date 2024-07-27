@@ -1,8 +1,7 @@
 <?php
-
 $servername = "localhost";
-$username = "root"; 
-$password = ""; 
+$username = "root";
+$password = "";
 $dbname = "Dmedic";
 
 try {
@@ -11,10 +10,10 @@ try {
 
     $id = $_POST['id'];
 
-    $query = $pdo->prepare("DELETE FROM doctorSchedules WHERE id = ?");
-    $query->execute([$id]);
+    $stmt = $pdo->prepare("DELETE FROM doctorSchedules WHERE id = ?");
+    $stmt->execute([$id]);
 
-    echo "Schedule deleted successfully";
+    echo "Schedule deleted successfully!";
 } catch (PDOException $e) {
     echo "Error: " . $e->getMessage();
 }

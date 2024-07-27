@@ -26,8 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION['patient_id'] = $row['patient_id'];  
             $_SESSION['patient_name'] = $row['first_name'] . ' ' . $row['last_name'];
             echo "Login successful";
-            
-            header("Location: patientDashboard.php"); 
+            header("Location: patientAppointmentForm.php"); 
             exit();
         } else {
             echo "Invalid password";

@@ -16,12 +16,15 @@ $sql->bind_param('s', $doctor_type);
 $sql->execute();
 $result = $sql->get_result();
 
+// Print the "Select Doctors" option once
+echo '<option value="">Select Doctors</option>';
+
 if ($result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {
-        echo '<option value="'.$row['id'].'">'.$row['doctor_name'].'</option>';
+        echo '<option value="'.$row['doctor_id'].'">'.$row['doctor_name'].'</option>';
     }
 } else {
-    echo '<option value="Select">No Doctors Available</option>';
+    echo '<option value="">No Doctors Available</option>';
 }
 
 $sql->close();

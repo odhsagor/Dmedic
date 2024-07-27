@@ -1,47 +1,64 @@
 <?php
 $servername = "localhost";
 $username = "root";
-$password = ""; 
+$password = "";
 $dbname = "Dmedic";
 
-$conn = new mysqli($servername, $username, $password, $dbname);
+try {
+    session_start();
 
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+    if (!isset($_SESSION['patient_id'])) {
+        throw new Exception("User not logged in.");
+    }
+
+    $pdo = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+    
+    $patient_id = $_SESSION['patient_id'];
+    $doctor_id = $_POST['doctor_name'];
+    $first_name = $_POST['first_name'];
+    $last_name = $_POST['last_name'];
+    $email = $_POST['email'];
+    $phone = $_POST['phone'];
+    $doctor_type = $_POST['doctor_type'];
+    $doctor_name = $_POST['doctor_name'];
+    $appointment_date = $_POST['appointment_date'];
+    $appointment_time = $_POST['select_time'];
+
+    
+    $appointment_time_24 = date('H:i', strtotime($appointment_time));
+
+    
+    if (!preg_match('/^([01]\d|2[0-3]):([0-5]\d)$/', $appointment_time_24)) {
+        throw new Exception("Invalid time format. Please enter time in HH:mm format.");
+    }
+
+    
+    $sql = $pdo->prepare("INSERT INTO appointments (patient_id, doctor_id, first_name, last_name, email, phone, doctor_type, doctor_name, appointment_date, appointment_time)
+                           VALUES (:patient_id, :doctor_id, :first_name, :last_name, :email, :phone, :doctor_type, :doctor_name, :appointment_date, :appointment_time)");
+
+    
+    $sql->bindParam(':patient_id', $patient_id, PDO::PARAM_INT);
+    $sql->bindParam(':doctor_id', $doctor_id, PDO::PARAM_INT);
+    $sql->bindParam(':first_name', $first_name, PDO::PARAM_STR);
+    $sql->bindParam(':last_name', $last_name, PDO::PARAM_STR);
+    $sql->bindParam(':email', $email, PDO::PARAM_STR);
+    $sql->bindParam(':phone', $phone, PDO::PARAM_STR);
+    $sql->bindParam(':doctor_type', $doctor_type, PDO::PARAM_STR);
+    $sql->bindParam(':doctor_name', $doctor_name, PDO::PARAM_STR);
+    $sql->bindParam(':appointment_date', $appointment_date, PDO::PARAM_STR);
+    $sql->bindParam(':appointment_time', $appointment_time_24, PDO::PARAM_STR);
+
+    
+    $sql->execute();
+    echo "Appointment successfully booked!";
+    header("Location: ../mdrakibul/patientAppointmentForm.php");
+} catch (PDOException $e) {
+    echo "Database Error: " . $e->getMessage();
+} catch (Exception $e) {
+    echo "Error: " . $e->getMessage();
 }
 
-// Sanitize and validate inputs
-$first_name = filter_input(INPUT_POST, 'first_name', FILTER_SANITIZE_STRING);
-$last_name = filter_input(INPUT_POST, 'last_name', FILTER_SANITIZE_STRING);
-$email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
-$phone = filter_input(INPUT_POST, 'phone', FILTER_SANITIZE_STRING);
-$doctor_id = filter_input(INPUT_POST, 'doctor_name', FILTER_SANITIZE_NUMBER_INT);
-$appointment_date = filter_input(INPUT_POST, 'appointment_date', FILTER_SANITIZE_STRING);
-$select_time = filter_input(INPUT_POST, 'select-time', FILTER_SANITIZE_STRING);
-$consulting_time = filter_input(INPUT_POST, 'consulting-time', FILTER_SANITIZE_STRING);
-$doctor_fees = filter_input(INPUT_POST, 'doctor-fees', FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
-
-if (!$email) {
-    die("Invalid email format.");
-}
-
-// Prepare the SQL statement
-$stmt = $conn->prepare("INSERT INTO appointments (first_name, last_name, email, phone, doctor_id, appointment_date, select_time, consulting_time, doctor_fees) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
-if ($stmt === false) {
-    die("Error preparing the statement: " . $conn->error);
-}
-
-// Bind parameters
-$stmt->bind_param("ssssisssi", $first_name, $last_name, $email, $phone, $doctor_id, $appointment_date, $select_time, $consulting_time, $doctor_fees);
-
-// Execute the statement
-if ($stmt->execute()) {
-    echo "Appointment scheduled successfully";
-} else {
-    echo "Error: " . $stmt->error;
-}
-
-// Close the statement and connection
-$stmt->close();
-$conn->close();
+$pdo = null;
 ?>

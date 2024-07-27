@@ -1,8 +1,7 @@
 <?php
-
 $servername = "localhost";
-$username = "root"; 
-$password = ""; 
+$username = "root";
+$password = "";
 $dbname = "Dmedic";
 
 try {
@@ -10,18 +9,16 @@ try {
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     $doctor_id = $_POST['doctor_id'];
-    $days_of_week = $_POST['days_of_week'];
-    $from_date = $_POST['from_date'];
-    $to_date = $_POST['to_date'];
+    $date = $_POST['date'];
     $start_time = $_POST['start_time'];
     $end_time = $_POST['end_time'];
-    $consulting_time = $_POST['consulting_time'];
+    $room_number = $_POST['room_number'];
     $fees = $_POST['fees'];
 
-    $query = $pdo->prepare("INSERT INTO doctorSchedules (doctor_id, days_of_week, from_date, to_date, start_time, end_time, consulting_time, fees) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
-    $query->execute([$doctor_id, $days_of_week, $from_date, $to_date, $start_time, $end_time, $consulting_time, $fees]);
+    $stmt = $pdo->prepare("INSERT INTO doctorSchedules (doctor_id, date, start_time, end_time, room_number, fees) VALUES (?, ?, ?, ?, ?, ?)");
+    $stmt->execute([$doctor_id, $date, $start_time, $end_time, $room_number, $fees]);
 
-    echo "Schedule saved successfully";
+    echo "Schedule saved successfully!";
 } catch (PDOException $e) {
     echo "Error: " . $e->getMessage();
 }
