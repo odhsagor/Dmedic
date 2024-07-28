@@ -171,12 +171,6 @@ $(document).ready(function(){
     dropdown: true,
     scrollbar: true
 });
-
-
-
-
-
-
 });
 </script>
 
