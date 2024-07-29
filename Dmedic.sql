@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jul 28, 2024 at 07:16 PM
+-- Generation Time: Jul 29, 2024 at 03:22 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -38,21 +38,20 @@ CREATE TABLE `appointments` (
   `doctor_type` varchar(50) DEFAULT NULL,
   `doctor_name` varchar(100) DEFAULT NULL,
   `appointment_date` date DEFAULT NULL,
-  `appointment_time` time DEFAULT NULL
+  `appointment_time` time DEFAULT NULL,
+  `room_number` varchar(10) DEFAULT NULL,
+  `fees` decimal(10,2) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `appointments`
 --
 
-INSERT INTO `appointments` (`appointment_id`, `patient_id`, `doctor_id`, `first_name`, `last_name`, `email`, `phone`, `doctor_type`, `doctor_name`, `appointment_date`, `appointment_time`) VALUES
-(114, 202200, 3030, 'ok', 'pk', 'ok@gmail.com', '0121992111', 'Metabolism', '3030', '2024-07-31', '09:00:00'),
-(115, 202200, 3036, 'okkkkk', 'pkmss', 'osssk@gmail.com', '012199saw2w', 'heart surgeons', '3036', '2024-07-31', '17:00:00'),
-(117, 202200, 3039, 'odh', 'sagormd', 'odhsagormd@gmail.com', '0182381221', 'cardiac geneticists', '3039', '2024-07-27', '11:30:00'),
-(132, 202200, 3037, 'obidul', 'hhuq', 'obidulhuq@gmail.com', '01200012088', 'heart transplant specialists', '3037', '2024-07-30', '11:00:00'),
-(134, 202200, 3031, 'md', 'anik', 'okanik@gmail.com', '109201292', 'Endocrinology', '3031', '2024-07-30', '11:00:00'),
-(214, 202200, 3031, 'md', 'anik', 'okanik@gmail.com', '109201292', 'Endocrinology', '3031', '2024-07-30', '09:00:00'),
-(215, 202200, 3040, 'Sumaiya', 'Khatun', 'sumaiyakhatun@gmail.com', '01239398411', 'fetal cardiologists', '3040', '2024-07-28', '18:00:00');
+INSERT INTO `appointments` (`appointment_id`, `patient_id`, `doctor_id`, `first_name`, `last_name`, `email`, `phone`, `doctor_type`, `doctor_name`, `appointment_date`, `appointment_time`, `room_number`, `fees`) VALUES
+(115, 202203, 3030, 'sumaiya', 'khatun', 'sumaiyakhatun@gmail.com', '01928273763', 'Metabolism', '3030', '2024-07-29', '10:00:00', '2010', 1900.00),
+(116, 202203, 3030, 'begum', 'sanjida', 'sumaiyakhatun@gmail.com', '019283733212', 'Metabolism', '3030', '2024-07-30', '17:30:00', '2010', 1900.00),
+(117, 202204, 3041, 'md', 'Sagor', 'mdsagor@gmail.com', '01301928848', 'Metabolism', '3041', '2024-07-29', '16:30:00', '1009', 1900.00),
+(118, 202200, 3037, 'MD', 'Sagor', 'Mdsagor@gmail.com', '01312304166', 'heart transplant specialists', '3037', '2024-07-30', '17:00:00', '280', 900.00);
 
 -- --------------------------------------------------------
 
@@ -93,7 +92,8 @@ INSERT INTO `doctorregistrations` (`doctor_id`, `title`, `first_name`, `last_nam
 (3038, 'Prof. Dr.', 'md', 'roman', '1998-09-12', 'male', 'Barisal', '126589978899', '124578', 'electrophysiologists', '01645789', 'roma@gmailcom', '$2y$10$fnzTKj5BbVaZrIfyJBXn5.VQukOJdQ.4V8drTb49d/S4MbMtkRTCW', 1),
 (3039, 'Prof', 'md', 'rhaman', '1995-07-08', 'male', 'Bagerhat', '124578986532', '234598', 'cardiac geneticists', '0132456987', 'rhaman@gmail.com', '$2y$10$.2X3I0g/3qotRi7yu6dhzebsb68Kg77oN70gRgpgGpO8qX6QZTa8S', 1),
 (3040, 'Prof. Dr.', 'Md', 'Pagla', '2004-12-04', 'male', 'Satkhira', '12654789655478', '1264789', 'fetal cardiologists', '0165478932', 'pagla@gmail.com', '$2y$10$ya1xEBpRCnwds.wyaInFqugdi5fY7FPPyMvUeojT9nCgpX0ZkqGuK', 1),
-(3041, 'Prof. Dr.', 'MD', 'HASAN', '2024-02-12', 'male', 'Bandarban', '33311212', '1212121', 'Metabolism', '0121929109', 'mdhasan@gmail.com', '$2y$10$EgZXpCqQoGTMyQOk/DC8/eb3uK6R8l.L90JWdbIUJrnI8yYgQQryO', 1);
+(3041, 'Prof. Dr.', 'MD', 'HASAN', '2024-02-12', 'male', 'Bandarban', '33311212', '1212121', 'Metabolism', '0121929109', 'mdhasan@gmail.com', '$2y$10$EgZXpCqQoGTMyQOk/DC8/eb3uK6R8l.L90JWdbIUJrnI8yYgQQryO', 1),
+(3042, 'Prof. Dr.', 'Ashan', 'Ullah', '1991-05-07', 'male', 'Lakshmipur', '290309938', '98188891', 'heart surgeons', '0198200102', 'ashanullah@gmail.com', '$2y$10$tRu0Wuigj5g2aMmJF75Etuadc0FLfKrs3Yej8PMCSko.k8Uj5fWSy', 0);
 
 -- --------------------------------------------------------
 
@@ -158,6 +158,34 @@ INSERT INTO `patientregistrations` (`patient_id`, `first_name`, `last_name`, `ho
 (202203, 'sumaiya ', 'khatun', '120', '5', 'Dhaka', '2000-05-01', 'female', 'sumaiyakhatun@gmail.com', '01572823801', '$2y$10$zlnSPE..aEPlR10K2DIA/ueFAKSATMIU96f2wMSNgK6T7q3jMCsTW'),
 (202204, 'Nasokota', 'girl', '120', '5', 'Dhaka,', '2000-05-01', 'female', 'khatunsumaiya@gmail.com', '01972823728', '$2y$10$nT8LaEHD08meGj/4A7gN4.vvQxFEKh31W0wMtLvn7OnFYBt8vv8wW');
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `prescriptions`
+--
+
+CREATE TABLE `prescriptions` (
+  `prescription_id` int(2) UNSIGNED ZEROFILL NOT NULL,
+  `appointment_id` int(3) UNSIGNED ZEROFILL DEFAULT NULL,
+  `doctor_id` int(4) UNSIGNED ZEROFILL DEFAULT NULL,
+  `patient_id` int(6) UNSIGNED DEFAULT NULL,
+  `doctor_name` varchar(255) DEFAULT NULL,
+  `doctor_type` varchar(50) DEFAULT NULL,
+  `patient_name` varchar(255) DEFAULT NULL,
+  `prescription_text` text NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `prescriptions`
+--
+
+INSERT INTO `prescriptions` (`prescription_id`, `appointment_id`, `doctor_id`, `patient_id`, `doctor_name`, `doctor_type`, `patient_name`, `prescription_text`, `created_at`) VALUES
+(44, 117, 3041, 202204, 'MD HASAN', 'Metabolism', 'md Sagor', 'oksjsjs', '2024-07-29 11:30:24'),
+(45, 117, 3041, 202204, 'MD HASAN', 'Metabolism', 'md Sagor', 'AKAJA', '2024-07-29 11:30:34'),
+(46, 117, 3041, 202204, 'MD HASAN', 'Metabolism', 'md Sagor', 'Napa 500 mg\r\n1+1+1\r\nDocopa 250 mg\r\n1+1+0', '2024-07-29 12:05:15'),
+(47, 118, 3037, 202200, 'Rabbi Sharkar', 'heart transplant specialists', 'MD Sagor', 'Napa 500 mg 1+1+1\r\nTitinas 50 mg 0+0+1', '2024-07-29 13:20:57');
+
 --
 -- Indexes for dumped tables
 --
@@ -192,6 +220,15 @@ ALTER TABLE `patientregistrations`
   ADD UNIQUE KEY `email` (`email`);
 
 --
+-- Indexes for table `prescriptions`
+--
+ALTER TABLE `prescriptions`
+  ADD PRIMARY KEY (`prescription_id`),
+  ADD KEY `fk_prescriptions_appointment_id` (`appointment_id`),
+  ADD KEY `fk_prescriptions_doctor_id` (`doctor_id`),
+  ADD KEY `fk_prescriptions_patient_id` (`patient_id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -199,13 +236,13 @@ ALTER TABLE `patientregistrations`
 -- AUTO_INCREMENT for table `appointments`
 --
 ALTER TABLE `appointments`
-  MODIFY `appointment_id` int(3) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=216;
+  MODIFY `appointment_id` int(3) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=119;
 
 --
 -- AUTO_INCREMENT for table `doctorregistrations`
 --
 ALTER TABLE `doctorregistrations`
-  MODIFY `doctor_id` int(4) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3042;
+  MODIFY `doctor_id` int(4) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3043;
 
 --
 -- AUTO_INCREMENT for table `doctorSchedules`
@@ -218,6 +255,12 @@ ALTER TABLE `doctorSchedules`
 --
 ALTER TABLE `patientregistrations`
   MODIFY `patient_id` int(6) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=202205;
+
+--
+-- AUTO_INCREMENT for table `prescriptions`
+--
+ALTER TABLE `prescriptions`
+  MODIFY `prescription_id` int(2) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
 
 --
 -- Constraints for dumped tables
@@ -235,6 +278,14 @@ ALTER TABLE `appointments`
 --
 ALTER TABLE `doctorSchedules`
   ADD CONSTRAINT `fk_doctor_id` FOREIGN KEY (`doctor_id`) REFERENCES `doctorregistrations` (`doctor_id`);
+
+--
+-- Constraints for table `prescriptions`
+--
+ALTER TABLE `prescriptions`
+  ADD CONSTRAINT `fk_prescriptions_appointment_id` FOREIGN KEY (`appointment_id`) REFERENCES `appointments` (`appointment_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `fk_prescriptions_doctor_id` FOREIGN KEY (`doctor_id`) REFERENCES `doctorRegistrations` (`doctor_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `fk_prescriptions_patient_id` FOREIGN KEY (`patient_id`) REFERENCES `patientRegistrations` (`patient_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

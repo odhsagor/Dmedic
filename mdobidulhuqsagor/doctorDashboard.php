@@ -55,7 +55,7 @@ $doctor_id = $_SESSION['doctor_id'];
                 <div class="collapse navbar-collapse" id="navbarsExample09">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item"><a class="nav-link" href="doctorDashboard.php">Dashboard</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">Reports</a></li>
+                        <li class="nav-item"><a class="nav-link" href="patientMedicalReport.php">Reports</a></li>
                         <li  class="nav-item last"><i style="padding:0 0.5rem;" class="fa-solid fa-user"></i><a class="nav-link" href="#"> <?php echo $doctor_name; ?></a></li>
                         <li class="nav-item"><a class="nav-link" href="docELogin.php">Logout</a></li>
                     </ul>
@@ -105,7 +105,46 @@ $doctor_id = $_SESSION['doctor_id'];
                 
             </ul>
         </div>
+
+        <button type="button" class="btn btn-primary" onclick="window.location.href='doctorViewAppointments.php'">Patient Appointment</button>
+
     </div>
+    <footer>
+<div class="footer-top">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4">
+                    <h3>About Us</h3>
+                    <p>Dmadic is committed to providing the best medical care. Our team of experts is here to help you with all your health needs.</p>
+                </div>
+                <div class="col-lg-4">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Services</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4">
+                    <h3>Contact Us</h3>
+                    <p><i class="icofont-location-pin"></i> Dhaka, Bangladesh</p>
+                    <p><i class="icofont-phone"></i> 880 26566</p>
+                    <p><i class="icofont-envelope"></i> support@dmadic.com</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                 &copy; 2024, Designed & Developed by <a target="_blank">Sagor</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
 
     <script>
     function showManageSchedules() {

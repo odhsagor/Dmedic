@@ -24,14 +24,69 @@ $patient_id = $_SESSION['patient_id'];
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-timepicker/1.13.18/jquery.timepicker.min.js"></script>
 </head>
 <body>
+<body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Styled Button Example</title>
+    <style>
+        /* Styling the button */
+        .view-appointment-btn {
+            display: inline-block;
+            padding: 10px 230px;
+            font-size: 16px;
+            font-weight: bold;
+            color: #fff;
+            background-color: #4CAF50; /* Green background */
+            border: none;
+            border-radius: 10px;
+            text-align: center;
+            text-decoration: none;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        /* Adding hover effects */
+        .view-appointment-btn:hover {
+            background-color: #45a049; /* Darker green */
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Adding focus effects for accessibility */
+        .view-appointment-btn:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.4);
+        }
+
+        /* Adding active state effects */
+        .view-appointment-btn:active {
+            background-color: #3e8e41;
+            transform: translateY(0);
+            box-shadow: none;
+        }
+    </style>
+</head>
+
+
 <header>
     <div class="header-top-bar">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-6">
                     <ul class="top-bar-info list-inline-item pl-0 mb-0">
-                        <li class="list-inline-item"><a href="mailto:support@dmadic.com"><i class="icofont-support-faq mr-2"></i>support@dmadic.com</a></li>
-                        <li class="list-inline-item"><i class="icofont-location-pin mr-2"></i>Dmadic</li>
+                        <li class="list-inline-item">
+                            <a href="javascript:history.back()">
+                                <i class="icofont-rounded-left mr-2"></i>Back
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="mailto:support@dmadic.com">
+                                <i class="icofont-support-faq mr-2"></i>support@dmadic.com
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <i class="icofont-location-pin mr-2"></i>Dmadic
+                        </li>
                     </ul>
                 </div>
                 <div class="col-lg-6">
@@ -46,6 +101,7 @@ $patient_id = $_SESSION['patient_id'];
         </div>
     </div>
 </header>
+
 <div class="main-container">
     <div class="line">
         <h1>Patient Appointment Form</h1>
@@ -90,6 +146,7 @@ $patient_id = $_SESSION['patient_id'];
         </div>
         <button type="submit">Get Appointment</button>
     </form>
+    <a href="../mdobidulhuqsagor/patientViewAppointment.php" class="btn view-appointment-btn">View Appointment</a>
 </div>
 
 <footer>

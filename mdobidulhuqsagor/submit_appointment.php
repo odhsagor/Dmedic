@@ -14,7 +14,6 @@ try {
     $pdo = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    
     $patient_id = $_SESSION['patient_id'];
     $doctor_id = $_POST['doctor_name'];
     $first_name = $_POST['first_name'];
@@ -26,19 +25,25 @@ try {
     $appointment_date = $_POST['appointment_date'];
     $appointment_time = $_POST['select_time'];
 
-    
     $appointment_time_24 = date('H:i', strtotime($appointment_time));
 
-    
     if (!preg_match('/^([01]\d|2[0-3]):([0-5]\d)$/', $appointment_time_24)) {
         throw new Exception("Invalid time format. Please enter time in HH:mm format.");
     }
 
-    
-    $sql = $pdo->prepare("INSERT INTO appointments (patient_id, doctor_id, first_name, last_name, email, phone, doctor_type, doctor_name, appointment_date, appointment_time)
-                           VALUES (:patient_id, :doctor_id, :first_name, :last_name, :email, :phone, :doctor_type, :doctor_name, :appointment_date, :appointment_time)");
+    $stmt = $pdo->prepare("SELECT room_number, fees FROM doctorSchedules WHERE doctor_id = :doctor_id");
+    $stmt->bindParam(':doctor_id', $doctor_id, PDO::PARAM_INT);
+    $stmt->execute();
+    $schedule = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    
+
+    $room_number = $schedule['room_number'];
+    $fees = $schedule['fees'];
+
+   
+    $sql = $pdo->prepare("INSERT INTO appointments (patient_id, doctor_id, first_name, last_name, email, phone, doctor_type, doctor_name, appointment_date, appointment_time, room_number, fees)
+                           VALUES (:patient_id, :doctor_id, :first_name, :last_name, :email, :phone, :doctor_type, :doctor_name, :appointment_date, :appointment_time, :room_number, :fees)");
+
     $sql->bindParam(':patient_id', $patient_id, PDO::PARAM_INT);
     $sql->bindParam(':doctor_id', $doctor_id, PDO::PARAM_INT);
     $sql->bindParam(':first_name', $first_name, PDO::PARAM_STR);
@@ -49,8 +54,9 @@ try {
     $sql->bindParam(':doctor_name', $doctor_name, PDO::PARAM_STR);
     $sql->bindParam(':appointment_date', $appointment_date, PDO::PARAM_STR);
     $sql->bindParam(':appointment_time', $appointment_time_24, PDO::PARAM_STR);
+    $sql->bindParam(':room_number', $room_number, PDO::PARAM_STR);
+    $sql->bindParam(':fees', $fees, PDO::PARAM_STR);
 
-    
     $sql->execute();
     echo "Appointment successfully booked!";
     header("Location: ../mdrakibul/patientAppointmentForm.php");
