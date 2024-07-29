@@ -1,5 +1,5 @@
 <?php
-require('fpdf.php');
+require('../FPDF/fpdf.php');
 
 $servername = "localhost";
 $username = "root";
@@ -33,7 +33,7 @@ if (isset($_GET['generate_pdf']) && $_GET['generate_pdf'] == 1) {
     {
         function Header()
         {
-            // Empty, as we'll add custom header later
+            
         }
 
         function Footer()
@@ -48,16 +48,16 @@ if (isset($_GET['generate_pdf']) && $_GET['generate_pdf'] == 1) {
     $pdf->AddPage();
     $pdf->SetFont('Arial', 'B', 12);
 
-    // Adding each prescription to the PDF
+    
     foreach ($prescriptions as $prescription) {
         $pdf->SetFont('Arial', 'B', 12);
         
-        // Doctor's details on the left
+        
         $pdf->Cell(0, 10, 'Doctor Name: Dr. ' . htmlspecialchars($prescription['doctor_first_name'] . ' ' . $prescription['doctor_last_name']), 0, 1, 'L');
         $pdf->Cell(0, 10, 'Doctor Type: ' . htmlspecialchars($prescription['doctor_type']), 0, 1, 'L');
         $pdf->Cell(0, 10, 'Doctor ID: ' . htmlspecialchars($prescription['doctor_id']), 0, 1, 'L');
         
-        // Move the cursor to the right for patient details
+        
         $pdf->SetXY(130, 10);
         $pdf->Cell(0, 10, 'Patient Name: ' . htmlspecialchars($patient_name), 0, 1, 'R');
         $pdf->SetXY(130, 20);
@@ -65,13 +65,13 @@ if (isset($_GET['generate_pdf']) && $_GET['generate_pdf'] == 1) {
         $pdf->SetXY(130, 30);
         $pdf->Cell(0, 10, 'Patient ID: ' . htmlspecialchars($patient_id), 0, 1, 'R');
         
-        // Reset cursor
+        
         $pdf->SetXY(10, 40);
-        // Line separator
+       
         $pdf->Cell(0, 10, '', 'T', 1, 'L');
         $pdf->Ln(5);
 
-        // Prescription Text
+        
         $pdf->SetFont('Arial', '', 12);
         $pdf->MultiCell(0, 10, 'Prescription Text: ' . htmlspecialchars($prescription['prescription_text']));
         $pdf->Ln(10);

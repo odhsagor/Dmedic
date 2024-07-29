@@ -1,5 +1,5 @@
 <?php
-require('fpdf.php');
+require('../FPDF/fpdf.php');
 
 $servername = "localhost";
 $username = "root";
@@ -15,7 +15,7 @@ if (!isset($_SESSION['doctor_id'])) {
 
 $doctor_id = $_SESSION['doctor_id'];
 
-// Get patient_id and patient_name from session or request (make sure these values are set)
+
 $patient_id = $_SESSION['patient_id'] ?? null;
 $patient_name = $_SESSION['patient_name'] ?? null;
 
@@ -26,7 +26,7 @@ if (!$patient_id || !$patient_name) {
 $pdo = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
 $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-// Fetch prescriptions for the patient
+
 $sql = $pdo->prepare("SELECT p.prescription_id, p.prescription_text, p.created_at, a.doctor_id, a.appointment_id, d.first_name AS doctor_first_name, d.last_name AS doctor_last_name, d.doctor_type
                       FROM prescriptions p
                       JOIN appointments a ON p.appointment_id = a.appointment_id
@@ -59,12 +59,12 @@ if (isset($_GET['generate_pdf']) && $_GET['generate_pdf'] == 1) {
     foreach ($prescriptions as $prescription) {
         $pdf->SetFont('Arial', 'B', 12);
 
-        // Doctor's details on the left
+        
         $pdf->Cell(0, 10, 'Doctor Name: Dr. ' . htmlspecialchars($prescription['doctor_first_name'] . ' ' . $prescription['doctor_last_name']), 0, 1, 'L');
         $pdf->Cell(0, 10, 'Doctor Type: ' . htmlspecialchars($prescription['doctor_type']), 0, 1, 'L');
         $pdf->Cell(0, 10, 'Doctor ID: ' . htmlspecialchars($prescription['doctor_id']), 0, 1, 'L');
 
-        // Move the cursor to the right for patient details
+        
         $pdf->SetXY(130, 10);
         $pdf->Cell(0, 10, 'Patient Name: ' . htmlspecialchars($patient_name), 0, 1, 'R');
         $pdf->SetXY(130, 20);
@@ -72,13 +72,13 @@ if (isset($_GET['generate_pdf']) && $_GET['generate_pdf'] == 1) {
         $pdf->SetXY(130, 30);
         $pdf->Cell(0, 10, 'Patient ID: ' . htmlspecialchars($patient_id), 0, 1, 'R');
 
-        // Reset cursor
+        
         $pdf->SetXY(10, 40);
-        // Line separator
+       
         $pdf->Cell(0, 10, '', 'T', 1, 'L');
         $pdf->Ln(5);
 
-        // Prescription Text
+        
         $pdf->SetFont('Arial', '', 12);
         $pdf->MultiCell(0, 10, 'Prescription Text: ' . htmlspecialchars($prescription['prescription_text']));
         $pdf->Ln(10);
