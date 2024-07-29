@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jul 29, 2024 at 03:22 PM
+-- Generation Time: Jul 29, 2024 at 07:16 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -156,7 +156,8 @@ INSERT INTO `patientregistrations` (`patient_id`, `first_name`, `last_name`, `ho
 (202200, 'ODH', 'SAGOR', '293', '12', 'Bashundhara R/A', '2002-05-07', 'male', 'odhsagor@gmail.com', '01230303911', '$2y$10$ClEknm1xEuYZuWwabwP8/Obd4ap/2r9sIa9yKjcHNq7yaJfAFijHm'),
 (202202, 'Rakib', 'Hasan', '201', '12', 'Dhaka', '1998-07-18', 'male', 'rakibhasan@gmail.com', '0192838212', '$2y$10$4g04.xA9td5UHiHX8l9erOnzYSEhkoJBJUOPeaDEIVWxEK0HL1eeO'),
 (202203, 'sumaiya ', 'khatun', '120', '5', 'Dhaka', '2000-05-01', 'female', 'sumaiyakhatun@gmail.com', '01572823801', '$2y$10$zlnSPE..aEPlR10K2DIA/ueFAKSATMIU96f2wMSNgK6T7q3jMCsTW'),
-(202204, 'Nasokota', 'girl', '120', '5', 'Dhaka,', '2000-05-01', 'female', 'khatunsumaiya@gmail.com', '01972823728', '$2y$10$nT8LaEHD08meGj/4A7gN4.vvQxFEKh31W0wMtLvn7OnFYBt8vv8wW');
+(202204, 'Nasokota', 'girl', '120', '5', 'Dhaka,', '2000-05-01', 'female', 'khatunsumaiya@gmail.com', '01972823728', '$2y$10$nT8LaEHD08meGj/4A7gN4.vvQxFEKh31W0wMtLvn7OnFYBt8vv8wW'),
+(202205, 'A. H. M. ', 'Imtiaj', '111(A)', '1', 'Noakhali', '2005-01-28', 'male', 'ahmimtiaj@gmail.com', '0131929101', '$2y$10$SeTn7wye/59wlAl2m6pTu.K/UjICbcb9szBOTR96l2rZ0S9ziOjb.');
 
 -- --------------------------------------------------------
 
@@ -254,7 +255,7 @@ ALTER TABLE `doctorSchedules`
 -- AUTO_INCREMENT for table `patientregistrations`
 --
 ALTER TABLE `patientregistrations`
-  MODIFY `patient_id` int(6) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=202205;
+  MODIFY `patient_id` int(6) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=202206;
 
 --
 -- AUTO_INCREMENT for table `prescriptions`
