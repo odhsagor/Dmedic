@@ -35,7 +35,7 @@ try {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../mdrakibul/cssrakib/patientAppoinmentFrom.css">
+    <link rel="stylesheet" href="../css/patientMedicalReport.css">
     <title>View Patient Appointments</title>
     <style>
         body {
@@ -111,38 +111,34 @@ try {
     </style>
 </head>
 <body>
-    <header>
+<header>
         <div class="header-top-bar">
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-lg-6">
                         <ul class="top-bar-info list-inline-item pl-0 mb-0">
-                            <li class="list-inline-item">
-                                <a href="javascript:history.back()">
-                                    <i class="icofont-rounded-left mr-2"></i>Back
-                                </a>
-                            </li>
-                            <li class="list-inline-item">
-                                <a href="mailto:support@dmadic.com">
-                                    <i class="icofont-support-faq mr-2"></i>support@dmadic.com
-                                </a>
-                            </li>
-                            <li class="list-inline-item">
-                                <i class="icofont-location-pin mr-2"></i>Dmadic
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="text-lg-right top-right-bar mt-2 mt-lg-0">
-                            <a href="tel:+23-345-67890">
+                            <li class="list-inline-item"><a href="mailto:support@dmadic.com"><i class="icofont-support-faq mr-2"></i>support@dmadic.com</a></li>
+                            <li class="list-inline-item"><i class="icofont-location-pin mr-2"></i>Dmadic</li>
+                            <a href="tel:+26566">
                                 <span>Call Now : </span>
                                 <span class="h4">26566</span>
                             </a>
-                        </div>
+                        </ul>
+                    </div>    
                     </div>
                 </div>
             </div>
-        </div>
+        <nav class="navbar navbar-expand-lg navigation" id="navbar">
+            <div class="container">
+                <div class="collapse navbar-collapse" id="navbarsExample09">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item"><a class="nav-link" href="doctorDashboard.php">Dashboard</a></li>
+                        <li class="nav-item"><a class="nav-link" href="patientMedicalReport.php">Reports</a></li>
+                        <li class="nav-item"><a class="nav-link" href="docELogin.php">Logout</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
     </header>
 
     <div class="main-container">

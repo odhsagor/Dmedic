@@ -32,7 +32,6 @@ try {
         throw new Exception("Appointment not found.");
     }
 
-    // Fetch doctor and patient details
     $doctor_name = $appointment['doctor_first_name'] . ' ' . $appointment['doctor_last_name'];
     $doctor_type = $appointment['doctor_type'];
     $patient_name = $appointment['patient_first_name'] . ' ' . $appointment['patient_last_name'];
@@ -41,16 +40,20 @@ try {
         $prescriptions = $_POST['prescription'];
 
         foreach ($prescriptions as $prescription) {
-            $sql = $pdo->prepare("INSERT INTO prescriptions (appointment_id, doctor_id, patient_id, doctor_name, doctor_type, patient_name, prescription_text)
-                                  VALUES (:appointment_id, :doctor_id, :patient_id, :doctor_name, :doctor_type, :patient_name, :prescription_text)");
-            $sql->bindParam(':appointment_id', $appointment_id, PDO::PARAM_INT);
-            $sql->bindParam(':doctor_id', $doctor_id, PDO::PARAM_INT);
-            $sql->bindParam(':patient_id', $appointment['patient_id'], PDO::PARAM_INT);
-            $sql->bindParam(':doctor_name', $doctor_name, PDO::PARAM_STR);
-            $sql->bindParam(':doctor_type', $doctor_type, PDO::PARAM_STR);
-            $sql->bindParam(':patient_name', $patient_name, PDO::PARAM_STR);
-            $sql->bindParam(':prescription_text', $prescription, PDO::PARAM_STR);
-            $sql->execute();
+            if (!empty($prescription)) {
+                $sql = $pdo->prepare("INSERT INTO prescriptions (appointment_id, doctor_id, patient_id, doctor_name, doctor_type, patient_name, prescription_text)
+                                      VALUES (:appointment_id, :doctor_id, :patient_id, :doctor_name, :doctor_type, :patient_name, :prescription_text)");
+                $sql->bindParam(':appointment_id', $appointment_id, PDO::PARAM_INT);
+                $sql->bindParam(':doctor_id', $doctor_id, PDO::PARAM_INT);
+                $sql->bindParam(':patient_id', $appointment['patient_id'], PDO::PARAM_INT);
+                $sql->bindParam(':doctor_name', $doctor_name, PDO::PARAM_STR);
+                $sql->bindParam(':doctor_type', $doctor_type, PDO::PARAM_STR);
+                $sql->bindParam(':patient_name', $patient_name, PDO::PARAM_STR);
+                $sql->bindParam(':prescription_text', $prescription, PDO::PARAM_STR);
+                $sql->execute();
+            } else {
+                echo "Empty prescription text detected.";
+            }
         }
 
         echo "Prescriptions successfully submitted!";
@@ -66,9 +69,6 @@ try {
 $pdo = null;
 ?>
 
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -81,75 +81,6 @@ $pdo = null;
             margin: 0;
             padding: 0;
             background-color: #f4f4f4;
-        }
-
-        header .header-top-bar {
-            background-color: #007bff;
-            padding: 10px 0;
-            color: white;
-        }
-
-        .header-top-bar .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .header-top-bar .top-bar-info {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .header-top-bar .top-bar-info li {
-            display: inline;
-            margin-right: 20px;
-        }
-
-        .header-top-bar .top-bar-info li a {
-            color: white;
-            text-decoration: none;
-            font-size: 14px;
-        }
-
-        .header-top-bar .top-bar-info li a:hover {
-            text-decoration: underline;
-        }
-
-        .header-top-bar .top-bar-info li i {
-            margin-right: 5px;
-        }
-
-        .header-top-bar .top-right-bar {
-            display: flex;
-            justify-content: flex-end;
-            align-items: center;
-        }
-
-        .header-top-bar .top-right-bar a {
-            color: white;
-            text-decoration: none;
-            font-size: 14px;
-            display: flex;
-            align-items: center;
-        }
-
-        .header-top-bar .top-right-bar a span {
-            margin-right: 5px;
-        }
-
-        .header-top-bar .top-right-bar a:hover {
-            text-decoration: underline;
-        }
-
-        footer {
-            background-color: #007bff;
-            color: white;
-            text-align: center;
-            padding: 10px 0;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
         }
 
         .prescription-form {
@@ -226,40 +157,6 @@ $pdo = null;
     </script>
 </head>
 <body>
-    <header>
-        <div class="header-top-bar">
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-lg-6">
-                        <ul class="top-bar-info list-inline-item pl-0 mb-0">
-                            <li class="list-inline-item">
-                                <a href="javascript:history.back()">
-                                    <i class="icofont-rounded-left mr-2"></i>Back
-                                </a>
-                            </li>
-                            <li class="list-inline-item">
-                                <a href="mailto:support@dmadic.com">
-                                    <i class="icofont-support-faq mr-2"></i>support@dmadic.com
-                                </a>
-                            </li>
-                            <li class="list-inline-item">
-                                <i class="icofont-location-pin mr-2"></i>Dmadic
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="text-lg-right top-right-bar mt-2 mt-lg-0">
-                            <a href="tel:+23-345-67890">
-                                <span>Call Now : </span>
-                                <span class="h4">26566</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
-
     <div class="prescription-form">
         <div class="header">
             <div>
@@ -280,13 +177,10 @@ $pdo = null;
                 </div>
             </div>
             <div class="buttons-container">
+                <button type="button" onclick="addPrescriptionBox()">Add More</button>
                 <button type="submit">Submit Prescription</button>
             </div>
         </form>
     </div>
-
-    <footer>
-        <p>&copy; 2024 Dmadic. All rights reserved.</p>
-    </footer>
 </body>
 </html>
