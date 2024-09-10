@@ -1,4 +1,4 @@
-/* General Styles */
+
 body {
     font-family: Arial, sans-serif;
     background-color: #f8f9fa;
@@ -6,7 +6,7 @@ body {
     padding: 0;
 }
 
-/* Header Styles */
+
 .header-top-bar {
     background-color: #004d00;
     padding: 10px 0;
@@ -147,7 +147,7 @@ h1 {
     color: #004d00;
 }
 
-/* Footer Styles */
+
 footer {
     background-color: #1a633f;
     color: #ffffff;

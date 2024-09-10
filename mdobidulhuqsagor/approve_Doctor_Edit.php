@@ -25,7 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $mobile_number = $_POST['mobile_number'];
     $email = $_POST['email'];
 
-    // Prepare the SQL statement
+    //SQL statement
     $stmt = $conn->prepare("UPDATE doctorRegistrations SET 
                 title = ?, 
                 first_name = ?, 

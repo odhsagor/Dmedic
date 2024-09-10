@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jul 29, 2024 at 07:16 PM
+-- Generation Time: Sep 10, 2024 at 03:51 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -51,7 +51,12 @@ INSERT INTO `appointments` (`appointment_id`, `patient_id`, `doctor_id`, `first_
 (115, 202203, 3030, 'sumaiya', 'khatun', 'sumaiyakhatun@gmail.com', '01928273763', 'Metabolism', '3030', '2024-07-29', '10:00:00', '2010', 1900.00),
 (116, 202203, 3030, 'begum', 'sanjida', 'sumaiyakhatun@gmail.com', '019283733212', 'Metabolism', '3030', '2024-07-30', '17:30:00', '2010', 1900.00),
 (117, 202204, 3041, 'md', 'Sagor', 'mdsagor@gmail.com', '01301928848', 'Metabolism', '3041', '2024-07-29', '16:30:00', '1009', 1900.00),
-(118, 202200, 3037, 'MD', 'Sagor', 'Mdsagor@gmail.com', '01312304166', 'heart transplant specialists', '3037', '2024-07-30', '17:00:00', '280', 900.00);
+(118, 202200, 3037, 'MD', 'Sagor', 'Mdsagor@gmail.com', '01312304166', 'heart transplant specialists', '3037', '2024-07-30', '17:00:00', '280', 900.00),
+(119, 202205, 3036, 'A. H. M.', 'Imtiaj', 'ahmimtiaj@gmail.com', '01312304166', 'heart surgeons', '3036', '2024-07-30', '17:00:00', NULL, NULL),
+(120, 202206, 3030, 'wwsws', 'wsws', 'wswswss@bjhjh.com', 'wswsws', 'Metabolism', '3030', '2024-07-31', '09:00:00', '2010', 1900.00),
+(121, 202206, 3038, 'okk', 'okk', 'okk@gmail.com', '018210210210', 'electrophysiologists', '3038', '2024-08-01', '09:00:00', '201', 1900.00),
+(122, 202206, 3038, 'Roman', 'ahmed', 'romanahmed@gmail.com', '018210219099', 'electrophysiologists', '3038', '2024-08-20', '17:00:00', '201', 1900.00),
+(123, 202200, 3038, 'odh', 'sagor', 'odhsagor@gmail.com', '01903810929', 'electrophysiologists', '3038', '2024-08-02', '11:30:00', '201', 1900.00);
 
 -- --------------------------------------------------------
 
@@ -157,7 +162,41 @@ INSERT INTO `patientregistrations` (`patient_id`, `first_name`, `last_name`, `ho
 (202202, 'Rakib', 'Hasan', '201', '12', 'Dhaka', '1998-07-18', 'male', 'rakibhasan@gmail.com', '0192838212', '$2y$10$4g04.xA9td5UHiHX8l9erOnzYSEhkoJBJUOPeaDEIVWxEK0HL1eeO'),
 (202203, 'sumaiya ', 'khatun', '120', '5', 'Dhaka', '2000-05-01', 'female', 'sumaiyakhatun@gmail.com', '01572823801', '$2y$10$zlnSPE..aEPlR10K2DIA/ueFAKSATMIU96f2wMSNgK6T7q3jMCsTW'),
 (202204, 'Nasokota', 'girl', '120', '5', 'Dhaka,', '2000-05-01', 'female', 'khatunsumaiya@gmail.com', '01972823728', '$2y$10$nT8LaEHD08meGj/4A7gN4.vvQxFEKh31W0wMtLvn7OnFYBt8vv8wW'),
-(202205, 'A. H. M. ', 'Imtiaj', '111(A)', '1', 'Noakhali', '2005-01-28', 'male', 'ahmimtiaj@gmail.com', '0131929101', '$2y$10$SeTn7wye/59wlAl2m6pTu.K/UjICbcb9szBOTR96l2rZ0S9ziOjb.');
+(202205, 'A. H. M. ', 'Imtiaj', '111(A)', '1', 'Noakhali', '2005-01-28', 'male', 'ahmimtiaj@gmail.com', '0131929101', '$2y$10$SeTn7wye/59wlAl2m6pTu.K/UjICbcb9szBOTR96l2rZ0S9ziOjb.'),
+(202206, 'Imtiaj', 'Anik', '391', '15', 'Boshundhara', '2000-11-30', 'male', 'anik@gamil.com', '01775989897', '$2y$10$H37oyV6MdAp3VVEaovRkgOTKW4wz2vX9.uQxGboYV8FLK7HIF.Xoq');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `patient_health_data`
+--
+
+CREATE TABLE `patient_health_data` (
+  `id` int(11) NOT NULL,
+  `patient_id` int(10) UNSIGNED NOT NULL,
+  `blood_glucose` decimal(5,2) NOT NULL,
+  `insulin_dosage` varchar(255) NOT NULL,
+  `medication_intake` varchar(255) NOT NULL,
+  `physical_activity` varchar(255) NOT NULL,
+  `dietary_intake` varchar(255) NOT NULL,
+  `weight` decimal(5,2) NOT NULL,
+  `symptoms` varchar(255) NOT NULL,
+  `bmi` decimal(4,2) NOT NULL,
+  `blood_pressure` varchar(20) NOT NULL,
+  `heart_rate` int(11) NOT NULL,
+  `sleep_duration` decimal(4,2) NOT NULL,
+  `water_intake` decimal(4,2) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `patient_health_data`
+--
+
+INSERT INTO `patient_health_data` (`id`, `patient_id`, `blood_glucose`, `insulin_dosage`, `medication_intake`, `physical_activity`, `dietary_intake`, `weight`, `symptoms`, `bmi`, `blood_pressure`, `heart_rate`, `sleep_duration`, `water_intake`, `created_at`) VALUES
+(1, 202200, 12.00, '22', '21', '22', '22', 56.00, 'Fever', 21.00, '12', 22, 12.00, 5.00, '2024-09-04 14:38:06'),
+(2, 202200, 140.00, '22', '21', '22', '22', 56.00, 'Fever', 21.00, '12', 22, 12.00, 5.00, '2024-09-04 15:51:30'),
+(3, 202200, 140.00, '22', '21', '22', '22', 56.00, 'Fever', 21.00, '12', 120, 12.00, 5.00, '2024-09-05 17:20:00');
 
 -- --------------------------------------------------------
 
@@ -185,7 +224,23 @@ INSERT INTO `prescriptions` (`prescription_id`, `appointment_id`, `doctor_id`, `
 (44, 117, 3041, 202204, 'MD HASAN', 'Metabolism', 'md Sagor', 'oksjsjs', '2024-07-29 11:30:24'),
 (45, 117, 3041, 202204, 'MD HASAN', 'Metabolism', 'md Sagor', 'AKAJA', '2024-07-29 11:30:34'),
 (46, 117, 3041, 202204, 'MD HASAN', 'Metabolism', 'md Sagor', 'Napa 500 mg\r\n1+1+1\r\nDocopa 250 mg\r\n1+1+0', '2024-07-29 12:05:15'),
-(47, 118, 3037, 202200, 'Rabbi Sharkar', 'heart transplant specialists', 'MD Sagor', 'Napa 500 mg 1+1+1\r\nTitinas 50 mg 0+0+1', '2024-07-29 13:20:57');
+(47, 118, 3037, 202200, 'Rabbi Sharkar', 'heart transplant specialists', 'MD Sagor', 'Napa 500 mg 1+1+1\r\nTitinas 50 mg 0+0+1', '2024-07-29 13:20:57'),
+(48, 119, 3036, 202205, 'sadia khanam', 'heart surgeons', 'A. H. M. Imtiaj', 'Flexi 200 mg\r\n1+1+1\r\nVirux Tablet 400 mg\r\n1+1+1', '2024-07-30 16:01:54'),
+(49, 120, 3030, 202206, 'ODH SAGOR', 'Metabolism', 'ANIK', 'Napa kahio sthe ek glass pani.', '2024-07-31 17:11:06'),
+(50, 115, 3030, 202203, 'ODH SAGOR', 'Metabolism', 'sumaiya khatun', 'Take sleep 8 Hours. and walk\r\n', '2024-07-31 18:05:24'),
+(51, 115, 3030, 202203, 'ODH SAGOR', 'Metabolism', 'sumaiya khatun', 'ok', '2024-07-31 18:07:07'),
+(52, 116, 3030, 202203, 'ODH SAGOR', 'Metabolism', 'begum sanjida', 'ookkk', '2024-07-31 18:07:44'),
+(53, 121, 3038, 202206, 'md roman', 'electrophysiologists', 'okk okk', 'ok\r\n', '2024-07-31 18:10:06'),
+(54, 122, 3038, 202206, 'md roman', 'electrophysiologists', 'Roman ahmed', 'go and sleep', '2024-07-31 18:18:39'),
+(55, 123, 3038, 202200, 'md roman', 'electrophysiologists', 'odh sagor', 'ok', '2024-07-31 18:24:48'),
+(56, 121, 3038, 202206, 'md roman', 'electrophysiologists', 'okk okk', 'ok', '2024-07-31 18:27:55'),
+(57, 122, 3038, 202206, 'md roman', 'electrophysiologists', 'Roman ahmed', 'sleep', '2024-07-31 18:28:03'),
+(58, 121, 3038, 202206, 'md roman', 'electrophysiologists', 'okk okk', 'bd jindabhad', '2024-07-31 18:46:53'),
+(59, 121, 3038, 202206, 'md roman', 'electrophysiologists', 'okk okk', 'ok', '2024-07-31 18:46:53'),
+(61, 123, 3038, 202200, 'md roman', 'electrophysiologists', 'odh sagor', 'everytime', '2024-07-31 18:48:05'),
+(62, 123, 3038, 202200, 'md roman', 'electrophysiologists', 'odh sagor', 'everytime', '2024-07-31 18:48:29'),
+(63, 121, 3038, 202206, 'md roman', 'electrophysiologists', 'okk okk', 'ok', '2024-07-31 18:50:26'),
+(64, 122, 3038, 202206, 'md roman', 'electrophysiologists', 'Roman ahmed', 'ok', '2024-07-31 19:07:10');
 
 --
 -- Indexes for dumped tables
@@ -221,6 +276,13 @@ ALTER TABLE `patientregistrations`
   ADD UNIQUE KEY `email` (`email`);
 
 --
+-- Indexes for table `patient_health_data`
+--
+ALTER TABLE `patient_health_data`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `patient_id` (`patient_id`);
+
+--
 -- Indexes for table `prescriptions`
 --
 ALTER TABLE `prescriptions`
@@ -237,7 +299,7 @@ ALTER TABLE `prescriptions`
 -- AUTO_INCREMENT for table `appointments`
 --
 ALTER TABLE `appointments`
-  MODIFY `appointment_id` int(3) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=119;
+  MODIFY `appointment_id` int(3) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=124;
 
 --
 -- AUTO_INCREMENT for table `doctorregistrations`
@@ -255,13 +317,19 @@ ALTER TABLE `doctorSchedules`
 -- AUTO_INCREMENT for table `patientregistrations`
 --
 ALTER TABLE `patientregistrations`
-  MODIFY `patient_id` int(6) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=202206;
+  MODIFY `patient_id` int(6) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=202207;
+
+--
+-- AUTO_INCREMENT for table `patient_health_data`
+--
+ALTER TABLE `patient_health_data`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `prescriptions`
 --
 ALTER TABLE `prescriptions`
-  MODIFY `prescription_id` int(2) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
+  MODIFY `prescription_id` int(2) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
 
 --
 -- Constraints for dumped tables
@@ -279,6 +347,12 @@ ALTER TABLE `appointments`
 --
 ALTER TABLE `doctorSchedules`
   ADD CONSTRAINT `fk_doctor_id` FOREIGN KEY (`doctor_id`) REFERENCES `doctorregistrations` (`doctor_id`);
+
+--
+-- Constraints for table `patient_health_data`
+--
+ALTER TABLE `patient_health_data`
+  ADD CONSTRAINT `patient_health_data_ibfk_1` FOREIGN KEY (`patient_id`) REFERENCES `patientregistrations` (`patient_id`);
 
 --
 -- Constraints for table `prescriptions`

@@ -228,9 +228,8 @@
 	</div>
 </footer>
 
-<!-- 
-Essential Scripts
-=====================================-->
+
+
 
 <!-- Main jQuery -->
 <script src="plugins/jquery/jquery.js"></script>

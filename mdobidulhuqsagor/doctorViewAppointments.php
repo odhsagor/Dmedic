@@ -17,7 +17,7 @@ try {
 
     $doctor_id = $_SESSION['doctor_id'];
 
-    // Fetch appointments for the logged-in doctor
+   
     $sql = $pdo->prepare("SELECT * FROM appointments WHERE doctor_id = :doctor_id");
     $sql->bindParam(':doctor_id', $doctor_id, PDO::PARAM_INT);
     $sql->execute();
@@ -167,7 +167,7 @@ try {
     </div>
 
     <footer>
-        <!-- Your footer content -->
+       
     </footer>
 </body>
 </html>

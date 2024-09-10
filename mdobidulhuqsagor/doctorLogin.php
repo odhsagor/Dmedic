@@ -9,18 +9,12 @@
 
   <title>Dmadic</title>
 
-  <!-- Favicon -->
-  <link rel="shortcut icon" type="image/x-icon" href="../images/favicon.ico" />
 
-  <!-- bootstrap.min css -->
+  <link rel="shortcut icon" type="image/x-icon" href="../images/favicon.ico" />
   <link rel="stylesheet" href="../plugins/bootstrap/css/bootstrap.min.css">
-  <!-- Icon Font Css -->
   <link rel="stylesheet" href="../plugins/icofont/icofont.min.css">
-  <!-- Slick Slider  CSS -->
   <link rel="stylesheet" href="../plugins/slick-carousel/slick/slick.css">
   <link rel="stylesheet" href="../plugins/slick-carousel/slick/slick-theme.css">
-
-  <!-- Main Stylesheet -->
   <link rel="stylesheet" href="../css/doctorLogin.css">
 
 </head>
@@ -108,7 +102,6 @@
 <main>
     <div class="container">
       <div class="row">
-        <!-- Benefits Section -->
         <div class="col-md-6">
           <section class="benefits-container">
             <h2>Benefits at Dmedic</h2>
@@ -134,7 +127,6 @@
               <div class="phone-input">
                 <select id="country-code" name="country_code" required>
                   <option value="+88">+88</option>
-                  <!-- Add other country codes as needed -->
                 </select>
                 <input type="tel" id="mobile_number" name="mobile_number" placeholder="Enter your mobile number" required>
               </div>
@@ -148,8 +140,6 @@
       </div>
     </div>
   </main>
-
-  <!-- Include JavaScript files -->
   <script src="plugins/jquery/jquery.js"></script>
   <script src="plugins/bootstrap/js/bootstrap.min.js"></script>
 

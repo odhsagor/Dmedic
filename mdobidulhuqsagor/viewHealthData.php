@@ -1,13 +1,12 @@
 <?php
 session_start();
 
-// Check if the patient is logged in
 if (!isset($_SESSION['patient_id'])) {
     header("Location: patientLogin.php");
     exit();
 }
 
-// Fetch the patient's information from the session
+
 $patient_id = $_SESSION['patient_id'];
 
 // Database connection
@@ -49,12 +48,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !isset($_POST['action'])) {
     }
 }
 
-// Retrieve the latest health data for display
+
 $sql = "SELECT * FROM patient_health_data WHERE patient_id = '$patient_id' ORDER BY created_at DESC LIMIT 1";
 $result = $conn->query($sql);
 $health_data = $result->fetch_assoc();
 
-// Function to evaluate patient's health condition
+
 function evaluateHealth($data) {
     $healthStatus = [];
 
@@ -83,14 +82,12 @@ function evaluateHealth($data) {
         $healthStatus[] = "Heart Rate is out of healthy range (60-100 bpm).";
     }
 
-    // Check Weight - Assuming a healthy weight range for simplicity, can be adjusted
+    // Check Weight 
     if ($data['weight'] < 50 || $data['weight'] > 100) {
         $healthStatus[] = "Weight is out of healthy range (50-100 kg).";
     }
 
-    // Other checks can be added as needed...
-
-    // If no health issues are found
+ 
     if (empty($healthStatus)) {
         return "All health parameters are within the healthy range.";
     }
@@ -98,13 +95,12 @@ function evaluateHealth($data) {
     return implode("<br>", $healthStatus);
 }
 
-// Handle request for evaluating health condition
 if (isset($_POST['action']) && $_POST['action'] == 'evaluate_health') {
     echo evaluateHealth($health_data);
     exit;
 }
 
-// Retrieve historical data for chart
+
 $sql_chart = "SELECT * FROM patient_health_data WHERE patient_id = '$patient_id' ORDER BY created_at ASC";
 $result_chart = $conn->query($sql_chart);
 $chart_data = [];
@@ -169,7 +165,6 @@ $conn->close();
     </style>
 </head>
 <body>
-    <!-- Navigation Bar -->
     <nav class="navbar navbar-expand-lg navbar-dark">
         <a class="navbar-brand" href="patientInterface.php">D-Medic</a>
         <div class="collapse navbar-collapse" id="navbarNav">
@@ -216,6 +211,7 @@ $conn->close();
                             <input type="text" class="form-control form-control-sm" id="physical_activity" name="physical_activity" value="<?php echo $health_data['physical_activity'] ?? ''; ?>" required>
                         </div>
                     </div>
+
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label for="dietary_intake">Dietary Intake</label>
@@ -256,6 +252,9 @@ $conn->close();
                             <input type="number" step="0.01" class="form-control form-control-sm" id="water_intake" name="water_intake" value="<?php echo $health_data['water_intake'] ?? ''; ?>" required>
                         </div>
                     </div>
+
+
+
                     <button type="submit" class="btn btn-primary">Save Changes</button>
                     <button type="button" class="btn btn-info" id="healthConditionButton">Health Condition</button>
                 </form>
@@ -264,7 +263,7 @@ $conn->close();
             </div>
         </div>
 
-        <!-- Health Data Trends Section -->
+ 
         <div class="card">
             <div class="card-header">
                 Health Data Trends
@@ -277,30 +276,34 @@ $conn->close();
         </div>
     </div>
 
-    <!-- Chart.js -->
+
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
-    // Handle Health Condition button click
+
     document.getElementById('healthConditionButton').addEventListener('click', function() {
-        // AJAX request to fetch health condition
+  
         const xhr = new XMLHttpRequest();
-        xhr.open("POST", "viewHealthData.php", true);
+        xhr.open("POST", "viewHealthData.php", true); 
         xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+
         xhr.onreadystatechange = function() {
             if (xhr.readyState === 4 && xhr.status === 200) {
-                // Display the health condition result
+         
                 document.getElementById('healthConditionResult').innerHTML = `<div class="alert alert-info">${xhr.responseText}</div>`;
             }
         };
+
+
         xhr.send("action=evaluate_health");
     });
 
-    // Data for chart visualization
+   
     const chartData = <?php echo json_encode($chart_data); ?>;
     const dates = chartData.map(item => new Date(item.created_at).toLocaleDateString());
     const bloodGlucoseLevels = chartData.map(item => item.blood_glucose);
 
-    // Create a chart
+   
     const ctx = document.getElementById('healthTrendsChart').getContext('2d');
     new Chart(ctx, {
         type: 'line',

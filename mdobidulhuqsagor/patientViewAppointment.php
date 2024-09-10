@@ -174,7 +174,6 @@ try {
     </div>
 
     <footer>
-        <!-- Your footer content -->
     </footer>
 </body>
 </html>

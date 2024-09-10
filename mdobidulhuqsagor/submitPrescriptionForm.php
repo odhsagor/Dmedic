@@ -18,7 +18,7 @@ try {
     $doctor_id = $_SESSION['doctor_id'];
     $appointment_id = $_GET['appointment_id'];
 
-    // Fetch appointment details
+
     $sql = $pdo->prepare("SELECT a.appointment_id, a.patient_id, a.first_name AS patient_first_name, a.last_name AS patient_last_name,
                           d.first_name AS doctor_first_name, d.last_name AS doctor_last_name, d.doctor_type, d.doctor_id
                           FROM appointments a

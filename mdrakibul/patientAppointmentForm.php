@@ -37,7 +37,7 @@ $patient_id = $_SESSION['patient_id'];
             font-size: 16px;
             font-weight: bold;
             color: #fff;
-            background-color: #4CAF50; /* Green background */
+            background-color: #4CAF50;
             border: none;
             border-radius: 10px;
             text-align: center;
@@ -45,20 +45,18 @@ $patient_id = $_SESSION['patient_id'];
             transition: background-color 0.3s ease, transform 0.3s ease;
         }
 
-        /* Adding hover effects */
+        
         .view-appointment-btn:hover {
-            background-color: #45a049; /* Darker green */
+            background-color: #45a049; 
             transform: translateY(-2px);
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
-        /* Adding focus effects for accessibility */
         .view-appointment-btn:focus {
             outline: none;
             box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.4);
         }
 
-        /* Adding active state effects */
         .view-appointment-btn:active {
             background-color: #3e8e41;
             transform: translateY(0);

@@ -1,17 +1,17 @@
 <?php
 session_start();
 
-// Check if the patient is logged in
+
 if (!isset($_SESSION['patient_id'])) {
     header("Location: patientLogin.php");
     exit();
 }
 
-// Fetch the patient's information from the session
+
 $patient_name = $_SESSION['patient_name'];
 $patient_id = $_SESSION['patient_id'];
 
-// Database connection
+
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -21,7 +21,7 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// Handle form submission
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $blood_glucose = $_POST['bloodGlucoseLevel'];
     $insulin_dosage = $_POST['insulin_dosage'];
@@ -36,7 +36,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $sleep_duration = $_POST['sleep_duration'];
     $water_intake = $_POST['water_intake'];
 
-    // Save data to the database
+   
     $sql = "INSERT INTO patient_health_data (patient_id, blood_glucose, insulin_dosage, medication_intake, physical_activity, dietary_intake, weight, symptoms, bmi, blood_pressure, heart_rate, sleep_duration, water_intake)
             VALUES ('$patient_id', '$blood_glucose', '$insulin_dosage', '$medication_intake', '$physical_activity', '$dietary_intake', '$weight', '$symptoms', '$bmi', '$blood_pressure', '$heart_rate', '$sleep_duration', '$water_intake')";
     if ($conn->query($sql) === TRUE) {
@@ -130,7 +130,7 @@ $conn->close();
     </style>
 </head>
 <body>
-    <!-- Navigation Bar -->
+ 
     <nav class="navbar navbar-expand-lg navbar-dark">
         <a class="navbar-brand" href="#">D-Medic</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -205,7 +205,6 @@ $conn->close();
                                 <option>Fever</option>
                                 <option>Cough</option>
                                 <option>Fatigue</option>
-                                <!-- Add more symptoms as needed -->
                             </select>
                         </div>
                         <div class="form-group col-md-6">

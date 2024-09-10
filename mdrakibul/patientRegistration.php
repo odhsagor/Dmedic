@@ -119,7 +119,7 @@
     </div>
   </div>
 
-  <!-- JavaScript files -->
+  <!-- JavaScript -->
   <script src="plugins/jquery/jquery.js"></script>
   <script src="plugins/bootstrap/js/bootstrap.min.js"></script>
 </body>
