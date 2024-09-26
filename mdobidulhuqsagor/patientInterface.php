@@ -151,6 +151,9 @@ $conn->close();
                     <a class="nav-link" href="viewPlan.php">View Plan</a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" href="healthGuidelines.php">Health Guidelines</a>
+                </li>
+                <li class="nav-item">
                     <form action="logout.php" method="post" class="d-inline">
                         <button type="submit" class="btn btn-danger">Logout</button>
                     </form>
