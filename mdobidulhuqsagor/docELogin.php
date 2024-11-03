@@ -1,24 +1,21 @@
 <!DOCTYPE html>
-<html lang="zxx">
+<html lang="bn">
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <meta name="description" content="Orbitor,business,company,agency,modern,bootstrap4,tech,software">
-  <meta name="author" content="themefisher.com">
+  <title>ডমেডিক</title>
 
-  <title>Dmadic</title>
-
-  <!-- Favicon -->
+  <!-- ফেভিকন -->
   <link rel="shortcut icon" type="image/x-icon" href="../images/favicon.ico" />
 
   <!-- bootstrap.min css -->
   <link rel="stylesheet" href="../plugins/bootstrap/css/bootstrap.min.css">
-  <!-- Icon Font Css -->
+  <!-- আইকন ফন্ট সিএসএস -->
   <link rel="stylesheet" href="../plugins/icofont/icofont.min.css">
-  <!-- Slick Slider  CSS -->
+  <!-- Slick Slider CSS -->
   <link rel="stylesheet" href="../plugins/slick-carousel/slick/slick.css">
   <link rel="stylesheet" href="../plugins/slick-carousel/slick/slick-theme.css">
 
-  <!-- Main Stylesheet -->
+  <!-- প্রধান স্টাইলশিট -->
   <link rel="stylesheet" href="../css/docELogin.css">
 
 </head>
@@ -32,13 +29,13 @@
 				<div class="col-lg-6">
 					<ul class="top-bar-info list-inline-item pl-0 mb-0">
 						<li class="list-inline-item"><a href="mailto:support@dmadic.com"><i class="icofont-support-faq mr-2"></i>support@dmadic.com</a></li>
-						<li class="list-inline-item"><i class="icofont-location-pin mr-2"></i>Dmadic</li>
+						<li class="list-inline-item"><i class="icofont-location-pin mr-2"></i>ডমেডিক</li>
 					</ul>
 				</div>
 				<div class="col-lg-6">
 					<div class="text-lg-right top-right-bar mt-2 mt-lg-0">
 						<a href="tel:+23-345-67890">
-							<span>Call Now : </span>
+							<span>এখন কল করুন : </span>
 							<span class="h4">26566</span>
 						</a>
 					</div>
@@ -59,41 +56,41 @@
 		  <div class="collapse navbar-collapse" id="navbarmain">
 			<ul class="navbar-nav ml-auto">
 			  <li class="nav-item active">
-				<a class="nav-link" href="../index.php">HOME</a>
+				<a class="nav-link" href="../index.php">প্রথম পাতা</a>
 			  </li>
-			  <!-- PHARMACIST -->
+			  <!-- ফার্মাসিস্ট -->
 			    <li class="nav-item dropdown">
-					<a class="nav-link dropdown-toggle" href="#" id="dropdown02" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">PHARMACIST<i class="icofont-thin-down"></i></a>
+					<a class="nav-link dropdown-toggle" href="#" id="dropdown02" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">ফার্মাসিস্ট<i class="icofont-thin-down"></i></a>
 					<ul class="dropdown-menu" aria-labelledby="dropdown02">
-						<li><a class="dropdown-item" href="#">Medicine</a></li>
-						<li><a class="dropdown-item" href="#">Diabetes Care</a></li>
+						<li><a class="dropdown-item" href="#">ঔষধ</a></li>
+						<li><a class="dropdown-item" href="#">ডায়াবেটিস কেয়ার</a></li>
 					</ul>
 			  	</li>
 
-				<!-- DIETITIAN -->
+				<!-- ডায়েটিশিয়ান -->
 
 				<li class="nav-item active">
-					<a class="nav-link" href="#">DIETITIAN </a>
+					<a class="nav-link" href="#">ডায়েটিশিয়ান</a>
 				</li>
 
-				<!-- DOCTORS -->
+				<!-- ডাক্তার -->
                 <li class="nav-item active">
-					<a class="nav-link" href="doctorInterpage.php"> For Doctors</a>
+					<a class="nav-link" href="doctorInterpage.php">ডাক্তারের জন্য</a>
 				</li>
 
-				<!-- HOSPITAL -->
+				<!-- হাসপাতাল -->
 
 				  <li class="nav-item active">
-					<a class="nav-link" href="#">HOSPITAL</a>
+					<a class="nav-link" href="#">হাসপাতাল</a>
 				  </li>
 
-				<!-- SIGNIN And SIGNUP BUTTON -->
+				<!-- সাইন ইন এবং সাইন আপ বাটন -->
 				
 				<li class="nav-item dropdown">
-					<a class="nav-link dropdown-toggle" href="#" id="dropdown02" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">For Patient<i class="icofont-thin-down"></i></a>
+					<a class="nav-link dropdown-toggle" href="#" id="dropdown02" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">রোগীর জন্য<i class="icofont-thin-down"></i></a>
 					<ul class="dropdown-menu" aria-labelledby="dropdown02">
-						<li><a class="dropdown-item" href="../mdrakibul/patientLogin.php">Login</a></li>
-						<li><a class="dropdown-item" href="../mdrakibul/patientRegistration.php">Patient Registration</a></li>
+						<li><a class="dropdown-item" href="../mdrakibul/patientLogin.php">লগইন</a></li>
+						<li><a class="dropdown-item" href="../mdrakibul/patientRegistration.php">রোগীর রেজিস্ট্রেশন</a></li>
 					</ul>
 			  	</li>
 
@@ -106,27 +103,27 @@
 <main>
     <div class="container">
       <div class="row">
-        <!-- Benefits Section -->
+        <!-- সুবিধা বিভাগ -->
         <div class="col-md-6">
           <section class="benefits-container">
-            <h2>Benefits at Dmedic</h2>
-            <p>You will always have the best health care from us</p>
+            <h2>ডমেডিকের সুবিধাসমূহ</h2>
+            <p>আপনি সবসময় আমাদের কাছ থেকে সর্বোত্তম স্বাস্থ্যসেবা পাবেন</p>
             <ul>
-              <li><i class="icon"></i> 24/7 Unlimited Video Consultations with Qualified Doctors</li>
-              <li><i class="icon"></i> Medicine Delivery at Your Doorstep</li>
-              <li><i class="icon"></i> Diagnostics at Your Doorstep</li>
-              <li><i class="icon"></i> Appointments for Later</li>
-              <li><i class="icon"></i> Follow-up Consultation Reminder</li>
-              <li><i class="icon"></i> Instant Electronic Prescription</li>
-              <li><i class="icon"></i> Easy Payment Options</li>
+              <li><i class="icon"></i> ২৪/৭ যোগ্য ডাক্তারের সাথে সীমাহীন ভিডিও পরামর্শ</li>
+              <li><i class="icon"></i> আপনার ঠিকানায় ঔষধ সরবরাহ</li>
+              <li><i class="icon"></i> আপনার ঠিকানায় ডায়াগনস্টিকস</li>
+              <li><i class="icon"></i> পরবর্তী সময়ে অ্যাপয়েন্টমেন্ট</li>
+              <li><i class="icon"></i> ফলো-আপ পরামর্শের রিমাইন্ডার</li>
+              <li><i class="icon"></i> তাৎক্ষণিক ইলেকট্রনিক প্রেসক্রিপশন</li>
+              <li><i class="icon"></i> সহজ পেমেন্ট পদ্ধতি</li>
             </ul>
           </section>
         </div>
 
         <div class="col-md-6">
           <section class="form-container">
-            <h2>Welcome Back</h2>
-            <h3>Doctor</h3>
+            <h2>পুনরায় স্বাগতম</h2>
+            <h3>ডাক্তার</h3>
             <form action="docLoginB.php" method="post">
 			      <?php
                     session_start();
@@ -136,21 +133,21 @@
                     }
             ?>
               <div class="input-group">
-                <label for="user_id">Email OR Number *</label>
+                <label for="user_id">ইমেইল অথবা নম্বর *</label>
                 <input type="text" id="user_id" name="user_id" required>
               </div>
               <div class="input-group">
-                <label for="password">Password *</label>
+                <label for="password">পাসওয়ার্ড *</label>
                 <input type="password" id="password" name="password" required>
                 <i class="toggle-password"></i>
               </div>
               <div class="form-links">
-                <a href="#">Forgot password?</a>
+                <a href="#">পাসওয়ার্ড ভুলে গেছেন?</a>
               </div>
-              <button type="submit">Login</button>
+              <button type="submit">লগইন</button>
               
             </form>
-            <p>or, <a href="doctorLogin.php">Login with mobile number</a></p>
+            <p>অথবা, <a href="doctorLogin.php">মোবাইল নম্বর দিয়ে লগইন করুন</a></p>
           </section>
         </div>
       </div>
@@ -160,7 +157,5 @@
   <script src="plugins/jquery/jquery.js"></script>
   <script src="plugins/bootstrap/js/bootstrap.min.js"></script>
 
-
   </body>
 </html>
-
