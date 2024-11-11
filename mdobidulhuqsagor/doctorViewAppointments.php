@@ -117,7 +117,7 @@ try {
                 <div class="row align-items-center">
                     <div class="col-lg-6">
                         <ul class="top-bar-info list-inline-item pl-0 mb-0">
-                            <li class="list-inline-item"><a href="mailto:support@dmadic.com"><i class="icofont-support-faq mr-2"></i>support@dmadic.com</a></li>
+                            <li class="list-inline-item"><a href="mailto:support@dmedic.com"><i class="icofont-support-faq mr-2"></i>support@dmedic.com</a></li>
                             <li class="list-inline-item"><i class="icofont-location-pin mr-2"></i>Dmadic</li>
                             <a href="tel:+26566">
                                 <span>Call Now : </span>

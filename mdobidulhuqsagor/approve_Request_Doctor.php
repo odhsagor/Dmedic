@@ -81,7 +81,7 @@ $result = $conn->query($sql);
     <header>
         <div class="header-top-bar text-center">
             <div class="container">
-                <a href="mailto:support@dmadic.com"><i class="icofont-support-faq mr-2"></i>support@dmadic.com</a>
+                <a href="mailto:support@dmedic.com"><i class="icofont-support-faq mr-2"></i>support@dmedic.com</a>
                 <span><i class="icofont-location-pin mr-2"></i>Dmadic</span>
                 <span class="float-right">Call Now: <span class="h4">26566</span></span>
             </div>

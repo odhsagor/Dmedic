@@ -121,8 +121,8 @@ try {
                             </a>
                         </li>
                         <li class="list-inline-item">
-                            <a href="mailto:support@dmadic.com">
-                                <i class="icofont-support-faq mr-2"></i>support@dmadic.com
+                            <a href="mailto:support@dmedic.com">
+                                <i class="icofont-support-faq mr-2"></i>support@dmedic.com
                             </a>
                         </li>
                         <li class="list-inline-item">

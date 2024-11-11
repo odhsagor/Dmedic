@@ -32,15 +32,15 @@ $doctor_id = $_SESSION['doctor_id'];
                 <div class="row align-items-center">
                     <div class="col-lg-6">
                         <ul class="top-bar-info list-inline-item pl-0 mb-0">
-                            <li class="list-inline-item"><a href="mailto:support@dmadic.com"><i class="icofont-support-faq mr-2"></i>support@dmadic.com</a></li>
+                            <li class="list-inline-item"><a href="mailto:support@dmedic.com"><i class="icofont-support-faq mr-2"></i>support@dmedic.com</a></li>
                             <li class="list-inline-item"><i class="icofont-location-pin mr-2"></i>Dmadic</li>
                         </ul>
                     </div>
                     <div class="col-lg-6">
                         <div class="text-lg-right top-right-bar mt-2 mt-lg-0">
                             <a href="tel:+26566">
-                                <span>Call Now : </span>
-                                <span class="h4">26566</span>
+                                <span>এখন কল করুন : </span>
+                                <span class="h4"> ২৬৫৬৬</span>
                             </a>
                         </div>
                     </div>
@@ -54,59 +54,59 @@ $doctor_id = $_SESSION['doctor_id'];
                 </a>
                 <div class="collapse navbar-collapse" id="navbarsExample09">
                     <ul class="navbar-nav ml-auto">
-                        <li class="nav-item"><a class="nav-link" href="doctorDashboard.php">Dashboard</a></li>
-                        <li class="nav-item"><a class="nav-link" href="patientMedicalReport.php">Reports</a></li>
+                        <li class="nav-item"><a class="nav-link" href="doctorDashboard.php">ড্যাশবোর্ড</a></li>
+                        <li class="nav-item"><a class="nav-link" href="patientMedicalReport.php">রিপোর্ট</a></li>
                         <li  class="nav-item last"><i style="padding:0 0.5rem;" class="fa-solid fa-user"></i><a class="nav-link" href="#"> <?php echo $doctor_name; ?></a></li>
-                        <li class="nav-item"><a class="nav-link" href="docELogin.php">Logout</a></li>
+                        <li class="nav-item"><a class="nav-link" href="docELogin.php">লগআউট</a></li>
                     </ul>
                 </div>
             </div>
         </nav>
     </header>
     <div class="container mt-5">
-        <h3>Welcome Doctor, <?php echo $doctor_name; ?></h3>
-        <p>Doctor ID: <?php echo $doctor_id; ?></p>
-        <button type="button" class="btn btn-primary" onclick="showManageSchedules()">Manage Schedules</button>
+        <h3>স্বাগতম ডাক্তার, <?php echo $doctor_name; ?></h3>
+        <p>ডাক্তার আইডি: <?php echo $doctor_id; ?></p>
+        <button type="button" class="btn btn-primary" onclick="showManageSchedules()">ব্যবস্থাপনা সূচি</button>
         
         <div id="manageSchedulesSection" style="display:none;">
-            <h3 class="mt-5">Manage Schedules</h3>
+            <h3 class="mt-5">সূচি পরিচালনা করুন</h3>
             <form id="scheduleForm">
                 <input type="hidden" id="scheduleId" value="">
                 <div class="form-row">
                     <div class="form-group col-md-3">
-                        <label for="date">Date (dd, mm, yyyy)*</label>
+                        <label for="date">তারিখ (দিন, মাস, বছর)*</label>
                         <input type="date" class="form-control" id="date" required>
                     </div>
                     <div class="form-group col-md-3">
-                        <label for="startTime">Start Time*</label>
+                        <label for="startTime">শুরুর সময়*</label>
                         <input type="time" class="form-control" id="startTime" required>
                     </div>
                     <div class="form-group col-md-3">
-                        <label for="endTime">End Time*</label>
+                        <label for="endTime">শেষ সময়*</label>
                         <input type="time" class="form-control" id="endTime" required>
                     </div>
                     <div class="form-group col-md-3">
-                        <label for="roomNumber">Room Number*</label>
+                        <label for="roomNumber">কক্ষ নম্বর*</label>
                         <input type="text" class="form-control" id="roomNumber" required>
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-6">
-                        <label for="fees">Doctor Fees</label>
+                        <label for="fees">ডাক্তার ফি</label>
                         <input type="number" class="form-control" id="fees" placeholder="0.00" step="0.01">
                     </div>
                 </div>
-                <button type="button" class="btn btn-outline-primary btn-block" onclick="saveSchedule()">Save</button>
-                <button type="button" class="btn btn-outline-secondary btn-block" onclick="updateSchedule()">Update</button>
-                <button type="button" class="btn btn-outline-danger btn-block" onclick="deleteSchedule()">Delete</button>
+                <button type="button" class="btn btn-outline-primary btn-block" onclick="saveSchedule()">সংরক্ষণ করুন</button>
+                <button type="button" class="btn btn-outline-secondary btn-block" onclick="updateSchedule()">আপডেট করুন</button>
+                <button type="button" class="btn btn-outline-danger btn-block" onclick="deleteSchedule()">মুছুন</button>
             </form>
-            <h3 class="mt-5">Existing Schedules</h3>
+            <h3 class="mt-5">বিদ্যমান সূচি</h3>
             <ul class="list-group" id="scheduleList">
                 
             </ul>
         </div>
 
-        <button type="button" class="btn btn-primary" onclick="window.location.href='doctorViewAppointments.php'">Patient Appointment</button>
+        <button type="button" class="btn btn-primary" onclick="window.location.href='doctorViewAppointments.php'">রোগীর অ্যাপয়েন্টমেন্ট</button>
 
     </div>
     <footer>
@@ -114,23 +114,23 @@ $doctor_id = $_SESSION['doctor_id'];
         <div class="container">
             <div class="row">
                 <div class="col-lg-4">
-                    <h3>About Us</h3>
-                    <p>Dmadic is committed to providing the best medical care. Our team of experts is here to help you with all your health needs.</p>
+                    <h3>আমাদের সম্পর্কে</h3>
+                    <p>শ্রেষ্ঠ চিকিৎসা সেবা প্রদানে প্রতিশ্রুতিবদ্ধ। আমাদের টিম এখানে আপনার সকল স্বাস্থ্যসেবা নিয়ে সহায়তার জন্য প্রস্তুত।</p>
                 </div>
                 <div class="col-lg-4">
-                    <h3>Quick Links</h3>
+                    <h3>দ্রুত লিঙ্কসমূহ</h3>
                     <ul>
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">About Us</a></li>
-                        <li><a href="#">Services</a></li>
-                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">হোম</a></li>
+                        <li><a href="#">আমাদের সম্পর্কে</a></li>
+                        <li><a href="#">সেবা</a></li>
+                        <li><a href="#">যোগাযোগ</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-4">
-                    <h3>Contact Us</h3>
-                    <p><i class="icofont-location-pin"></i> Dhaka, Bangladesh</p>
-                    <p><i class="icofont-phone"></i> 880 26566</p>
-                    <p><i class="icofont-envelope"></i> support@dmadic.com</p>
+                    <h3>যোগাযোগ করুন</h3>
+                    <p><i class="icofont-location-pin"></i> ঢাকা, বাংলাদেশ</p>
+                    <p><i class="icofont-phone"></i> ৮৮০ ২৬৫৬৬</p>
+                    <p><i class="icofont-envelope"></i> support@dmedic.com</p>
                 </div>
             </div>
         </div>
@@ -139,7 +139,7 @@ $doctor_id = $_SESSION['doctor_id'];
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                 &copy; 2024, Designed & Developed by <a target="_blank">Sagor</a>
+                 &copy; 2024, ডিজাইন ও উন্নয়ন করেছেন <a target="_blank">সাগর</a>
                 </div>
             </div>
         </div>

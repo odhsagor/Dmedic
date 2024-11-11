@@ -40,7 +40,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $sql = "INSERT INTO patient_health_data (patient_id, blood_glucose, insulin_dosage, medication_intake, physical_activity, dietary_intake, weight, symptoms, bmi, blood_pressure, heart_rate, sleep_duration, water_intake)
             VALUES ('$patient_id', '$blood_glucose', '$insulin_dosage', '$medication_intake', '$physical_activity', '$dietary_intake', '$weight', '$symptoms', '$bmi', '$blood_pressure', '$heart_rate', '$sleep_duration', '$water_intake')";
     if ($conn->query($sql) === TRUE) {
-        $message = "Health data saved successfully.";
+        $message = "স্বাস্থ্য তথ্য সফলভাবে সংরক্ষণ করা হয়েছে।";
     } else {
         $message = "Error: " . $sql . "<br>" . $conn->error;
     }
@@ -50,11 +50,11 @@ $conn->close();
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="bn">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Patient Dashboard</title>
+    <title>রোগীর ড্যাশবোর্ড</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
@@ -132,30 +132,30 @@ $conn->close();
 <body>
  
     <nav class="navbar navbar-expand-lg navbar-dark">
-        <a class="navbar-brand" href="#">D-Medic</a>
+        <a class="navbar-brand" href="#">ডি-মেডিক</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Dashboard</a>
+                    <a class="nav-link" href="#">ড্যাশবোর্ড</a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="../mdrakibul/patientAppointmentForm.php">Patient Appointment</a>
+                    <a class="nav-link" href="../mdrakibul/patientAppointmentForm.php">রোগীর অ্যাপয়েন্টমেন্ট</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="viewHealthData.php">View Health Data</a>
+                    <a class="nav-link" href="viewHealthData.php">স্বাস্থ্য তথ্য দেখুন</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="viewPlan.php">View Plan</a>
+                    <a class="nav-link" href="viewPlan.php">পরিকল্পনা দেখুন</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="healthGuidelines.php">Health Guidelines</a>
+                    <a class="nav-link" href="healthGuidelines.php">স্বাস্থ্য নির্দেশিকা</a>
                 </li>
                 <li class="nav-item">
                     <form action="logout.php" method="post" class="d-inline">
-                        <button type="submit" class="btn btn-danger">Logout</button>
+                        <button type="submit" class="btn btn-danger">লগ আউট</button>
                     </form>
                 </li>
             </ul>
@@ -164,92 +164,90 @@ $conn->close();
 
     <div class="container">
         <div class="welcome-msg">
-            Welcome, <?php echo $patient_name; ?>!
+            স্বাগতম, <?php echo $patient_name; ?>!
         </div>
 
         <div class="card">
             <div class="card-header">
-                Enter Your Health Data
+                আপনার স্বাস্থ্য তথ্য প্রদান করুন
             </div>
             <div class="card-body">
                 <form action="patientInterface.php" method="post">
                     <div class="form-row">
                         <div class="form-group col-md-6">
-                            <label for="bloodGlucoseLevel">Blood Glucose Level</label>
+                            <label for="bloodGlucoseLevel">রক্তের গ্লুকোজ স্তর</label>
                             <input type="number" step="0.01" class="form-control form-control-sm" id="bloodGlucoseLevel" name="bloodGlucoseLevel" required>
                         </div>
                         <div class="form-group col-md-6">
-                            <label for="insulin_dosage">Insulin Dosage</label>
+                            <label for="insulin_dosage">ইনসুলিন ডোজ</label>
                             <input type="text" class="form-control form-control-sm" id="insulin_dosage" name="insulin_dosage" required>
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-6">
-                            <label for="medication_intake">Medication Intake</label>
+                            <label for="medication_intake">ঔষধ গ্রহণ</label>
                             <input type="text" class="form-control form-control-sm" id="medication_intake" name="medication_intake" required>
                         </div>
                         <div class="form-group col-md-6">
-                            <label for="physicalmemo_activity">Physical Activity</label>
+                            <label for="physical_activity">শারীরিক ক্রিয়াকলাপ</label>
                             <input type="text" class="form-control form-control-sm" id="physical_activity" name="physical_activity" required>
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-6">
-                            <label for="dietary_intake">Dietary Intake</label>
+                            <label for="dietary_intake">খাদ্য গ্রহণ</label>
                             <input type="text" class="form-control form-control-sm" id="dietary_intake" name="dietary_intake" required>
                         </div>
                         <div class="form-group col-md-6">
-                            <label for="weight">Weight (kg)</label>
+                            <label for="weight">ওজন (কেজি)</label>
                             <input type="number" step="0.1" class="form-control form-control-sm" id="weight" name="weight" required>
                         </div>
                     </div>
-                    <Imports <div class="form-row">
+                    <div class="form-row">
                         <div class="form-group col-md-6">
-                            <label for="symptoms">Symptoms</label>
+                            <label for="symptoms">লক্ষণ</label>
                             <select class="form-control form-control-sm" id="symptoms" name="symptoms">
-                                <option>None</option>
-                                <option>Fever</option>
-                                <option>Cough</option>
-                                <option>Fatigue</option>
+                                <option>কোনওটি নয়</option>
+                                <option>জ্বর</option>
+                                <option>কাশি</option>
+                                <option>ক্লান্তি</option>
                             </select>
                         </div>
                         <div class="form-group col-md-6">
-                            <label for="BMI">BMI</label>
+                            <label for="BMI">বিএমআই</label>
                             <input type="number" step="0.1" class="form-control form-control-sm" id="BMI" name="BMI" required>
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-6">
-                            <label for="blood_pressure">Blood Pressure</label>
+                            <label for="blood_pressure">রক্তচাপ</label>
                             <input type="text" class="form-control form-control-sm" id="blood_pressure" name="blood_pressure" required>
                         </div>
                         <div class="form-group col-md-6">
-                            <label for="heart_rate">Heart Rate</label>
+                            <label for="heart_rate">হৃদস্পন্দন হার</label>
                             <input type="number" class="form-control form-control-sm" id="heart_rate" name="heart_rate" required>
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-6">
-                            <label for="sleep_duration">Sleep Duration (hours)</label>
+                            <label for="sleep_duration">ঘুমের সময়কাল (ঘন্টা)</label>
                             <input type="number" step="0.1" class="form-control form-control-sm" id="sleep_duration" name="sleep_duration" required>
                         </div>
                         <div class="form-group col-md-6">
-                            <label for="water_intake">Water Intake (liters)</label>
+                            <label for="water_intake">জলের পরিমাণ (লিটার)</label>
                             <input type="number" step="0.1" class="form-control form-control-sm" id="water_intake" name="water_intake" required>
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-primary btn-sm">Save Data</button>
+                    <button type="submit" class="btn btn-primary btn-sm">তথ্য জমা দিন</button>
                 </form>
-
-                <?php if (isset($message)) { ?>
-                    <div class="alert alert-info mt-3"><?php echo $message; ?></div>
-                <?php } ?>
             </div>
         </div>
-    </div>
 
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <?php if (!empty($message)): ?>
+            <div class="alert alert-info" role="alert">
+                <?php echo $message; ?>
+            </div>
+        <?php endif; ?>
+    </div>
 </body>
 </html>

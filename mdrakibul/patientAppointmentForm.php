@@ -78,8 +78,8 @@ $patient_id = $_SESSION['patient_id'];
                             </a>
                         </li>
                         <li class="list-inline-item">
-                            <a href="mailto:support@dmadic.com">
-                                <i class="icofont-support-faq mr-2"></i>support@dmadic.com
+                            <a href="mailto:support@dmedic.com">
+                                <i class="icofont-support-faq mr-2"></i>support@dmedic.com
                             </a>
                         </li>
                         <li class="list-inline-item">
@@ -168,7 +168,7 @@ $patient_id = $_SESSION['patient_id'];
                     <h3>Contact Us</h3>
                     <p><i class="icofont-location-pin"></i> Dhaka, Bangladesh</p>
                     <p><i class="icofont-phone"></i> 880 26566</p>
-                    <p><i class="icofont-envelope"></i> support@dmadic.com</p>
+                    <p><i class="icofont-envelope"></i> support@dmedic.com</p>
                 </div>
             </div>
         </div>

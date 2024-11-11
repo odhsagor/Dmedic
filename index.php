@@ -23,7 +23,7 @@
 			<div class="row align-items-center">
 				<div class="col-lg-6">
 					<ul class="top-bar-info list-inline-item pl-0 mb-0">
-						<li class="list-inline-item"><a href="mailto:support@dmadic.com"><i class="icofont-support-faq mr-2"></i>support@dmadic.com</a></li>
+						<li class="list-inline-item"><a href="mailto:support@dmedic.com"><i class="icofont-support-faq mr-2"></i>support@dmedic.com</a></li>
 						<li class="list-inline-item"><i class="icofont-location-pin mr-2"></i>Dmedic  /  ডিমেডিক</li>
 					</ul>
 				</div>
@@ -226,7 +226,7 @@
 							<i class="icofont-email mr-3"></i>
 							<span class="h6 mb-0">সহায়তা</span>
 						</div>
-						<h4 class="mt-2"><a href="mailto:support@dmadic.com">support@dmadic.com</a></h4>
+						<h4 class="mt-2"><a href="mailto:support@dmedic.com">support@dmedic.com</a></h4>
 					</div>
 					<div class="footer-contact-block">
 						<div class="icon d-flex align-items-center">
