@@ -84,8 +84,8 @@
 				<li class="nav-item dropdown">
 					<a class="nav-link dropdown-toggle" href="#" id="dropdown02" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">রোগীর জন্য <i class="icofont-thin-down"></i></a>
 					<ul class="dropdown-menu" aria-labelledby="dropdown02">
-						<li><a class="dropdown-item" href="../mdrakibul/patientLogin.php">লগইন</a></li>
-						<li><a class="dropdown-item" href="../mdrakibul/patientRegistration.php">রোগীর রেজিস্ট্রেশন</a></li>
+						<li><a class="dropdown-item" href="../Sagor/patientLogin.php">লগইন</a></li>
+						<li><a class="dropdown-item" href="../Sagor/patientRegistration.php">রোগীর রেজিস্ট্রেশন</a></li>
 					</ul>
 			  	</li>
 			</ul>

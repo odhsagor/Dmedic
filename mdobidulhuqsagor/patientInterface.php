@@ -142,7 +142,7 @@ $conn->close();
                     <a class="nav-link" href="#">ড্যাশবোর্ড</a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="../mdrakibul/patientAppointmentForm.php">রোগীর অ্যাপয়েন্টমেন্ট</a>
+                    <a class="nav-link" href="../Sagor/patientAppointmentForm.php">রোগীর অ্যাপয়েন্টমেন্ট</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="viewHealthData.php">স্বাস্থ্য তথ্য দেখুন</a>

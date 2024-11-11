@@ -34,7 +34,7 @@ try {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>View Appointments</title>
-    <link rel="stylesheet" href="../mdrakibul/cssrakib/patientAppoinmentFrom.css">
+    <link rel="stylesheet" href="../Sagor/cssSagor/patientAppoinmentFrom.css">
     <style>
         body {
             font-family: Arial, sans-serif;

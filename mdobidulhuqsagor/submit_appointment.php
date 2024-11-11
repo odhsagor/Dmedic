@@ -59,7 +59,7 @@ try {
 
     $sql->execute();
     echo "Appointment successfully booked!";
-    header("Location: ../mdrakibul/patientAppointmentForm.php");
+    header("Location: ../Sagor/patientAppointmentForm.php");
 } catch (PDOException $e) {
     echo "Database Error: " . $e->getMessage();
 } catch (Exception $e) {
