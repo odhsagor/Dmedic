@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Sep 10, 2024 at 03:51 PM
+-- Generation Time: Nov 20, 2024 at 08:58 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -176,9 +176,8 @@ CREATE TABLE `patient_health_data` (
   `patient_id` int(10) UNSIGNED NOT NULL,
   `blood_glucose` decimal(5,2) NOT NULL,
   `insulin_dosage` varchar(255) NOT NULL,
-  `medication_intake` varchar(255) NOT NULL,
-  `physical_activity` varchar(255) NOT NULL,
-  `dietary_intake` varchar(255) NOT NULL,
+  `medication_intake` enum('Yes','No') NOT NULL,
+  `dietary_intake` enum('Yes','No') NOT NULL,
   `weight` decimal(5,2) NOT NULL,
   `symptoms` varchar(255) NOT NULL,
   `bmi` decimal(4,2) NOT NULL,
@@ -193,10 +192,16 @@ CREATE TABLE `patient_health_data` (
 -- Dumping data for table `patient_health_data`
 --
 
-INSERT INTO `patient_health_data` (`id`, `patient_id`, `blood_glucose`, `insulin_dosage`, `medication_intake`, `physical_activity`, `dietary_intake`, `weight`, `symptoms`, `bmi`, `blood_pressure`, `heart_rate`, `sleep_duration`, `water_intake`, `created_at`) VALUES
-(1, 202200, 12.00, '22', '21', '22', '22', 56.00, 'Fever', 21.00, '12', 22, 12.00, 5.00, '2024-09-04 14:38:06'),
-(2, 202200, 140.00, '22', '21', '22', '22', 56.00, 'Fever', 21.00, '12', 22, 12.00, 5.00, '2024-09-04 15:51:30'),
-(3, 202200, 140.00, '22', '21', '22', '22', 56.00, 'Fever', 21.00, '12', 120, 12.00, 5.00, '2024-09-05 17:20:00');
+INSERT INTO `patient_health_data` (`id`, `patient_id`, `blood_glucose`, `insulin_dosage`, `medication_intake`, `dietary_intake`, `weight`, `symptoms`, `bmi`, `blood_pressure`, `heart_rate`, `sleep_duration`, `water_intake`, `created_at`) VALUES
+(1, 202200, 11.00, '11', 'Yes', 'Yes', 11.00, 'জ্বর', 23.00, '11', 22, 9.00, 8.00, '2024-11-19 10:00:20'),
+(2, 202200, 11.00, '11', 'Yes', 'Yes', 11.00, 'জ্বর', 23.00, '11', 22, 9.00, 9.00, '2024-11-19 15:47:12'),
+(3, 202200, 9.00, '11', 'Yes', 'Yes', 11.00, 'জ্বর', 23.00, '11', 22, 9.00, 9.00, '2024-11-19 16:17:25'),
+(4, 202200, 9.00, '11', 'Yes', 'Yes', 11.00, 'জ্বর', 23.00, '11', 22, 9.00, 9.00, '2024-11-19 16:23:04'),
+(5, 202200, 9.00, '11', 'Yes', 'Yes', 11.00, 'জ্বর', 23.00, '11', 22, 9.00, 9.00, '2024-11-19 16:23:22'),
+(6, 202200, 9.00, '11', 'Yes', 'Yes', 11.00, 'জ্বর', 23.00, '11', 22, 9.00, 9.00, '2024-11-19 16:23:29'),
+(7, 202200, 9.00, '11', 'Yes', 'Yes', 11.00, 'জ্বর', 23.00, '11', 22, 9.00, 9.00, '2024-11-19 16:24:24'),
+(8, 202200, 9.00, '11', 'Yes', 'Yes', 11.00, 'জ্বর', 23.00, '11', 22, 9.00, 9.00, '2024-11-19 16:33:13'),
+(9, 202200, 9.00, '11', 'Yes', 'Yes', 11.00, 'জ্বর', 9.00, '11', 22, 9.00, 9.00, '2024-11-20 07:53:22');
 
 -- --------------------------------------------------------
 
@@ -279,8 +284,7 @@ ALTER TABLE `patientregistrations`
 -- Indexes for table `patient_health_data`
 --
 ALTER TABLE `patient_health_data`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `patient_id` (`patient_id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `prescriptions`
@@ -323,7 +327,7 @@ ALTER TABLE `patientregistrations`
 -- AUTO_INCREMENT for table `patient_health_data`
 --
 ALTER TABLE `patient_health_data`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `prescriptions`
@@ -347,12 +351,6 @@ ALTER TABLE `appointments`
 --
 ALTER TABLE `doctorSchedules`
   ADD CONSTRAINT `fk_doctor_id` FOREIGN KEY (`doctor_id`) REFERENCES `doctorregistrations` (`doctor_id`);
-
---
--- Constraints for table `patient_health_data`
---
-ALTER TABLE `patient_health_data`
-  ADD CONSTRAINT `patient_health_data_ibfk_1` FOREIGN KEY (`patient_id`) REFERENCES `patientregistrations` (`patient_id`);
 
 --
 -- Constraints for table `prescriptions`
