@@ -61,7 +61,7 @@
 			  	</li>
 				<!-- DIETITIAN -->
 				 <li class="nav-item active">
-					<a class="nav-link" href="#">ডায়েটিশিয়ান </a>
+					<a class="nav-link" href="mdobidulhuqsagor/doctorAdminLogin.php">কর্তৃপক্ষ </a>
 				 </li>
 				<!-- DOCTORS -->
                  <li class="nav-item active">
@@ -210,7 +210,7 @@
 					<h4 class="text-capitalize mb-3">পরিষেবাসমূহ</h4>
 					<div class="divider mb-4"></div>
 					<ul class="list-unstyled footer-menu lh-35">
-						<li><a href="#">ডাক্তারের জন্য</a></li>
+						<li><a href="mdobidulhuqsagor/doctorAdminLogin.php">কর্তৃপক্ষ</a></li>
 						<li><a href="#">ফার্মাসিস্ট</a></li>
 						<li><a href="#">ডায়েটিশিয়ান</a></li>
 						<li><a href="#">যোগাযোগ</a></li>

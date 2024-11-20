@@ -37,7 +37,7 @@ $patient_id = $_SESSION['patient_id'];
             font-size: 16px;
             font-weight: bold;
             color: #fff;
-            background-color: #4CAF50;
+            background-color: #007bff;
             border: none;
             border-radius: 10px;
             text-align: center;
@@ -47,7 +47,7 @@ $patient_id = $_SESSION['patient_id'];
 
         
         .view-appointment-btn:hover {
-            background-color: #45a049; 
+            background-color: #007bff; 
             transform: translateY(-2px);
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
@@ -72,27 +72,34 @@ $patient_id = $_SESSION['patient_id'];
             <div class="row align-items-center">
                 <div class="col-lg-6">
                     <ul class="top-bar-info list-inline-item pl-0 mb-0">
-                        <li class="list-inline-item">
-                            <a href="javascript:history.back()">
-                                <i class="icofont-rounded-left mr-2"></i>Back
-                            </a>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="../mdobidulhuqsagor/patientDashboard.php">ড্যাশবোর্ড</a>
                         </li>
-                        <li class="list-inline-item">
-                            <a href="mailto:support@dmedic.com">
-                                <i class="icofont-support-faq mr-2"></i>support@dmedic.com
-                            </a>
+                        <li class="nav-item active">
+                             <a class="nav-link" href="patientAppointmentForm.php">অ্যাপয়েন্টমেন্ট নিন</a>
                         </li>
-                        <li class="list-inline-item">
-                            <i class="icofont-location-pin mr-2"></i>Dmadic
+                        <li class="nav-item active">
+                            <a class="nav-link" href="../mdobidulhuqsagor/patientInterface.php">স্বাস্থ্য সংক্রান্ত তথ্য দিন</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../mdobidulhuqsagor/viewHealthData.php">আপনার স্বাস্থ্য সংক্রান্ত তথ্য দেখুন</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../mdobidulhuqsagor/viewPlan.php">ডায়াবেটিস নিয়ন্ত্রণ তথ্য দেখুন</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../mdobidulhuqsagor/healthGuidelines.php">খাদ্য পরিকল্পনা</a>
                         </li>
                     </ul>
+
                 </div>
                 <div class="col-lg-6">
                     <div class="text-lg-right top-right-bar mt-2 mt-lg-0">
-                        <a href="tel:+23-345-67890">
-                            <span>Call Now : </span>
-                            <span class="h4">26566</span>
-                        </a>
+                        <li class="nav-item">
+                            <form action="patientLogin.php" method="post" class="d-inline">
+                                <button type="submit" class="btn btn-danger">লগ আউট</button>
+                            </form>
+                        </li>
                     </div>
                 </div>
             </div>

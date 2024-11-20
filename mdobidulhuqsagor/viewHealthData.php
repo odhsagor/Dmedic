@@ -156,7 +156,7 @@ $conn->close();
         }
 
         .navbar {
-            background-color: #007bff;
+            background-color:  #008080;
             color: white;
         }
 
@@ -176,7 +176,7 @@ $conn->close();
         .welcome-msg {
             margin-bottom: 20px;
             font-size: 1.5em;
-            color: #007bff;
+            color:  #008080;
             text-align: center;
         }
 
@@ -187,7 +187,7 @@ $conn->close();
         }
 
         .card-header {
-            background-color: #007bff;
+            background-color:  #008080;
             color: white;
             font-weight: bold;
         }
@@ -235,19 +235,22 @@ $conn->close();
                 <a class="nav-link" href="patientDashboard.php">ড্যাশবোর্ড</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="../Sagor/patientAppointmentForm.php">অ্যাপয়েন্টমেন্ট </a>
+                <a class="nav-link" href="../Sagor/patientAppointmentForm.php">অ্যাপয়েন্টমেন্ট নিন </a>
+            </li>
+            <li class="nav-item active">
+                    <a class="nav-link" href="patientInterface.php">স্বাস্থ্য সংক্রান্ত তথ্য দিন</a>
+                </li>
+            <li class="nav-item">
+                <a class="nav-link" href="viewHealthData.php">আপনার স্বাস্থ্য সংক্রান্ত তথ্য দেখুন</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="viewHealthData.php">স্বাস্থ্য তথ্য দেখুন</a>
+                <a class="nav-link" href="viewPlan.php">ডায়াবেটিস নিয়ন্ত্রণ তথ্য দেখুন</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="viewPlan.php">পরিকল্পনা দেখুন</a>
+                <a class="nav-link" href="healthGuidelines.php">খাদ্য পরিকল্পনা</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="healthGuidelines.php">স্বাস্থ্য নির্দেশিকা</a>
-            </li>
-            <li class="nav-item">
-                <form action="logout.php" method="post" class="d-inline">
+                <form action="../Sagor/patientLogin.php" method="post" class="d-inline">
                     <button type="submit" class="btn btn-danger">লগ আউট</button>
                 </form>
             </li>
