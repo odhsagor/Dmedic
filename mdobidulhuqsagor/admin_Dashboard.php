@@ -66,10 +66,16 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="approve_Request_Doctor.php">Approve Request Doctors</a>
+                            <a class="nav-link" href="approve_Request_Doctor.php">রোগীর অ্যাপার্টমেন্ট পরিচালনা</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="approveDoctor.php">Approve Doctors</a>
+                            <a class="nav-link" href="approve_Request_Doctor.php">রোগী ও ডাক্তারদের ডাটা সমূহ</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="approve_Request_Doctor.php">ডাক্তারদের অনুরোধ অনুমোদন করুন</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="approveDoctor.php">নির্বাচিত ডাক্তাররা</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="doctorAdminLogin.php">Logout</a>

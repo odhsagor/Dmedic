@@ -218,12 +218,13 @@ $conn->close();
 
     <div class="container">
         <div class="welcome-msg">
-            স্বাগতম, <?php echo $patient_name; ?>!
+            <?php echo $patient_name; ?>
+            <p>আপনার স্বাস্থ্য তথ্য প্রদান করুন</p>
         </div>
 
         <div class="card">
             <div class="card-header">
-                আপনার স্বাস্থ্য তথ্য প্রদান করুন
+            স্বাস্থ্য তথ্য
             </div>
             <div class="card-body">
                 <form action="patientInterface.php" method="post">

@@ -205,88 +205,89 @@
 
 
     <div class="container" id="health-metrics">
-        <h1>D-Medic Diabetes Management</h1>
+    <h1>ডি-মেডিক ডায়াবেটিস ম্যানেজমেন্ট</h1>
 
-        <div class="card">
-            <div class="metric">
-                <h2>Blood Glucose (Fasting)</h2>
-                <p class="recommendation">Recommended: 70–100 mg/dL</p>
-            </div>
-            <p class="diabetes-note">For Diabetics: Aim for 80–130 mg/dL</p>
+    <div class="card">
+        <div class="metric">
+            <h2>রক্তের গ্লুকোজ (খালি পেটে)</h2>
+            <p class="recommendation">প্রস্তাবিত: ৭০–১০০ মিগ্রা/ডেসি লিটার</p>
         </div>
-
-        <div class="card">
-            <div class="metric">
-                <h2>Blood Glucose (Post-meal)</h2>
-                <p class="recommendation">Recommended: Less than 140 mg/dL</p>
-            </div>
-            <p class="diabetes-note">For Diabetics: Aim for below 180 mg/dL</p>
-        </div>
-
-        <div class="card">
-            <div class="metric">
-                <h2>Insulin Dosage</h2>
-                <p class="recommendation">Highly individualized, consult your doctor</p>
-            </div>
-            <p class="diabetes-note">For Diabetics: Monitor and adjust dosage based on blood sugar levels.</p>
-        </div>
-
-        <div class="card">
-            <div class="metric">
-                <h2>Physical Activity</h2>
-                <p class="recommendation">Recommended: 150 minutes of moderate or 75 minutes of vigorous activity per week</p>
-            </div>
-            <p class="diabetes-note">For Diabetics: Regular activity can help lower blood glucose levels.</p>
-        </div>
-
-        <div class="card">
-            <div class="metric">
-                <h2>Dietary Intake</h2>
-                <p class="recommendation">Balanced diet; 2,000–2,500 kcal/day</p>
-            </div>
-            <p class="diabetes-note">For Diabetics: Focus on low-carb and high-fiber foods.</p>
-        </div>
-
-        <div class="card">
-            <div class="metric">
-                <h2>Weight (BMI)</h2>
-                <p class="recommendation">Recommended: BMI 18.5–24.9 kg/m²</p>
-            </div>
-            <p class="diabetes-note">For Diabetics: Maintaining a healthy weight can improve insulin sensitivity.</p>
-        </div>
-
-        <div class="card">
-            <div class="metric">
-                <h2>Blood Pressure</h2>
-                <p class="recommendation">Recommended: 90/60 mmHg to 120/80 mmHg</p>
-            </div>
-            <p class="diabetes-note">For Diabetics: Regular monitoring is crucial to avoid complications.</p>
-        </div>
-
-        <div class="card">
-            <div class="metric">
-                <h2>Heart Rate</h2>
-                <p class="recommendation">Recommended: 60–100 bpm</p>
-            </div>
-            <p class="diabetes-note">For Diabetics: Check regularly to ensure heart health.</p>
-        </div>
-
-        <div class="card">
-            <div class="metric">
-                <h2>Sleep Duration</h2>
-                <p class="recommendation">Recommended: 7–9 hours/night</p>
-            </div>
-            <p class="diabetes-note">For Diabetics: Adequate sleep can help with blood sugar control.</p>
-        </div>
-
-        <div class="card">
-            <div class="metric">
-                <h2>Water Intake</h2>
-                <p class="recommendation">Recommended: 3.7 liters/day (men), 2.7 liters/day (women)</p>
-            </div>
-            <p class="diabetes-note">For Diabetics: Staying hydrated can help manage blood sugar levels.</p>
-        </div>
+        <p class="diabetes-note">ডায়াবেটিকদের জন্য: লক্ষ্য রাখুন ৮০–১৩০ মিগ্রা/ডেসি লিটার</p>
     </div>
+
+    <div class="card">
+        <div class="metric">
+            <h2>রক্তের গ্লুকোজ (খাওয়ার পরে)</h2>
+            <p class="recommendation">প্রস্তাবিত: ১৪০ মিগ্রা/ডেসি লিটারের নিচে</p>
+        </div>
+        <p class="diabetes-note">ডায়াবেটিকদের জন্য: লক্ষ্য রাখুন ১৮০ মিগ্রা/ডেসি লিটারের নিচে</p>
+    </div>
+
+    <div class="card">
+        <div class="metric">
+            <h2>ইনসুলিন ডোজ</h2>
+            <p class="recommendation">ব্যক্তিগতভাবে নির্ধারিত, ডাক্তারের পরামর্শ নিন</p>
+        </div>
+        <p class="diabetes-note">ডায়াবেটিকদের জন্য: রক্তের চিনির মাত্রা অনুযায়ী ডোজ নিয়ন্ত্রণ করুন।</p>
+    </div>
+
+    <div class="card">
+        <div class="metric">
+            <h2>শারীরিক কার্যকলাপ</h2>
+            <p class="recommendation">প্রস্তাবিত: প্রতি সপ্তাহে ১৫০ মিনিট মাঝারি বা ৭৫ মিনিট জোরালো কার্যকলাপ</p>
+        </div>
+        <p class="diabetes-note">ডায়াবেটিকদের জন্য: নিয়মিত ব্যায়াম রক্তের গ্লুকোজ কমাতে সহায়ক।</p>
+    </div>
+
+    <div class="card">
+        <div class="metric">
+            <h2>খাদ্য গ্রহণ</h2>
+            <p class="recommendation">প্রস্তাবিত: সুষম খাদ্য; ২,০০০–২,৫০০ ক্যালোরি/দিন</p>
+        </div>
+        <p class="diabetes-note">ডায়াবেটিকদের জন্য: নিম্ন কার্বোহাইড্রেট ও উচ্চ ফাইবার খাবার বেছে নিন।</p>
+    </div>
+
+    <div class="card">
+        <div class="metric">
+            <h2>ওজন (বিএমআই)</h2>
+            <p class="recommendation">প্রস্তাবিত: বিএমআই ১৮.৫–২৪.৯ কেজি/মি²</p>
+        </div>
+        <p class="diabetes-note">ডায়াবেটিকদের জন্য: স্বাস্থ্যকর ওজন বজায় রাখলে ইনসুলিন সংবেদনশীলতা উন্নত হয়।</p>
+    </div>
+
+    <div class="card">
+        <div class="metric">
+            <h2>রক্তচাপ</h2>
+            <p class="recommendation">প্রস্তাবিত: ৯০/৬০ মিমি পারদ থেকে ১২০/৮০ মিমি পারদ</p>
+        </div>
+        <p class="diabetes-note">ডায়াবেটিকদের জন্য: জটিলতা এড়াতে নিয়মিত পরিমাপ করুন।</p>
+    </div>
+
+    <div class="card">
+        <div class="metric">
+            <h2>হার্ট রেট</h2>
+            <p class="recommendation">প্রস্তাবিত: ৬০–১০০ বিট প্রতি মিনিট</p>
+        </div>
+        <p class="diabetes-note">ডায়াবেটিকদের জন্য: হৃদযন্ত্রের সুস্থতার জন্য নিয়মিত পরীক্ষা করুন।</p>
+    </div>
+
+    <div class="card">
+        <div class="metric">
+            <h2>ঘুমের সময়কাল</h2>
+            <p class="recommendation">প্রস্তাবিত: প্রতি রাতে ৭–৯ ঘন্টা</p>
+        </div>
+        <p class="diabetes-note">ডায়াবেটিকদের জন্য: পর্যাপ্ত ঘুম রক্তের চিনির নিয়ন্ত্রণে সহায়ক।</p>
+    </div>
+
+    <div class="card">
+        <div class="metric">
+            <h2>পানীয় জল গ্রহণ</h2>
+            <p class="recommendation">প্রস্তাবিত: পুরুষদের জন্য ৩.৭ লিটার/দিন, নারীদের জন্য ২.৭ লিটার/দিন</p>
+        </div>
+        <p class="diabetes-note">ডায়াবেটিকদের জন্য: পানি পান রক্তের চিনির মাত্রা নিয়ন্ত্রণে সহায়ক।</p>
+    </div>
+</div>
+
 
     <div class="download-btn">
         <button class="btn" onclick="downloadPDF()">Download as PDF</button>

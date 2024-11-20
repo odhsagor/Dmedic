@@ -260,7 +260,7 @@ $conn->close();
 
 <div class="container">
     <div class="welcome-msg">
-        <h3>স্বাগতম, <?php echo htmlspecialchars($patient_name); ?>!</h3>
+        <h3><?php echo htmlspecialchars($patient_name); ?>!</h3>
         <p>আপনার স্বাস্থ্য তথ্য এডিট করুন অথবা নতুন তথ্য যোগ করুন</p>
     </div>
 
