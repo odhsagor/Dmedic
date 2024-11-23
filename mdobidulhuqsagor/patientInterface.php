@@ -12,7 +12,7 @@ $patient_id = $_SESSION['patient_id'];
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "dmedic";
+$dbname = "Dmedic";
 $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
@@ -194,6 +194,9 @@ $conn->close();
                 </li>
                 <li class="nav-item active">
                     <a class="nav-link" href="../Sagor/patientAppointmentForm.php">অ্যাপয়েন্টমেন্ট নিন</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="patientHealthCheck.html">আপনি কেমন আছেন?</a>
                 </li>
                 <li class="nav-item active">
                     <a class="nav-link" href="patientInterface.php">স্বাস্থ্য সংক্রান্ত তথ্য দিন</a>

@@ -190,6 +190,7 @@
             <ul class="navbar-nav">
                 <li class="nav-item"><a class="nav-link" href="patientDashboard.php">ড্যাশবোর্ড</a></li>
                 <li class="nav-item"><a class="nav-link" href="../Sagor/patientAppointmentForm.php">অ্যাপয়েন্টমেন্ট নিন</a></li>
+                <li class="nav-item"><a class="nav-link" href="patientHealthCheck.html">আপনি কেমন আছেন?</a></li>
                 <li class="nav-item"><a class="nav-link" href="patientInterface.php">স্বাস্থ্য সংক্রান্ত তথ্য দিন</a></li>
                 <li class="nav-item"><a class="nav-link" href="viewHealthData.php">আপনার স্বাস্থ্য সংক্রান্ত তথ্য দেখুন</a></li>
                 <li class="nav-item"><a class="nav-link" href="viewPlan.php">ডায়াবেটিস নিয়ন্ত্রণ তথ্য দেখুন</a></li>

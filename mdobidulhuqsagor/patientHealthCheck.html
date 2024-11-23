@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <title>ডি-মেডিক</title>
+    <style>
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+        }
+
+        /* Navigation Styles */
+        .navbar {
+            background-color: #008080;
+            color: white;
+        }
+
+        .navbar-brand {
+            color: white;
+            font-weight: bold;
+        }
+
+        .nav-link {
+            color: white !important;
+        }
+
+        /* Main Content Styles */
+        main {
+            padding: 40px;
+            flex: 1;
+        }
+
+        /* Input Section Styles */
+        .input-section {
+            background-color: white;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .input-section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Input Field Styles */
+        .input-section label {
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: #555;
+        }
+
+        .input-section input,
+        .input-section select {
+            width: 100%;
+            padding: 12px;
+            margin-top: 8px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 1rem;
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .input-section input:focus,
+        .input-section select:focus {
+            border-color: #4CAF50;
+            box-shadow: 0 0 8px rgba(76, 175, 80, 0.2);
+            outline: none;
+        }
+
+        /* Button Styles */
+        .input-section button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .input-section button:hover {
+            background-color: #45a049;
+        }
+
+        .input-section button:active {
+            background-color: #3e8e41;
+        }
+
+        /* Result Section Styles */
+        .result {
+            background-color: #f7fbfd;
+            border-left: 6px solid #2196F3;
+            padding: 15px;
+            margin-top: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            font-size: 0.9rem;
+            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .input-section {
+                padding: 20px;
+            }
+
+            nav a {
+                padding: 12px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <a class="navbar-brand" href="patientDashboard.php">ডি-মেডিক</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="patientDashboard.php">ড্যাশবোর্ড</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="../Sagor/patientAppointmentForm.php">অ্যাপয়েন্টমেন্ট নিন</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="patientHealthCheck.html">আপনি কেমন আছেন?</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="patientInterface.php">স্বাস্থ্য সংক্রান্ত তথ্য দিন</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="viewHealthData.php">আপনার স্বাস্থ্য সংক্রান্ত তথ্য দেখুন</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="viewPlan.php">ডায়াবেটিস নিয়ন্ত্রণ তথ্য দেখুন</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="healthGuidelines.php">খাদ্য পরিকল্পনা</a>
+                </li>
+                <li class="nav-item">
+                    <form action="../Sagor/patientLogin.php" method="post" class="d-inline">
+                        <button type="submit" class="btn btn-danger">লগ আউট</button>
+                    </form>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+<main>
+    <div class="input-section">
+        <label for="fasting-glucose">রক্তের গ্লুকোজ (খালি পেটে) (mmol/L):</label>
+        <input type="number" id="fasting-glucose" placeholder="Enter fasting blood glucose...">
+
+        <label for="post-meal-glucose">রক্তের গ্লুকোজ (খাওয়ার পরে) (mmol/L):</label>
+        <input type="number" id="post-meal-glucose" placeholder="Enter post-meal blood glucose...">
+
+        <label for="insulin-dose">ইনসুলিন ডোজ (ইউনিট):</label>
+        <input type="number" id="insulin-dose" placeholder="Enter insulin dose...">
+
+        <label for="exercise-minutes">সপ্তাহে ব্যায়াম (মিনিটে):</label>
+        <input type="number" id="exercise-minutes" placeholder="Enter weekly exercise minutes...">
+
+        <label for="calorie-intake">দৈনিক ক্যালোরি গ্রহণ (kcal):</label>
+        <input type="number" id="calorie-intake" placeholder="Enter daily calorie intake...">
+
+        <label for="weight">ওজন (কেজি):</label>
+        <input type="number" id="weight" placeholder="Enter your weight in kg...">
+
+        <label for="height">উচ্চতা (মিটার):</label>
+        <input type="number" id="height" placeholder="Enter your height in meters...">
+
+        <label for="blood-pressure">রক্তচাপ (মিমি পারদ):</label>
+        <input type="text" id="blood-pressure" placeholder="Enter blood pressure (e.g., 120/80)">
+
+        <label for="heart-rate">হার্ট রেট (বিট প্রতি মিনিট):</label>
+        <input type="number" id="heart-rate" placeholder="Enter heart rate...">
+
+        <label for="sleep-duration">ঘুমের সময়কাল (ঘণ্টায়):</label>
+        <input type="number" id="sleep-duration" placeholder="Enter sleep duration in hours...">
+
+        <label for="water-intake">পানীয় জল গ্রহণ (লিটার):</label>
+        <input type="number" id="water-intake" placeholder="Enter your daily water intake...">
+
+        <label for="gender">লিঙ্গ:</label>
+        <select id="gender">
+            <option value="male">পুরুষ</option>
+            <option value="female">নারী</option>
+        </select>
+
+        <button onclick="analyzeData()">Submit</button>
+
+        <div id="output" class="result" style="display: none;"></div>
+    </div>
+</main>
+
+<footer>
+    <p>Diabetic Health Monitoring System &copy; 2024</p>
+</footer>
+
+<script>
+    function analyzeData() {
+        const fastingGlucose = parseFloat(document.getElementById('fasting-glucose').value);
+        const postMealGlucose = parseFloat(document.getElementById('post-meal-glucose').value);
+        const insulinDose = parseFloat(document.getElementById('insulin-dose').value);
+        const exerciseMinutes = parseFloat(document.getElementById('exercise-minutes').value);
+        const calorieIntake = parseFloat(document.getElementById('calorie-intake').value);
+        const weight = parseFloat(document.getElementById('weight').value);
+        const height = parseFloat(document.getElementById('height').value);
+        const bloodPressure = document.getElementById('blood-pressure').value.split('/');
+        const heartRate = parseFloat(document.getElementById('heart-rate').value);
+        const sleepDuration = parseFloat(document.getElementById('sleep-duration').value);
+        const waterIntake = parseFloat(document.getElementById('water-intake').value);
+        const gender = document.getElementById('gender').value;
+        const outputDiv = document.getElementById('output');
+
+        let message = '';
+
+        // Analyze fasting glucose
+        if (!isNaN(fastingGlucose)) {
+            if (fastingGlucose < 3.9) {
+                message += '<strong>রক্তের গ্লুকোজ (খালি পেটে):</strong> এটি হাইপোগ্লাইসেমিয়া নির্দেশ করে।<br>';
+                message += 'কারণ: অতিরিক্ত ইনসুলিন, খাবার না খাওয়া, বা অতিরিক্ত ব্যায়াম।<br>';
+                message += 'করণীয়: দ্রুত কিছু মিষ্টি খাবার খাওয়া এবং ডাক্তারের পরামর্শ নেওয়া।<br><br>';
+            } else if (fastingGlucose >= 7.0) {
+                message += '<strong>রক্তের গ্লুকোজ (খালি পেটে):</strong> এটি ডায়াবেটিসের খারাপ নিয়ন্ত্রণ নির্দেশ করে।<br>';
+                message += 'কারণ: অনিয়ন্ত্রিত খাদ্যাভ্যাস, ওষুধ না খাওয়া, বা শারীরিক কার্যকলাপের অভাব।<br>';
+                message += 'করণীয়: খাদ্য নিয়ন্ত্রণ ও ডাক্তারের পরামর্শ নেওয়া।<br><br>';
+            } else if (fastingGlucose >= 5.6 && fastingGlucose < 7.0) {
+                message += '<strong>রক্তের গ্লুকোজ (খালি পেটে):</strong> প্রি-ডায়াবেটিস (Prediabetes) নির্দেশ করে।<br><br>';
+            } else {
+                message += '<strong>রক্তের গ্লুকোজ (খালি পেটে):</strong> স্বাভাবিক ডায়াবেটিস।<br><br>';
+            }
+        }
+
+        // Analyze post-meal glucose
+        if (!isNaN(postMealGlucose)) {
+            if (postMealGlucose > 11.0) {
+                message += '<strong>রক্তের গ্লুকোজ (খাওয়ার পরে):</strong> এটি পোস্টপ্রান্ডিয়াল হাইপারগ্লাইসেমিয়া নির্দেশ করে।<br>';
+                message += 'কারণ: অতিরিক্ত কার্বোহাইড্রেট গ্রহণ, কম ইনসুলিন।<br>';
+                message += 'করণীয়: খাদ্যতালিকা নিয়ন্ত্রণ এবং ইনসুলিন ডোজ চেক করা।<br><br>';
+            } else if (postMealGlucose >= 7.8 && postMealGlucose <= 11.0) {
+                message += '<strong>রক্তের গ্লুকোজ (খাওয়ার পরে):</strong> প্রি-ডায়াবেটিস (Prediabetes) নির্দেশ করে।<br><br>';
+            } else {
+                message += '<strong>রক্তের গ্লুকোজ (খাওয়ার পরে):</strong> স্বাভাবিক ডায়াবেটিস।<br><br>';
+            }
+        }
+
+        // Insulin dose analysis
+        if (!isNaN(insulinDose)) {
+            if (insulinDose < 10) {
+                message += '<strong>ইনসুলিন ডোজ:</strong> ইনসুলিন ডোজ কম, যা হাইপারগ্লাইসেমিয়া (উচ্চ রক্তের গ্লুকোজ) সৃষ্টি করতে পারে।<br>';
+                message += 'করণীয়: ইনসুলিন ডোজ বাড়ানোর জন্য ডাক্তারের পরামর্শ নিন।<br><br>';
+            } else if (insulinDose > 25) {
+                message += '<strong>ইনসুলিন ডোজ:</strong> ইনসুলিন ডোজ বেশি, যা হাইপোগ্লাইসেমিয়া (নিম্ন রক্তের গ্লুকোজ) সৃষ্টি করতে পারে।<br>';
+                message += 'করণীয়: ইনসুলিন ডোজ কমানোর জন্য ডাক্তারের পরামর্শ নিন।<br><br>';
+            } else {
+                message += '<strong>ইনসুলিন ডোজ:</strong> সঠিক ডোজ, রক্তের গ্লুকোজ নিয়ন্ত্রণে সহায়ক।<br><br>';
+            }
+        }
+
+        // Physical activity analysis
+        if (!isNaN(exerciseMinutes)) {
+            if (exerciseMinutes < 150) {
+                message += '<strong>শারীরিক কার্যকলাপ:</strong> অপ্রতুল শারীরিক কার্যকলাপ, যা রক্তের গ্লুকোজ নিয়ন্ত্রণে দুর্বলতা সৃষ্টি করতে পারে।<br>';
+                message += 'করণীয়: সপ্তাহে কমপক্ষে ১৫০ মিনিট মাঝারি ব্যায়াম করুন।<br><br>';
+            } else if (exerciseMinutes > 300) {
+                message += '<strong>শারীরিক কার্যকলাপ:</strong> অতিরিক্ত শারীরিক কার্যকলাপ, যা হাইপোগ্লাইসেমিয়া তৈরি করতে পারে।<br>';
+                message += 'করণীয়: ব্যায়ামের সময় খাবার গ্রহণ করুন।<br><br>';
+            } else {
+                message += '<strong>শারীরিক কার্যকলাপ:</strong> উপযুক্ত পরিমাণে ব্যায়াম।<br><br>';
+            }
+        }
+
+        // Dietary intake analysis
+        if (!isNaN(calorieIntake)) {
+            if (calorieIntake < 2000) {
+                message += '<strong>খাদ্য গ্রহণ:</strong> ক্যালোরি গ্রহণ কম, যা রক্তশর্করা কমিয়ে ফেলতে পারে।<br>';
+                message += 'করণীয়: সুষম খাদ্য গ্রহণ করুন এবং ২০০০–২৫০০ ক্যালোরি নিশ্চিত করুন।<br><br>';
+            } else if (calorieIntake > 2500) {
+                message += '<strong>খাদ্য গ্রহণ:</strong> বেশি ক্যালোরি গ্রহণ, যা রক্তের গ্লুকোজ বাড়াতে পারে।<br>';
+                message += 'করণীয়: সুষম খাদ্য গ্রহণ করুন এবং অতিরিক্ত ক্যালোরি এড়িয়ে চলুন।<br><br>';
+            } else {
+                message += '<strong>খাদ্য গ্রহণ:</strong> সুষম খাদ্য গ্রহণ, যা রক্তের গ্লুকোজ নিয়ন্ত্রণে সাহায্য করবে।<br><br>';
+            }
+        }
+
+        // BMI analysis
+        if (!isNaN(weight) && !isNaN(height) && height > 0) {
+            const bmi = weight / (height * height);
+            message += '<strong>বিএমআই:</strong> ' + bmi.toFixed(1) + '<br>';
+            if (bmi < 18.5) {
+                message += 'কম ওজন: শরীর দুর্বল হয়ে পড়ে, ইনসুলিন প্রতিক্রিয়া কম হতে পারে।<br>';
+                message += 'করণীয়: স্বাস্থ্যকর খাদ্য গ্রহণ এবং ব্যায়াম করুন।<br><br>';
+            } else if (bmi >= 25) {
+                message += 'বেশি ওজন (স্থূলতা): ইনসুলিন সংবেদনশীলতা কমে যায়।<br>';
+                message += 'করণীয়: ওজন নিয়ন্ত্রণে রাখতে স্বাস্থ্যকর খাদ্য এবং ব্যায়াম করুন।<br><br>';
+            } else {
+                message += 'স্বাভাবিক ওজন: আপনার বিএমআই স্বাভাবিক স্তরে আছে।<br><br>';
+            }
+        }
+
+        // Blood Pressure analysis
+        if (bloodPressure.length === 2) {
+            const systolic = parseInt(bloodPressure[0]);
+            const diastolic = parseInt(bloodPressure[1]);
+
+            if (systolic < 90 || diastolic < 60) {
+                message += '<strong>রক্তচাপ:</strong> নিম্ন রক্তচাপ, যা মাথা ঘোরা এবং দুর্বলতা সৃষ্টি করতে পারে।<br>';
+                message += 'করণীয়: রক্তচাপ নিয়মিত পরীক্ষা করুন এবং প্রয়োজন হলে ডাক্তারের পরামর্শ নিন।<br><br>';
+            } else if (systolic >= 140 || diastolic >= 90) {
+                message += '<strong>রক্তচাপ:</strong> উচ্চ রক্তচাপ, যা হৃদরোগ এবং কিডনি সমস্যার ঝুঁকি বাড়াতে পারে।<br>';
+                message += 'করণীয়: ডাক্তারের পরামর্শ নিন এবং নিয়মিত রক্তচাপ পরীক্ষা করুন।<br><br>';
+            } else {
+                message += '<strong>রক্তচাপ:</strong> স্বাভাবিক রক্তচাপ।<br><br>';
+            }
+        }
+
+        // Heart Rate analysis
+        if (!isNaN(heartRate)) {
+            if (heartRate < 60) {
+                message += '<strong>হার্ট রেট:</strong> ধীর হার্ট রেট, যা ওষুধের পার্শ্বপ্রতিক্রিয়া হতে পারে।<br>';
+                message += 'করণীয়: হার্ট রেট নিয়মিত পরীক্ষা করুন এবং ডাক্তারের পরামর্শ নিন।<br><br>';
+            } else if (heartRate > 100) {
+                message += '<strong>হার্ট রেট:</strong> দ্রুত হার্ট রেট, যা মানসিক চাপ বা ইনসুলিনের অতিরিক্ততা হতে পারে।<br>';
+                message += 'করণীয়: হার্ট রেট নিয়মিত পরীক্ষা করুন এবং মানসিক চাপ কমানোর চেষ্টা করুন।<br><br>';
+            } else {
+                message += '<strong>হার্ট রেট:</strong> স্বাভাবিক হার্ট রেট।<br><br>';
+            }
+        }
+
+        // Sleep Duration analysis
+        if (!isNaN(sleepDuration)) {
+            if (sleepDuration < 7) {
+                message += '<strong>ঘুমের সময়কাল:</strong> অপ্রতুল ঘুম, যা রক্তের গ্লুকোজ নিয়ন্ত্রণে ব্যাঘাত ঘটায় এবং মানসিক চাপ বাড়ায়।<br>';
+                message += 'করণীয়: নিয়মিত ৭-৯ ঘণ্টা ঘুমানোর সময় ঠিক করুন এবং মানসিক চাপ কমানোর চেষ্টা করুন।<br><br>';
+            } else if (sleepDuration > 9) {
+                message += '<strong>ঘুমের সময়কাল:</strong> অতিরিক্ত ঘুম, যা দৈনন্দিন কার্যকলাপে প্রভাব ফেলতে পারে।<br>';
+                message += 'করণীয়: ৭-৯ ঘণ্টা ঘুমের জন্য সময় দিন।<br><br>';
+            } else {
+                message += '<strong>ঘুমের সময়কাল:</strong> সঠিক পরিমাণ ঘুম।<br><br>';
+            }
+        }
+
+
+        // Water Intake analysis
+        let recommendedWaterIntake = gender === 'male' ? 3.7 : 2.7; // Liters per day based on gender
+        if (!isNaN(waterIntake)) {
+            if (waterIntake < recommendedWaterIntake) {
+                message += '<strong>পানীয় জল গ্রহণ:</strong> পর্যাপ্ত জল পান করা হয়নি, যা রক্তের গ্লুকোজ ঘনত্ব বাড়াতে পারে এবং ডিহাইড্রেশনের সমস্যা সৃষ্টি করতে পারে।<br>';
+                message += 'করণীয়: প্রতিদিন পর্যাপ্ত পানি পান করুন এবং শরীরের হাইড্রেশন বজায় রাখুন।<br><br>';
+            } else {
+                message += '<strong>পানীয় জল গ্রহণ:</strong> পর্যাপ্ত জল পান করা হয়েছে।<br><br>';
+            }
+        }
+
+        // Show the output
+        outputDiv.innerHTML = message;
+        outputDiv.style.display = 'block';
+
+
+    }
+</script>
+
+</body>
+</html>
