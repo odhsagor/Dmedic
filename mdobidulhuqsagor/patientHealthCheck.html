@@ -202,23 +202,24 @@
         <label for="sleep-duration">ঘুমের সময়কাল (ঘণ্টায়):</label>
         <input type="number" id="sleep-duration" placeholder="Enter sleep duration in hours...">
 
-        <label for="water-intake">পানীয় জল গ্রহণ (লিটার):</label>
+        <label for="water-intake">পানীয় গ্রহণ (লিটার):</label>
         <input type="number" id="water-intake" placeholder="Enter your daily water intake...">
 
         <label for="gender">লিঙ্গ:</label>
         <select id="gender">
+            <option value="select"> নির্বাচন করুন</option>
             <option value="male">পুরুষ</option>
             <option value="female">নারী</option>
         </select>
 
-        <button onclick="analyzeData()">Submit</button>
+        <button onclick="analyzeData()">দেখুন আপনি কেমন আছেন ?</button>
 
         <div id="output" class="result" style="display: none;"></div>
     </div>
 </main>
 
 <footer>
-    <p>Diabetic Health Monitoring System &copy; 2024</p>
+    <p>ডি-মেডিক &copy; Md. Obidul Huq Sagor &copy; 2024</p>
 </footer>
 
 <script>
@@ -370,10 +371,10 @@
         let recommendedWaterIntake = gender === 'male' ? 3.7 : 2.7; // Liters per day based on gender
         if (!isNaN(waterIntake)) {
             if (waterIntake < recommendedWaterIntake) {
-                message += '<strong>পানীয় জল গ্রহণ:</strong> পর্যাপ্ত জল পান করা হয়নি, যা রক্তের গ্লুকোজ ঘনত্ব বাড়াতে পারে এবং ডিহাইড্রেশনের সমস্যা সৃষ্টি করতে পারে।<br>';
+                message += '<strong>পানীয় জল গ্রহণ:</strong> পর্যাপ্ত পানি পান করা হয়নি, যা রক্তের গ্লুকোজ ঘনত্ব বাড়াতে পারে এবং ডিহাইড্রেশনের সমস্যা সৃষ্টি করতে পারে।<br>';
                 message += 'করণীয়: প্রতিদিন পর্যাপ্ত পানি পান করুন এবং শরীরের হাইড্রেশন বজায় রাখুন।<br><br>';
             } else {
-                message += '<strong>পানীয় জল গ্রহণ:</strong> পর্যাপ্ত জল পান করা হয়েছে।<br><br>';
+                message += '<strong>পানীয় জল গ্রহণ:</strong> পর্যাপ্ত পানি পান করা হয়েছে।<br><br>';
             }
         }
 
